@@ -1,0 +1,6 @@
+2026-10-17T15:52:29+00:00 WARNING Email "new_order" for order #36 failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"new_order","status":"failed","recipient":"admin","order":36}
+2026-10-17T15:52:31+00:00 WARNING Email "customer_processing_order" for order #36 failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"customer_processing_order","status":"failed","recipient":"guest","order":36}
+2026-10-17T16:22:09+00:00 WARNING Email "new_order" for order #40 failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"new_order","status":"failed","recipient":"admin","order":40}
+2026-10-17T16:22:11+00:00 WARNING Email "customer_processing_order" for order #40 failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"customer_processing_order","status":"failed","recipient":"guest","order":40}
+2026-10-17T16:34:02+00:00 WARNING Email "new_order" for order #42 failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"new_order","status":"failed","recipient":"admin","order":42}
+2026-10-17T16:34:04+00:00 WARNING Email "customer_processing_order" for order #42 failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"customer_processing_order","status":"failed","recipient":"guest","order":42}
