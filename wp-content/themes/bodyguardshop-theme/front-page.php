@@ -747,189 +747,50 @@ $shop_url = esc_url( home_url('/shop/') );
 
 
 <!-- ==========================================================================
-
-     5. CUSTOMER REVIEWS (REELS VIDEO SHOWCASE)
-
+     5. CUSTOMER REVIEWS (REELS VIDEO SHOWCASE - 2 VIDEOS)
      ========================================================================== -->
-
 <section class="bgs-reels-section" id="reviews">
-
   <div class="container">
-
     <div class="bgs-section-header">
-
       <h2 class="bgs-section-title">Customer review</h2>
-
       <div class="bgs-gold-divider"></div>
-
     </div>
 
-
-
-    <?php
-
-    $review_1 = get_option('bgs_review_video_1', 'https://www.youtube.com/embed/RyqHKNnoW-Y');
-
-    $review_2 = get_option('bgs_review_video_2', 'https://www.youtube.com/embed/T7x7RT7ynxQ');
-
-    $review_3 = get_option('bgs_review_video_3', 'https://www.youtube.com/watch?v=Id4CSc8QS1Y');
-
-
-
-    if ( ! function_exists('bgs_clean_yt_embed') ) {
-
-        function bgs_clean_yt_embed($url, $default_id) {
-
-            if ( empty($url) ) return 'https://www.youtube.com/embed/' . $default_id . '?rel=0&modestbranding=1&playsinline=1';
-
-            if ( strpos($url, '/shorts/') !== false ) {
-
-                $parts = explode('/shorts/', $url);
-
-                $id = explode('?', $parts[1])[0];
-
-                return 'https://www.youtube.com/embed/' . trim($id, '/') . '?rel=0&modestbranding=1&playsinline=1';
-
-            }
-
-            if ( strpos($url, 'youtu.be/') !== false ) {
-
-                $id = trim(substr($url, strrpos($url, '/') + 1));
-
-                return 'https://www.youtube.com/embed/' . $id . '?rel=0&modestbranding=1&playsinline=1';
-
-            }
-
-            if ( strpos($url, 'watch?v=') !== false ) {
-
-                parse_str(parse_url($url, PHP_URL_QUERY), $qp);
-
-                if ( !empty($qp['v']) ) return 'https://www.youtube.com/embed/' . $qp['v'] . '?rel=0&modestbranding=1&playsinline=1';
-
-            }
-
-            if ( strpos($url, 'embed/') !== false ) {
-
-                return $url . (strpos($url, '?') === false ? '?rel=0&modestbranding=1&playsinline=1' : '');
-
-            }
-
-            return 'https://www.youtube.com/embed/' . trim($url) . '?rel=0&modestbranding=1&playsinline=1';
-
-        }
-
-    }
-
-
-
-    $embed_1 = bgs_clean_yt_embed($review_1, 'RyqHKNnoW-Y');
-
-    $embed_2 = bgs_clean_yt_embed($review_2, 'T7x7RT7ynxQ');
-
-    $embed_3 = bgs_clean_yt_embed($review_3, 'Id4CSc8QS1Y');
-
-    ?>
-
-
-
-    <div class="bgs-reels-grid">
-
-      <!-- Reel 1 -->
-
+    <div class="bgs-reels-grid bgs-two-reels-grid">
+      <!-- 1st Review -->
       <div class="bgs-reel-card">
-
         <div class="bgs-reel-frame">
-
           <iframe 
-
-            src="<?php echo esc_url($embed_1); ?>" 
-
+            src="https://www.youtube.com/embed/RyqHKNnoW-Y?rel=0&amp;modestbranding=1&amp;playsinline=1" 
             title="Customer Review 1 — Bodyguard Shop" 
-
             frameborder="0" 
-
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-
             allowfullscreen 
-
             loading="lazy">
-
           </iframe>
-
         </div>
-
       </div>
 
-
-
-      <!-- Reel 2 -->
-
+      <!-- 2nd Review -->
       <div class="bgs-reel-card">
-
         <div class="bgs-reel-frame">
-
           <iframe 
-
-            src="<?php echo esc_url($embed_2); ?>" 
-
+            src="https://www.youtube.com/embed/T7x7RT7ynxQ?rel=0&amp;modestbranding=1&amp;playsinline=1" 
             title="Customer Review 2 — Bodyguard Shop" 
-
             frameborder="0" 
-
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-
             allowfullscreen 
-
             loading="lazy">
-
           </iframe>
-
         </div>
-
       </div>
-
-
-
-      <!-- Reel 3 -->
-
-      <div class="bgs-reel-card">
-
-        <div class="bgs-reel-frame">
-
-          <iframe 
-
-            src="<?php echo esc_url($embed_3); ?>" 
-
-            title="Customer Review 3 — Bodyguard Shop" 
-
-            frameborder="0" 
-
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-
-            allowfullscreen 
-
-            loading="lazy">
-
-          </iframe>
-
-        </div>
-
-      </div>
-
     </div>
-
-
 
   </div>
-
 </section>
 
 
-
-
-
 <!-- ==========================================================================
-
      6. FEATURES & TRUST BAR
 
      ========================================================================== -->
@@ -2173,74 +2034,47 @@ h3.bgs-why-title {
 
 
 
-/* 5. Reels Section */
-
+/* 5. Reels Section (2 Videos Perfectly Centered) */
 .bgs-reels-section {
-
   padding: 75px 20px;
-
   background: var(--bgs-dark);
-
 }
-
+.bgs-two-reels-grid,
 .bgs-reels-grid {
-
   display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
-  gap: 25px;
-
-  max-width: 960px;
-
-  margin: 0 auto;
-
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 28px !important;
+  max-width: 680px !important;
+  margin: 0 auto !important;
 }
-
 .bgs-reel-card {
-
-  background: var(--bgs-card-bg);
-
-  border: 1px solid var(--bgs-border);
-
+  background: #14141C;
+  border: 1px solid rgba(201, 169, 110, 0.25);
   border-radius: 16px;
-
   overflow: hidden;
-
-  text-align: center;
-
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-
+.bgs-reel-card:hover {
+  transform: translateY(-4px);
+  border-color: #C9A96E;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.8), 0 0 20px rgba(201, 169, 110, 0.2);
+}
 .bgs-reel-frame {
-
   width: 100%;
-
   aspect-ratio: 9 / 16;
-
-  background: #111;
-
+  background: #000;
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   position: relative;
-
   overflow: hidden;
-
 }
-
 .bgs-reel-frame iframe {
-
   width: 100%;
-
   height: 100%;
-
   border: none;
-
   display: block;
-
 }
 
 
