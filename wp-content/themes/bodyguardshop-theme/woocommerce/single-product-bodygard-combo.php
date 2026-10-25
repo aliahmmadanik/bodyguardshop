@@ -329,75 +329,6 @@ $upload_base = get_template_directory_uri() . '/assets/images/combo/';
     </div>
   </section>
 
-
-  <!-- ==========================================================================
-       4. EMOTIONAL PERSUASION & THREAT AWARENESS (FROM GOOGLE DOC)
-       ========================================================================== -->
-  <section class="bgs-awareness-section">
-    <div class="container bgs-narrow-container">
-
-      <!-- Emotional Lead Text (Exact copy from Google Doc) -->
-      <div class="bgs-awareness-intro-box">
-        <h3 class="bgs-intro-lead">
-          আজ ২,৯৯০ টাকা খরচ করতে হয়তো একটু বেশি মনে হতে পারে।
-        </h3>
-        <p class="bgs-intro-sub">
-          কিন্তু ভাবুন তো—
-        </p>
-      </div>
-
-      <!-- 5 Threat Situations Grid (From Google Doc) -->
-      <div class="bgs-threat-grid">
-        <div class="bgs-threat-card">
-          <div class="bgs-tc-icon">🚨</div>
-          <div class="bgs-tc-text">হঠাৎ ছিনতাই।</div>
-        </div>
-
-        <div class="bgs-threat-card">
-          <div class="bgs-tc-icon">⚔️</div>
-          <div class="bgs-tc-text">রাস্তায় হামলা।</div>
-        </div>
-
-        <div class="bgs-threat-card">
-          <div class="bgs-tc-icon">🚗</div>
-          <div class="bgs-tc-text">জোর করে গাড়িতে তুলে নেওয়ার চেষ্টা।</div>
-        </div>
-
-        <div class="bgs-threat-card">
-          <div class="bgs-tc-icon">🏠</div>
-          <div class="bgs-tc-text">বাড়িতে ডাকাতের আক্রমণ।</div>
-        </div>
-
-        <div class="bgs-threat-card bgs-threat-card-highlight">
-          <div class="bgs-tc-icon">💔</div>
-          <div class="bgs-tc-text">অথবা আপনার প্রিয় মানুষটি বিপদে পড়েছে—আর আপনি কিছুই করতে পারছেন না।</div>
-        </div>
-      </div>
-
-      <!-- Concluding Persuasion (Exact copy from Google Doc) -->
-      <div class="bgs-awareness-conclusion-card">
-        <p class="bgs-concl-p1">
-          বিপদ কখন, কোথা থেকে আসবে—কেউ জানে না।
-        </p>
-        <p class="bgs-concl-p2">
-          তাই বিপদ আসার পর নয়, বিপদ আসার আগেই প্রস্তুত থাকুন।
-        </p>
-        <div class="bgs-gold-accent-line"></div>
-        <h4 class="bgs-concl-highlight">
-          মাত্র ২,৯৯০ টাকায় একসাথে একাধিক প্রয়োজনীয় Self-Defense Safety Tools।
-        </h4>
-
-        <div class="bgs-cta-mid-wrap">
-          <a href="#bgs-order-form" class="bgs-order-btn bgs-glow-pulse">
-            Order now ⚡
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
   <!-- ==========================================================================
        5. DIRECT CASH ON DELIVERY CHECKOUT FORM
        ========================================================================== -->
@@ -448,30 +379,23 @@ $upload_base = get_template_directory_uri() . '/assets/images/combo/';
             </div>
           </div>
 
-          <!-- Delivery Location Radio -->
+          <!-- Delivery Location (Item 10: Free Delivery) -->
           <div class="bgs-form-row">
             <label class="bgs-form-label">
-              ডেলিভারি লোকেশন সিলেক্ট করুন:
+              ডেলিভারি চার্জ:
             </label>
             <div class="bgs-delivery-options">
-              <label class="bgs-del-option active">
-                <input type="radio" name="delivery_location" value="inside_dhaka" checked>
+              <label class="bgs-del-option active" style="grid-column: 1 / -1;">
+                <input type="radio" name="delivery_location" value="free_shipping" checked>
                 <div class="bgs-del-content">
-                  <span class="bgs-del-title">ঢাকার ভিতরে</span>
-                  <span class="bgs-del-fee">৳ ৬০</span>
-                </div>
-              </label>
-              <label class="bgs-del-option">
-                <input type="radio" name="delivery_location" value="outside_dhaka">
-                <div class="bgs-del-content">
-                  <span class="bgs-del-title">ঢাকার বাইরে</span>
-                  <span class="bgs-del-fee">৳ ১২০</span>
+                  <span class="bgs-del-title">🚚 ফ্রি হোম ডেলিভারি (সারা বাংলাদেশ)</span>
+                  <span class="bgs-del-fee" style="color: #22C55E; font-weight: 800;">৳ ০ (ফ্রি)</span>
                 </div>
               </label>
             </div>
           </div>
 
-          <!-- Live Price Summary Table -->
+          <!-- Live Price Summary Table (Item 10: Free Delivery) -->
           <div class="bgs-price-breakdown">
             <div class="bgs-pb-row">
               <span>প্রডাক্ট প্রাইস:</span>
@@ -479,12 +403,12 @@ $upload_base = get_template_directory_uri() . '/assets/images/combo/';
             </div>
             <div class="bgs-pb-row">
               <span>ডেলিভারি চার্জ:</span>
-              <span>৳ <span id="bgs-delivery-display">60</span></span>
+              <span style="color: #22C55E; font-weight: 700;">৳ <span id="bgs-delivery-display">0</span> (ফ্রি)</span>
             </div>
             <div class="bgs-pb-divider"></div>
             <div class="bgs-pb-row bgs-pb-total">
               <strong>সর্বমোট প্রদেয়:</strong>
-              <strong class="bgs-gold-total">৳ <span id="bgs-total-display"><?php echo number_format( $price + 60 ); ?></span></strong>
+              <strong class="bgs-gold-total">৳ <span id="bgs-total-display"><?php echo number_format( $price ); ?></span></strong>
             </div>
           </div>
 
@@ -570,6 +494,79 @@ $upload_base = get_template_directory_uri() . '/assets/images/combo/';
 
     </div>
   </section>
+
+
+
+
+  <!-- ==========================================================================
+       4. EMOTIONAL PERSUASION & THREAT AWARENESS (FROM GOOGLE DOC)
+       ========================================================================== -->
+  <section class="bgs-awareness-section">
+    <div class="container bgs-narrow-container">
+
+      <!-- Emotional Lead Text (Exact copy from Google Doc) -->
+      <div class="bgs-awareness-intro-box">
+        <h3 class="bgs-intro-lead">
+          আজ ২,৯৯০ টাকা খরচ করতে হয়তো একটু বেশি মনে হতে পারে।
+        </h3>
+        <p class="bgs-intro-sub">
+          কিন্তু ভাবুন তো—
+        </p>
+      </div>
+
+      <!-- 5 Threat Situations Grid (From Google Doc) -->
+      <div class="bgs-threat-grid">
+        <div class="bgs-threat-card">
+          <div class="bgs-tc-icon">🚨</div>
+          <div class="bgs-tc-text">হঠাৎ ছিনতাই।</div>
+        </div>
+
+        <div class="bgs-threat-card">
+          <div class="bgs-tc-icon">⚔️</div>
+          <div class="bgs-tc-text">রাস্তায় হামলা।</div>
+        </div>
+
+        <div class="bgs-threat-card">
+          <div class="bgs-tc-icon">🚗</div>
+          <div class="bgs-tc-text">জোর করে গাড়িতে তুলে নেওয়ার চেষ্টা।</div>
+        </div>
+
+        <div class="bgs-threat-card">
+          <div class="bgs-tc-icon">🏠</div>
+          <div class="bgs-tc-text">বাড়িতে ডাকাতের আক্রমণ।</div>
+        </div>
+
+        <div class="bgs-threat-card bgs-threat-card-highlight">
+          <div class="bgs-tc-icon">💔</div>
+          <div class="bgs-tc-text">অথবা আপনার প্রিয় মানুষটি বিপদে পড়েছে—আর আপনি কিছুই করতে পারছেন না।</div>
+        </div>
+      </div>
+
+      <!-- Concluding Persuasion (Exact copy from Google Doc) -->
+      <div class="bgs-awareness-conclusion-card">
+        <p class="bgs-concl-p1">
+          বিপদ কখন, কোথা থেকে আসবে—কেউ জানে না।
+        </p>
+        <p class="bgs-concl-p2">
+          তাই বিপদ আসার পর নয়, বিপদ আসার আগেই প্রস্তুত থাকুন।
+        </p>
+        <div class="bgs-gold-accent-line"></div>
+        <h4 class="bgs-concl-highlight">
+          মাত্র ২,৯৯০ টাকায় একসাথে একাধিক প্রয়োজনীয় Self-Defense Safety Tools।
+        </h4>
+
+        <div class="bgs-cta-mid-wrap">
+          <a href="#bgs-order-form" class="bgs-order-btn bgs-glow-pulse">
+            Order now ⚡
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
 
 
   <!-- ==========================================================================
@@ -1562,7 +1559,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- 2. Live Price & Checkout Calculation ---
   const unitPrice = <?php echo floatval( $price ); ?>;
   let currentQty = 1;
-  let deliveryFee = 60; // default inside dhaka
+  let deliveryFee = 0; // default inside dhaka
 
   const qtyInput           = document.getElementById('bgs-order-qty');
   const qtyMinus           = document.getElementById('bgs-qty-minus');
@@ -1606,7 +1603,7 @@ document.addEventListener('DOMContentLoaded', function() {
     radio.addEventListener('change', function() {
       document.querySelectorAll('.bgs-del-option').forEach(l => l.classList.remove('active'));
       this.closest('.bgs-del-option').classList.add('active');
-      deliveryFee = this.value === 'outside_dhaka' ? 120 : 60;
+      deliveryFee = 0;
       updateOrderTotals();
     });
   });

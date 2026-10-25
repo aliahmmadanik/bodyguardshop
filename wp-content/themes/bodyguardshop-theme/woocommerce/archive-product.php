@@ -1,478 +1,461 @@
 <?php
 /**
- * WooCommerce Shop Page (archive-product.php)
+ * Shop / All Products Page Template (archive-product.php & page-shop.php)
+ * Bodyguard Shop — 100% Dark Luxury Self-Defense Store
  */
+if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 ?>
 
-<main id="main-content" style="padding-top: 24px; background: #ffffff; min-height: 80vh;">
+<main class="bgs-shop-page-main" id="bgs-shop-page">
 
-<!-- Shop Hero Banner -->
-<div class="shop-hero" id="shop-hero">
-  <div class="container">
-    <h1 class="shop-hero-title">Our Products</h1>
-    <div class="shop-hero-sub">
-      <span class="sub-line" style="font-size: 1.05rem; font-weight: 600; color: var(--sob-primary, #a11ff1);">100% Authentic / সারা বাংলাদেশে ১–৩ দিনে হোম ডেলিভারি</span>
-    </div>
-  </div>
-</div>
-
-<!-- Shop Content -->
-<section class="shop-section" id="shop-section">
-  <div class="container">
-    <div class="shop-layout">
-
-      <!-- Products -->
-      <div class="shop-main" id="shop-main">
-        
+  <!-- All Products Grid Section -->
+  <section class="bgs-shop-catalog-section">
+    <div class="container">
+      <div class="bgs-shop-products-grid">
         <?php
-        // Fetch 4 Best Selling Products
-        $best_seller_slugs = [
-          'beauty-milk',
-          'pure-beauty-collagen',
-          'madagascar-centella-light',
-          'white-aura',
-        ];
-        $best_seller_ids = [];
-        global $wpdb;
-        foreach ($best_seller_slugs as $slug_part) {
-          // Use LIKE to find the product ID even if the slug has been appended with extra words on live
-          $product_id = $wpdb->get_var($wpdb->prepare("SELECT ID FROM {$wpdb->posts} WHERE post_type = 'product' AND post_status = 'publish' AND post_name LIKE %s LIMIT 1", '%' . $wpdb->esc_like($slug_part) . '%'));
-          if ($product_id) {
-            $best_seller_ids[] = $product_id;
-          }
-        }
-        ?>
-        
-        <?php if (woocommerce_product_loop()) : ?>
-          <div class="products-grid" id="shop-products-grid">
-            <?php
-            // Output Best Sellers FIRST inside the SAME grid
-            if (!is_paged() && !empty($best_seller_ids)) {
-               $bs_query = new WP_Query([
-                  'post_type' => 'product',
-                  'post__in' => $best_seller_ids,
-                  'orderby' => 'post__in',
-                  'posts_per_page' => 4
-               ]);
-               while ($bs_query->have_posts()) {
-                  $bs_query->the_post();
-                  include(get_template_directory() . '/woocommerce/content-product.php');
-               }
-               wp_reset_postdata();
+        $cat_filter = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
+        if ( empty($cat_filter) && function_exists('is_product_category') && is_product_category() ) {
+            $q_obj = get_queried_object();
+            if ( $q_obj && ! empty($q_obj->slug) ) {
+                $cat_filter = $q_obj->slug;
             }
+        }
+        $q_args = [
+            'post_type'      => 'product',
+            'post_status'    => 'publish',
+            'posts_per_page' => 24,
+            'orderby'        => 'menu_order',
+            'order'          => 'ASC',
+        ];
+        if ( ! empty($cat_filter) ) {
+            $q_args['tax_query'] = [
+                [
+                    'taxonomy' => 'product_cat',
+                    'field'    => 'slug',
+                    'terms'    => [ $cat_filter ],
+                ],
+            ];
+        }
+        $shop_query = new WP_Query($q_args);
 
-            // Then output the rest of the main loop
-            while (have_posts()) :
-              the_post();
-              // Skip best sellers in the main loop so they aren't duplicated
-              if (in_array(get_the_ID(), $best_seller_ids)) continue;
-              
-              // Directly include our custom card — bypasses WC's ul/li wrapper
-              include(get_template_directory() . '/woocommerce/content-product.php');
+        $shown_count = 0;
+        if ( $shop_query->have_posts() ) :
+            while ( $shop_query->have_posts() ) : $shop_query->the_post();
+                $p_id      = get_the_ID();
+                $product   = function_exists('wc_get_product') ? wc_get_product($p_id) : null;
+                $slug      = $product ? $product->get_slug() : get_post_field('post_name', $p_id);
+
+                // Exclude Stun Gun / Shock Gun (Item 17)
+                if ( strpos($slug, 'stun') !== false || strpos($slug, 'shut') !== false ) {
+                    continue;
+                }
+
+                $price     = $product ? (float)$product->get_price() : 0;
+                $reg_price = $product && (float)$product->get_regular_price() > 0 ? (float)$product->get_regular_price() : $price;
+                $perm      = get_permalink($p_id);
+                $thumb_url = get_the_post_thumbnail_url($p_id, 'medium_large');
+
+                // Bundled theme image fallbacks
+                if ( ! $thumb_url ) {
+                    if ( strpos($slug, 'cut-proof') !== false || strpos($slug, 't-shirt') !== false ) {
+                        $thumb_url = get_template_directory_uri() . '/assets/images/products/cut-proof-t-shirt.jpg';
+                    } elseif ( strpos($slug, 'combo') !== false ) {
+                        $thumb_url = get_template_directory_uri() . '/assets/images/products/bodygard-combo.jpg';
+                    } elseif ( strpos($slug, 'pepper') !== false || strpos($slug, 'spray') !== false ) {
+                        $thumb_url = get_template_directory_uri() . '/assets/images/products/pepper-spray.png';
+                    } elseif ( strpos($slug, 'baseball') !== false || strpos($slug, 'bat') !== false ) {
+                        $thumb_url = get_template_directory_uri() . '/assets/images/products/baseball-bat.jpg';
+                    }
+                }
+
+                $save = max(0, $reg_price - $price);
+                $pct  = $reg_price > 0 ? round(($save / $reg_price) * 100) : 0;
+
+                // Product Ratings
+                $rating_val = '4.9';
+                $reviews_ct = '184';
+                if ( strpos($slug, 'cut-proof') !== false || strpos($slug, 't-shirt') !== false ) {
+                    $rating_val = '4.8';
+                    $reviews_ct = '218';
+                } elseif ( strpos($slug, 'combo') !== false ) {
+                    $rating_val = '4.9';
+                    $reviews_ct = '345';
+                } elseif ( strpos($slug, 'pepper') !== false || strpos($slug, 'spray') !== false ) {
+                    $rating_val = '5.0';
+                    $reviews_ct = '412';
+                } elseif ( strpos($slug, 'baseball') !== false || strpos($slug, 'bat') !== false ) {
+                    $rating_val = '4.9';
+                    $reviews_ct = '165';
+                }
+
+                $shown_count++;
+        ?>
+          <div class="bgs-shop-card">
+            <?php if ($save > 0) : ?>
+              <div class="bgs-shop-discount-badge">🔥 ৳<?php echo number_format($save); ?> ছাড় (<?php echo $pct; ?>% OFF)</div>
+            <?php else : ?>
+              <div class="bgs-shop-discount-badge">⚡ হট অফার</div>
+            <?php endif; ?>
+
+            <a href="<?php echo esc_url($perm); ?>" class="bgs-shop-card-img">
+              <?php if ($thumb_url) : ?>
+                <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
+              <?php else : ?>
+                <div class="bgs-shop-no-img">🛡️ Bodygard Shop</div>
+              <?php endif; ?>
+            </a>
+
+            <div class="bgs-shop-card-body">
+              <h2 class="bgs-shop-card-title">
+                <a href="<?php echo esc_url($perm); ?>"><?php the_title(); ?></a>
+              </h2>
+
+              <div class="bgs-shop-card-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-txt"><strong><?php echo esc_html($rating_val); ?></strong> (<?php echo esc_html($reviews_ct); ?>+ রিভিউ)</span>
+              </div>
+
+              <div class="bgs-shop-card-price">
+                <span class="cur-price">৳<?php echo number_format($price, 0); ?></span>
+                <?php if ($save > 0) : ?>
+                  <del class="old-price">৳<?php echo number_format($reg_price, 0); ?></del>
+                <?php endif; ?>
+              </div>
+
+              <div class="bgs-shop-delivery-tag">
+                <span>🚚 ফ্রি হোম ডেলিভারি (ক্যাশ অন ডেলিভারি)</span>
+              </div>
+
+              <div class="bgs-shop-card-cta">
+                <a href="<?php echo esc_url($perm); ?>" class="bgs-shop-order-btn">
+                  অর্ডার করুন (Order Now) &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        <?php
             endwhile;
-            ?>
-          </div>
-          <?php woocommerce_pagination(); ?>
-        <?php else : ?>
-          <div class="no-products" id="no-products">
-            <span>🔍</span>
-            <h3>কোনো পণ্য পাওয়া যায়নি</h3>
-            <p>অন্য category বা search term চেষ্টা করুন।</p>
-            <a href="<?php echo get_permalink(wc_get_page_id('shop')); ?>" class="btn-primary">All Products →</a>
-          </div>
-        <?php endif; ?>
-      </div>
+            wp_reset_postdata();
+        endif;
 
+        // Built-in Fallback Products if DB has none yet
+        if ( $shown_count === 0 ) :
+            $fallback_prods = [
+                [
+                    'title' => 'Bodyguard Cut Proof T-Shirt & Body Armor (লেভেল ১, ২, ৩)',
+                    'slug'  => 'cut-proof-t-shirt',
+                    'price' => 8990,
+                    'reg'   => 12000,
+                    'rating'=> '4.8',
+                    'rev'   => '218',
+                    'img'   => get_template_directory_uri() . '/assets/images/products/cut-proof-t-shirt.jpg',
+                ],
+                [
+                    'title' => 'Bodyguard Combo — ৭-ইন-১ সেলফ ডিফেন্স কিট',
+                    'slug'  => 'bodygard-combo',
+                    'price' => 1590,
+                    'reg'   => 2990,
+                    'rating'=> '4.9',
+                    'rev'   => '345',
+                    'img'   => get_template_directory_uri() . '/assets/images/products/bodygard-combo.jpg',
+                ],
+                [
+                    'title' => 'Bodyguard Self-Defense Pepper Spray',
+                    'slug'  => 'pepper-spray',
+                    'price' => 1190,
+                    'reg'   => 1590,
+                    'rating'=> '5.0',
+                    'rev'   => '412',
+                    'img'   => get_template_directory_uri() . '/assets/images/products/pepper-spray.png',
+                ],
+                [
+                    'title' => 'Bodyguard Heavy-Duty Metal Baseball Bat (৩২ ইঞ্চি)',
+                    'slug'  => 'baseball-bat',
+                    'price' => 1890,
+                    'reg'   => 2890,
+                    'rating'=> '4.9',
+                    'rev'   => '165',
+                    'img'   => get_template_directory_uri() . '/assets/images/products/baseball-bat.jpg',
+                ],
+            ];
+            foreach ($fallback_prods as $fp) :
+                $save  = $fp['reg'] - $fp['price'];
+                $pct   = round(($save / $fp['reg']) * 100);
+                $p_url = home_url('/product/' . $fp['slug'] . '/');
+        ?>
+          <div class="bgs-shop-card">
+            <div class="bgs-shop-discount-badge">🔥 ৳<?php echo number_format($save); ?> ছাড় (<?php echo $pct; ?>% OFF)</div>
+
+            <a href="<?php echo esc_url($p_url); ?>" class="bgs-shop-card-img">
+              <img src="<?php echo esc_url($fp['img']); ?>" alt="<?php echo esc_attr($fp['title']); ?>" loading="lazy">
+            </a>
+
+            <div class="bgs-shop-card-body">
+              <h2 class="bgs-shop-card-title">
+                <a href="<?php echo esc_url($p_url); ?>"><?php echo esc_html($fp['title']); ?></a>
+              </h2>
+
+              <div class="bgs-shop-card-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-txt"><strong><?php echo esc_html($fp['rating']); ?></strong> (<?php echo esc_html($fp['rev']); ?>+ রিভিউ)</span>
+              </div>
+
+              <div class="bgs-shop-card-price">
+                <span class="cur-price">৳<?php echo number_format($fp['price'], 0); ?></span>
+                <del class="old-price">৳<?php echo number_format($fp['reg'], 0); ?></del>
+              </div>
+
+              <div class="bgs-shop-delivery-tag">
+                <span>🚚 ফ্রি হোম ডেলিভারি (ক্যাশ অন ডেলিভারি)</span>
+              </div>
+
+              <div class="bgs-shop-card-cta">
+                <a href="<?php echo esc_url($p_url); ?>" class="bgs-shop-order-btn">
+                  অর্ডার করুন (Order Now) &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        <?php
+            endforeach;
+        endif;
+        ?>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
 <style>
-.shop-hero {
-  background: linear-gradient(120deg, var(--sob-light, #f7f5fb) 0%, #fbeaf7 100%);
-  padding: 50px 0 36px;
-  border-bottom: 1px solid var(--sob-border, #ececf3);
+.bgs-shop-page-main {
+  background: #0A0A0E !important;
+  color: #FFFFFF !important;
+  min-height: 85vh;
+  padding-bottom: 80px;
+}
+
+.bgs-shop-hero {
+  background: radial-gradient(ellipse at top, rgba(201, 169, 110, 0.14) 0%, #0A0A0E 70%);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+  padding: 55px 20px 45px;
   text-align: center;
 }
 
-.shop-hero-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--sob-dark, #1c1c26);
+.bgs-shop-hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.bgs-shop-eyebrow {
+  display: inline-block;
+  background: rgba(201, 169, 110, 0.12);
+  border: 1px solid rgba(201, 169, 110, 0.45);
+  color: #C9A96E;
+  font-size: 0.78rem;
   font-weight: 800;
-  margin-bottom: 8px;
+  letter-spacing: 1.2px;
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 14px;
 }
 
-.shop-hero-sub { color: var(--sob-gray, #6b6b76); }
-
-.shop-section { padding: 50px 0 80px; background: #ffffff; }
-
-.shop-layout {
-  display: block;
+.bgs-shop-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF !important;
+  margin: 0 0 10px;
+  line-height: 1.3;
 }
 
-.shop-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-  padding: 14px 18px;
-  background: var(--sob-light, #f7f5fb);
-  border: 1px solid var(--sob-border, #ececf3);
-  border-radius: var(--sob-radius, 12px);
+.bgs-shop-subtitle {
+  font-size: clamp(0.92rem, 2vw, 1.08rem);
+  color: #D1D5DB;
+  margin: 0 auto 18px;
+  max-width: 660px;
 }
 
-.woocommerce-result-count {
-  color: var(--sob-gray, #6b6b76);
-  font-size: 0.9rem;
-  margin: 0;
+.bgs-shop-divider {
+  width: 65px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+  margin: 0 auto;
 }
 
-.woocommerce-ordering select {
-  background: #ffffff;
-  border: 1.5px solid var(--sob-border, #ececf3);
-  color: var(--sob-dark, #1c1c26);
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  outline: none;
-  cursor: pointer;
-  transition: var(--transition);
+.bgs-shop-catalog-section {
+  padding: 50px 20px 20px;
 }
 
-.woocommerce-ordering select:focus {
-  border-color: var(--sob-primary, #a11ff1);
-}
-
-.products-grid {
+.bgs-shop-products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
-  .products-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-}
-
-@media (max-width: 768px) {
-  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .shop-toolbar { flex-direction: column; gap: 10px; align-items: stretch; text-align: center; }
-}
-
-.no-products {
-  text-align: center;
-  padding: 80px 20px;
-  color: var(--sob-gray, #6b6b76);
-}
-
-.no-products span { font-size: 4rem; display: block; margin-bottom: 20px; }
-.no-products h3 { margin-bottom: 12px; color: var(--sob-dark, #1c1c26); font-weight: 700; }
-.no-products p { margin-bottom: 24px; }
-
-/* WooCommerce Pagination */
-.woocommerce-pagination {
-  margin-top: 48px;
-  display: flex;
-  justify-content: center;
-}
-
-.woocommerce-pagination ul.page-numbers {
-  display: flex;
-  gap: 8px;
-  list-style: none;
-  padding: 0;
-}
-
-.woocommerce-pagination ul.page-numbers li a,
-.woocommerce-pagination ul.page-numbers li span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid var(--sob-border, #ececf3);
-  color: var(--sob-dark, #1c1c26);
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.woocommerce-pagination ul.page-numbers li span.current,
-.woocommerce-pagination ul.page-numbers li a:hover {
-  background: var(--sob-primary, #a11ff1);
-  color: #ffffff;
-  border-color: var(--sob-primary, #a11ff1);
-}
-
-.no-products span { font-size: 4rem; display: block; margin-bottom: 20px; }
-.no-products h3 { margin-bottom: 12px; color: var(--text-primary); }
-.no-products p { margin-bottom: 24px; }
-
-/* WooCommerce Pagination */
-.woocommerce-pagination {
-  margin-top: 48px;
-  display: flex;
-  justify-content: center;
-}
-
-.woocommerce-pagination ul {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.woocommerce-pagination ul li a,
-.woocommerce-pagination ul li span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 8px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-
-.woocommerce-pagination ul li a:hover,
-.woocommerce-pagination ul li span.current {
-  background: var(--gold);
-  color: var(--dark-bg);
-  border-color: var(--gold);
-}
-
-/* Products Grid */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-/* Product Card */
-.product-card {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: var(--radius-lg);
+.bgs-shop-card {
+  background: #14141C;
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  border-radius: 16px;
   overflow: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
-.product-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(201,169,110,0.35);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,169,110,0.08);
+.bgs-shop-card:hover {
+  transform: translateY(-5px);
+  border-color: #C9A96E;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(201, 169, 110, 0.12);
 }
 
-/* Card Image */
-.card-img {
-  position: relative;
-  display: block;
-  overflow: hidden;
+.bgs-shop-discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: linear-gradient(135deg, #FF3838, #D32F2F);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(255, 56, 56, 0.45);
+}
+
+.bgs-shop-card-img {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  background: var(--dark-surface);
-  flex-shrink: 0;
-  padding-top: 16px;
+  aspect-ratio: 16 / 10;
+  background: #0D0D12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.card-thumb {
+.bgs-shop-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
-  display: block;
+  transition: transform 0.35s ease;
 }
 
-.product-card:hover .card-thumb { transform: scale(1.05); }
-
-.card-no-img {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  background: linear-gradient(135deg, #111, #0d0d0d);
+.bgs-shop-card:hover .bgs-shop-card-img img {
+  transform: scale(1.05);
 }
 
-.card-img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.card-badge-sale {
-  position: absolute; top: 10px; left: 10px; z-index: 2;
-  background: #e74c3c; color: #fff;
-  font-size: 0.72rem; font-weight: 700;
-  padding: 3px 10px; border-radius: 50px;
-}
-
-.card-badge-oos {
-  position: absolute; top: 10px; right: 10px; z-index: 2;
-  background: rgba(0,0,0,0.7); color: var(--text-muted);
-  font-size: 0.72rem; font-weight: 600;
-  padding: 3px 10px; border-radius: 50px;
-}
-
-/* Card Body */
-.card-body {
-  padding: 16px;
+.bgs-shop-card-body {
+  padding: 22px;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex-grow: 1;
 }
 
-.card-stars {
-  display: flex;
-  align-items: center;
-  gap: 1px;
-  margin-bottom: 8px;
-}
-
-.star { font-size: 0.82rem; color: var(--dark-border); }
-.star.filled { color: var(--gold); }
-.card-rating-count { font-size: 0.72rem; color: var(--text-muted); margin-left: 4px; }
-
-.card-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-primary);
+.bgs-shop-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
   line-height: 1.4;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
-.card-title a { color: inherit; }
-.card-title a:hover { color: var(--gold); }
+.bgs-shop-card-title a {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
 
-.card-price {
+.bgs-shop-card-title a:hover {
+  color: #C9A96E !important;
+}
+
+.bgs-shop-card-rating {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 14px;
 }
 
-.card-old-price {
-  color: var(--text-muted);
-  font-size: 0.85rem;
+.bgs-shop-card-rating .stars {
+  color: #FFB800;
+  font-size: 0.95rem;
 }
 
-.card-new-price {
-  color: var(--gold);
-  font-size: 1.15rem;
-  font-weight: 700;
-  font-family: var(--font-heading);
+.bgs-shop-card-rating .rating-txt {
+  color: #9CA3AF;
+  font-size: 0.82rem;
 }
 
-.card-btn {
+.bgs-shop-card-price {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 100%;
-  padding: 10px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--dark-bg);
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.bgs-shop-card-price .cur-price {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #C9A96E;
+}
+
+.bgs-shop-card-price .old-price {
+  font-size: 1rem;
+  color: #6B7280;
+}
+
+.bgs-shop-delivery-tag {
+  font-size: 0.82rem;
   font-weight: 700;
-  font-size: 0.88rem;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: opacity 0.2s, box-shadow 0.3s;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bgs-shop-card-cta {
   margin-top: auto;
-  font-family: var(--font-body);
 }
 
-.card-btn:hover {
-  opacity: 0.9;
-  box-shadow: 0 6px 20px rgba(201,169,110,0.35);
-  color: var(--dark-bg);
+.bgs-shop-order-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #E5C88D 0%, #C9A96E 50%, #A68242 100%);
+  color: #08080C !important;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 13px 20px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(201, 169, 110, 0.28);
 }
 
-/* WooCommerce resets */
-.woocommerce ul.products { margin: 0; padding: 0; list-style: none; }
-
-@media (max-width: 900px) {
-  .shop-layout { grid-template-columns: 1fr; }
-  .shop-sidebar { position: static; }
+.bgs-shop-order-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(201, 169, 110, 0.45);
+  color: #050508 !important;
 }
 
-/* ===== MOBILE PRODUCT CARDS ===== */
-@media (max-width: 640px) {
-
-  /* 2 column product grid */
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
+@media (max-width: 650px) {
+  .bgs-shop-hero {
+    padding: 36px 14px 30px;
   }
-
-  /* Card overall */
-  .product-card {
-    border-radius: 14px;
+  .bgs-shop-catalog-section {
+    padding: 30px 12px 20px;
   }
-
-  /* Square image on mobile — looks better in 2 col */
-  .card-img {
-    aspect-ratio: 1 / 1;
-    padding-top: 0;
+  .bgs-shop-products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-
-  /* Card body tighter padding */
-  .card-body {
-    padding: 10px 10px 12px;
-  }
-
-  /* Stars smaller */
-  .card-stars { margin-bottom: 5px; }
-  .star { font-size: 0.72rem; }
-
-  /* Title 2 lines max */
-  .card-title {
-    font-size: 0.82rem;
-    line-height: 1.35;
-    margin-bottom: 7px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Price */
-  .card-price { gap: 5px; margin-bottom: 10px; }
-  .card-old-price { font-size: 0.75rem; }
-  .card-new-price { font-size: 1rem; }
-
-  /* Button full width, bigger tap */
-  .card-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 10px 8px;
-    font-size: 0.82rem;
-    border-radius: 10px;
-  }
-
-  /* Sale badge smaller */
-  .card-badge-sale { font-size: 0.65rem; padding: 2px 8px; top: 7px; left: 7px; }
 }
-
-@media (max-width: 380px) {
-  .products-grid { gap: 8px !important; }
-  .card-body { padding: 8px; }
-  .card-title { font-size: 0.76rem; }
-  .card-new-price { font-size: 0.9rem; }
-  .card-btn { padding: 9px 6px; font-size: 0.75rem; }
-}
-
 </style>
 
 <?php get_footer(); ?>

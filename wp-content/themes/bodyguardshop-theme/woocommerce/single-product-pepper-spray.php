@@ -25,57 +25,9 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
   <div class="bgs-ps-container">
 
     <!-- ==========================================================================
-         1. BANGLADESH CRIME STATISTICS & MAIN SALES VIDEO
+         1. MAIN SALES VIDEO AT TOP (ITEM 19)
          ========================================================================== -->
-    <section class="bgs-ps-section bgs-ps-stats-sec">
-      <h2 class="bgs-ps-heading bgs-ps-red-glow">বাংলাদেশে প্রতিদিন</h2>
-
-      <div class="bgs-ps-icon-list-card">
-        <ul class="bgs-ps-icon-list">
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">৭০–১০০ টি ছিনতাই</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">৮–১৫টি ডাকাতি</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">২৫০–৩০০টি চুরি</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">১-৩ টি ধর্ষণ</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">৫ –৭ টি নারী অপহরণ</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">১২০০–১৫০০ বার নারী হয়রানি</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="bgs-ps-warning-box">
-        <p>এগুলো শুধু রিপোর্ট হওয়া অপরাধ বাস্তব সংখ্যা ২–৩ গুণ বেশি। সতর্ক না থাকলে, যেকোনো সময় আপনিই হতে পারেন পরবর্তী শিকার।</p>
-      </div>
-
-      <!-- Main Video Frame -->
+    <section class="bgs-ps-section bgs-ps-top-video-sec">
       <div class="bgs-ps-video-card">
         <div class="bgs-ps-video-wrapper">
           <iframe 
@@ -90,250 +42,76 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
 
 
     <!-- ==========================================================================
-         2. HOW IT SAVES YOU ("এটি কীভাবে আপনাকে বাঁচাবে?")
+         2. COMPACT CRIME ALERT (ITEM 20: বাংলাদেশে প্রতিদিন to রিপোর্ট হওয়া ঘটনা MAKE IT SMALL)
          ========================================================================== -->
-    <section class="bgs-ps-section">
-      <h2 class="bgs-ps-heading">এটি কীভাবে আপনাকে বাঁচাবে?</h2>
-
-      <div class="bgs-ps-benefits-card">
-        <ul class="bgs-ps-icon-list bgs-ps-double-check-list">
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-double">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">চোখে তীব্র জ্বালা ১৫ মিনিট পর্যন্ত।</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-double">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">সাময়িক অন্ধত্ব ৭–১০ মিনিট।</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-double">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">শ্বাস নিতে কষ্ট, কাশি, শক্তি হারানো ১৫ মিনিট।</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-double">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">আক্রমণ করার সামর্থ্য সম্পূর্ণ নষ্ট।</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-double">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">মাত্র ৩–৫ সেকেন্ডেই আক্রমণকারী পুরোপুরি অক্ষম।</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-double">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">আক্রমণকারীকে ১২ ফুট দূর থেকেই থামাতে পারবেন।</span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-double">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">আপনার আত্মবিশ্বাস কয়েক গুণ বেড়ে যাবে।</span>
-          </li>
-        </ul>
+    <section class="bgs-ps-section bgs-ps-compact-alert-sec">
+      <div class="bgs-ps-compact-alert-card">
+        <div class="bgs-ps-compact-badge">⚠️ সতর্ক থাকুন — বাংলাদেশে প্রতিদিন</div>
+        <div class="bgs-ps-compact-stats-pill-grid">
+          <span class="bgs-ps-stat-pill">🚨 ৭০–১০০টি ছিনতাই</span>
+          <span class="bgs-ps-stat-pill">🔪 ৮–১৫টি ডাকাতি</span>
+          <span class="bgs-ps-stat-pill">🔓 ২৫০–৩০০টি চুরি</span>
+          <span class="bgs-ps-stat-pill">⚠️ ১২০০+ নারী হয়রানি</span>
+        </div>
+        <p class="bgs-ps-compact-sub">এগুলো শুধু রিপোর্ট হওয়া ঘটনা, বাস্তব চিত্র আরও ভয়াবহ। সতর্ক থাকা ও সাথে নিরাপত্তা গ্যাজেট রাখা আপনার একমাত্র সুরক্ষা।</p>
       </div>
     </section>
 
 
     <!-- ==========================================================================
-         3. SIZES & PROTECTION CAPACITIES
+         3. YOUR PRODUCT FIRST (ITEM 21: PRODUCT DETAILS & CAPACITIES)
          ========================================================================== -->
-    <section class="bgs-ps-section">
+    <section class="bgs-ps-section" id="product-details">
       <div class="bgs-ps-capacity-card">
 
         <!-- Authentic Product Image Showcase -->
         <div class="bgs-ps-product-visual-box">
           <div class="bgs-ps-visual-img-wrap">
-            <img src="<?php echo esc_url( $thumb_url ); ?>" alt="Bodyguard Pepper Spray Canister (PS 007-60)" class="bgs-ps-showcase-img" loading="lazy">
-            <span class="bgs-ps-floating-tag">🇺🇸 MADE IN USA • PS 007-60</span>
+            <img src="<?php echo esc_url( $thumb_url ); ?>" alt="Bodyguard Pepper Spray Canister" class="bgs-ps-showcase-img" loading="lazy">
+            <span class="bgs-ps-floating-tag">🛡️ HIGH-POWER FORMULA • PS 007-60</span>
           </div>
           <div class="bgs-ps-visual-badge-row">
-            <span class="bgs-ps-vbadge">🛡️ ১০০% আসল আমেরিকান সেলফ-ডিফেন্স স্প্রে</span>
+            <span class="bgs-ps-vbadge">🛡️ ১০০% আসল ও নির্ভরযোগ্য সেলফ-ডিফেন্স স্প্রে</span>
             <span class="bgs-ps-vbadge">⚡ ১২ ফুট দূরপাল্লার লং-রেঞ্জ স্ট্রিম</span>
+            <span class="bgs-ps-vbadge">⭐ ৫.০ কাস্টমার রেটিং</span>
           </div>
         </div>
 
+        <!-- Protection Capacities -->
+        <h3 class="bgs-ps-box-title" style="margin-top:20px;margin-bottom:12px;color:#C9A96E;">আপনার প্রয়োজনীয় সাইজ বেছে নিন:</h3>
         <ul class="bgs-ps-icon-list">
           <li class="bgs-ps-icon-item">
             <span class="bgs-ps-icon-check">
               <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
             </span>
-            <span class="bgs-ps-item-text"><strong>20ml</strong> ৪-৫ জন থেকে বাঁচাবে।</span>
+            <span class="bgs-ps-item-text"><strong>20ml</strong> (পকেট সাইজ) — ৪-৫ জন আক্রমণকারী থেকে বাঁচাবে | <strong>৳ ১,১৯০</strong></span>
           </li>
           <li class="bgs-ps-icon-item">
             <span class="bgs-ps-icon-check">
               <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
             </span>
-            <span class="bgs-ps-item-text"><strong>60ml</strong> ১০-১৫ জন থেকে বাঁচাবে।</span>
+            <span class="bgs-ps-item-text"><strong>60ml</strong> (ফ্যামিলি সাইজ) — ১০-১৫ জন আক্রমণকারী থেকে বাঁচাবে | <strong>৳ ১,৪৯০</strong></span>
           </li>
           <li class="bgs-ps-icon-item">
             <span class="bgs-ps-icon-check">
               <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
             </span>
-            <span class="bgs-ps-item-text"><strong>110ml</strong> ২০-২৫ জন থেকে বাঁচাবে।</span>
+            <span class="bgs-ps-item-text"><strong>110ml</strong> (জাম্বো সাইজ) — ২০-২৫ জন আক্রমণকারী থেকে বাঁচাবে | <strong>৳ ১,৯৯০</strong></span>
           </li>
         </ul>
 
-        <div class="bgs-ps-cta-wrap">
-          <a href="#order" class="bgs-ps-btn-cta">এখনই অর্ডার করুন</a>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ==========================================================================
-         4. CUSTOMER REVIEWS (3 VIDEOS)
-         ========================================================================== -->
-    <section class="bgs-ps-section">
-      <h2 class="bgs-ps-heading">কাস্টমার রিভিউ</h2>
-
-      <div class="bgs-ps-reviews-grid">
-        <!-- Review 1: Shorts -->
-        <div class="bgs-ps-review-card">
-          <div class="bgs-ps-video-wrapper bgs-ps-shorts-ratio">
-            <iframe 
-              src="https://www.youtube.com/embed/RyqHKNnoW-Y?rel=0&modestbranding=1&playsinline=1" 
-              title="Customer Review 1" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Review 2: Shorts -->
-        <div class="bgs-ps-review-card">
-          <div class="bgs-ps-video-wrapper bgs-ps-shorts-ratio">
-            <iframe 
-              src="https://www.youtube.com/embed/T7x7RT7ynxQ?rel=0&modestbranding=1&playsinline=1" 
-              title="Customer Review 2" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Review 3: Video -->
-        <div class="bgs-ps-review-card">
-          <div class="bgs-ps-video-wrapper bgs-ps-shorts-ratio">
-            <iframe 
-              src="https://www.youtube.com/embed/Id4CSc8QS1Y?rel=0&modestbranding=1&playsinline=1" 
-              title="Customer Review 3" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </div>
-
-      <div class="bgs-ps-cta-wrap">
-        <a href="#order" class="bgs-ps-btn-cta">এখনই অর্ডার করুন</a>
-      </div>
-    </section>
-
-
-    <!-- ==========================================================================
-         5. THREAT CONSEQUENCE VIDEO
-         ========================================================================== -->
-    <section class="bgs-ps-section">
-      <h2 class="bgs-ps-heading">বডিগার্ড স্প্রে আপনার সাথে না থাকলে কী হতে পারে?</h2>
-
-      <div class="bgs-ps-video-card">
-        <div class="bgs-ps-video-wrapper bgs-ps-shorts-single">
-          <iframe 
-            src="https://www.youtube.com/embed/oATq7LSmEy8?rel=0&modestbranding=1&playsinline=1" 
-            title="বডিগার্ড স্প্রে আপনার সাথে না থাকলে কী হতে পারে?" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
+        <div class="bgs-ps-cta-wrap" style="margin-top:16px;">
+          <a href="#order" class="bgs-ps-btn-cta">অর্ডার করতে নিচের ফর্মটি পূরণ করুন &darr;</a>
         </div>
       </div>
     </section>
 
 
     <!-- ==========================================================================
-         6. COUNTDOWN TIMER & PRICE CARDS
-         ========================================================================== -->
-    <section class="bgs-ps-section bgs-ps-offer-sec">
-      <h2 class="bgs-ps-heading">ডিস্কাউন্ট অফার শেষ হতে আর বাকি</h2>
-
-      <!-- Countdown Timer -->
-      <div class="bgs-ps-countdown-wrap" id="bgsCountdownWrap">
-        <div class="bgs-ps-cd-box">
-          <span class="bgs-ps-cd-digit" id="bgsDays">01</span>
-          <span class="bgs-ps-cd-label">Days</span>
-        </div>
-        <div class="bgs-ps-cd-box">
-          <span class="bgs-ps-cd-digit" id="bgsHours">03</span>
-          <span class="bgs-ps-cd-label">Hours</span>
-        </div>
-        <div class="bgs-ps-cd-box">
-          <span class="bgs-ps-cd-digit" id="bgsMinutes">59</span>
-          <span class="bgs-ps-cd-label">Minutes</span>
-        </div>
-        <div class="bgs-ps-cd-box">
-          <span class="bgs-ps-cd-digit" id="bgsSeconds">42</span>
-          <span class="bgs-ps-cd-label">Seconds</span>
-        </div>
-      </div>
-
-      <!-- Animated Price Cards -->
-      <div class="bgs-ps-price-cards-stack">
-        <!-- 20ml -->
-        <div class="bgs-ps-price-badge-row">
-          <div class="bgs-ps-pb-label">২০ মি:লি:</div>
-          <div class="bgs-ps-pb-strike"><del>২৭৯০</del> টাকা</div>
-          <div class="bgs-ps-pb-offer">৫৭% অফারে <span class="bgs-ps-pb-highlight">১১৯০</span> টাকা</div>
-        </div>
-
-        <!-- 60ml -->
-        <div class="bgs-ps-price-badge-row">
-          <div class="bgs-ps-pb-label">৬০ মি:লি:</div>
-          <div class="bgs-ps-pb-strike"><del>৩৪৯০</del> টাকা</div>
-          <div class="bgs-ps-pb-offer">৫৭% অফারে <span class="bgs-ps-pb-highlight">১৪৯০</span> টাকা</div>
-        </div>
-
-        <!-- 110ml -->
-        <div class="bgs-ps-price-badge-row">
-          <div class="bgs-ps-pb-label">১১০ মি:লি:</div>
-          <div class="bgs-ps-pb-strike"><del>৩৯৯০</del> টাকা</div>
-          <div class="bgs-ps-pb-offer">৫০% অফারে <span class="bgs-ps-pb-highlight">১৯৯০</span> টাকা</div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ==========================================================================
-         7. QUICK CONTACT BUTTONS
-         ========================================================================== -->
-    <section class="bgs-ps-section bgs-ps-contact-sec">
-      <div class="bgs-ps-contact-grid">
-        <a href="tel:<?php echo esc_attr( $shop_phone ); ?>" class="bgs-ps-btn-call">
-          <span class="bgs-ps-btn-icon">📞</span>
-          <span>প্রয়োজনে কল করুন</span>
-        </a>
-        <a href="https://wa.me/<?php echo esc_attr( $shop_whatsapp ); ?>" target="_blank" rel="noopener" class="bgs-ps-btn-whatsapp">
-          <span class="bgs-ps-btn-icon">💬</span>
-          <span>Whatsapp মেসেজ করুন</span>
-        </a>
-      </div>
-    </section>
-
-
-    <!-- ==========================================================================
-         8. EXPRESS CHECKOUT FORM (#order)
+         4. EXPRESS CHECKOUT BOX (ITEM 21: DIRECTLY AFTER PRODUCT)
          ========================================================================== -->
     <section class="bgs-ps-section bgs-ps-order-sec" id="order">
-      <h2 class="bgs-ps-heading">অর্ডার করতে নিচের ফর্মটি পূরন করুন</h2>
+      <h2 class="bgs-ps-heading" style="color:#C9A96E;">অর্ডার করতে নিচের ফর্মটি পূরণ করুন</h2>
 
       <div class="bgs-ps-checkout-card">
         <form id="bgs-ps-checkout-form" class="bgs-ps-form" novalidate>
@@ -356,45 +134,45 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
                 <span class="bgs-ps-fsc-reg">৳ <span id="bgs-fsc-reg">2,790</span></span>
                 <span class="bgs-ps-fsc-save">সাশ্রয় ৳ <span id="bgs-fsc-save">1,600</span></span>
               </div>
-              <p class="bgs-ps-fsc-desc">🇺🇸 আসল আমেরিকান ফর্মুলা • ১২ ফুট দূর থেকেই আক্রমণকারী নিস্তেজ</p>
+              <p class="bgs-ps-fsc-desc">🛡️ শক্তিশালী দূরপাল্লার স্প্রে • ১২ ফুট দূর থেকেই আক্রমণকারী নিস্তেজ</p>
             </div>
           </div>
 
           <!-- 1. Customer Billing Details -->
           <div class="bgs-ps-group">
-
             <label for="bgs_name" class="bgs-ps-label">আপনার নাম লিখুন <span class="bgs-ps-req">*</span></label>
             <input type="text" id="bgs_name" name="billing_first_name" class="bgs-ps-input" placeholder="আপনার পুরো নাম লিখুন" required>
           </div>
 
           <div class="bgs-ps-group">
-            <label for="bgs_address" class="bgs-ps-label">ডেলিভারির ঠিকানা লিখুন <span class="bgs-ps-req">*</span></label>
-            <textarea id="bgs_address" name="billing_address_1" class="bgs-ps-input bgs-ps-textarea" rows="3" placeholder="সম্পূর্ণ ঠিকানা (বাসা/রোড/থানা/জেলা)" required></textarea>
+            <label for="bgs_phone" class="bgs-ps-label">আপনার মোবাইল নাম্বার লিখুন <span class="bgs-ps-req">*</span></label>
+            <input type="tel" id="bgs_phone" name="billing_phone" class="bgs-ps-input" placeholder="১১ ডিজিটের মোবাইল নম্বর দিন (যেমন: 017xxxxxxxx)" pattern="[0-9]{11}" required>
           </div>
 
           <div class="bgs-ps-group">
-            <label for="bgs_phone" class="bgs-ps-label">ফোন নাম্বার লিখুন <span class="bgs-ps-req">*</span></label>
-            <input type="tel" id="bgs_phone" name="billing_phone" class="bgs-ps-input" placeholder="০১XXXXXXXXX" required pattern="[0-9]{11}">
+            <label for="bgs_address" class="bgs-ps-label">আপনার সম্পূর্ণ ঠিকানা লিখুন <span class="bgs-ps-req">*</span></label>
+            <textarea id="bgs_address" name="billing_address_1" class="bgs-ps-textarea" rows="2" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা উল্লেখ করুন" required></textarea>
           </div>
 
-          <!-- 2. Shipping method (Free Delivery per bodygard.shop) -->
-          <div class="bgs-ps-shipping-box">
-            <h4 class="bgs-ps-box-title">Shipping</h4>
-            <div class="bgs-ps-ship-option">
-              <span class="bgs-ps-ship-badge">✓</span>
-              <span class="bgs-ps-ship-text">ডেলিভারি চার্জ ফ্রি</span>
-              <span class="bgs-ps-ship-price">৳ 0</span>
+          <!-- 2. Free Delivery Notification (Item 10) -->
+          <div class="bgs-ps-group bgs-ps-free-shipping-card">
+            <div class="bgs-ps-free-box">
+              <span class="bgs-ps-free-ic">🚚</span>
+              <div>
+                <strong>হোম ডেলিভারি সম্পূর্ণ ফ্রি!</strong>
+                <p>সারা বাংলাদেশে কোনো ডেলিভারি চার্জ প্রযোজ্য নয় (৳ ০)।</p>
+              </div>
             </div>
           </div>
 
-          <!-- 3. Your Products (Package Selectors) -->
-          <div class="bgs-ps-products-box">
-            <h4 class="bgs-ps-box-title">Your Products</h4>
+          <!-- 3. Package Selection (20ml / 60ml / 110ml) -->
+          <div class="bgs-ps-packages-box">
+            <h4 class="bgs-ps-box-title">প্যাকেজ নির্বাচন করুন:</h4>
 
             <!-- Package 1: 20ml -->
             <label class="bgs-ps-product-row active" data-pkg="Paper Spray 20ml" data-price="1190">
               <div class="bgs-ps-row-left">
-                <input type="radio" name="package_select" value="20ml" checked class="bgs-ps-radio">
+                <input type="radio" name="package_select" value="20ml" class="bgs-ps-radio" checked>
                 <div class="bgs-ps-item-info">
                   <span class="bgs-ps-item-title">Paper Spray 20ml</span>
                   <span class="bgs-ps-item-sub">চাবির রিং সহ, ৪-৫ জন থেকে বাঁচাবে</span>
@@ -483,7 +261,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
                 </tr>
                 <tr>
                   <th>Shipment</th>
-                  <td class="bgs-ps-text-right"><span class="bgs-ps-free-tag">ডেলিভারি চার্জ ফ্রি</span></td>
+                  <td class="bgs-ps-text-right"><span class="bgs-ps-free-tag">ডেলিভারি চার্জ ফ্রি (৳ ০)</span></td>
                 </tr>
                 <tr class="bgs-ps-total-row">
                   <th>Total</th>
@@ -514,7 +292,138 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
       </div>
     </section>
 
-  </div><!-- /.bgs-ps-container -->
+
+    <!-- ==========================================================================
+         5. HOW IT SAVES YOU ("এটি কীভাবে আপনাকে বাঁচাবে?")
+         ========================================================================== -->
+    <section class="bgs-ps-section">
+      <h2 class="bgs-ps-heading">এটি কীভাবে আপনাকে বাঁচাবে?</h2>
+
+      <div class="bgs-ps-benefits-card">
+        <ul class="bgs-ps-icon-list bgs-ps-double-check-list">
+          <li class="bgs-ps-icon-item">
+            <span class="bgs-ps-icon-double">
+              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
+            </span>
+            <span class="bgs-ps-item-text">চোখে তীব্র জ্বালা ১৫ মিনিট পর্যন্ত।</span>
+          </li>
+          <li class="bgs-ps-icon-item">
+            <span class="bgs-ps-icon-double">
+              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
+            </span>
+            <span class="bgs-ps-item-text">সাময়িক অন্ধত্ব ৭–১০ মিনিট।</span>
+          </li>
+          <li class="bgs-ps-icon-item">
+            <span class="bgs-ps-icon-double">
+              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
+            </span>
+            <span class="bgs-ps-item-text">শ্বাস নিতে কষ্ট, কাশি, সাময়িক শক্তি হারানো ১৫ মিনিট।</span>
+          </li>
+          <li class="bgs-ps-icon-item">
+            <span class="bgs-ps-icon-double">
+              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
+            </span>
+            <span class="bgs-ps-item-text">আক্রমণ করার সামর্থ্য সম্পূর্ণ নষ্ট।</span>
+          </li>
+          <li class="bgs-ps-icon-item">
+            <span class="bgs-ps-icon-double">
+              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
+            </span>
+            <span class="bgs-ps-item-text">মাত্র ৩–৫ সেকেন্ডেই আক্রমণকারী পুরোপুরি অক্ষম।</span>
+          </li>
+          <li class="bgs-ps-icon-item">
+            <span class="bgs-ps-icon-double">
+              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 174.8l-39.6-39.6c-9.4-9.4-24.6-9.4-33.9 0L192 374.7 80.6 263.2c-9.4-9.4-24.6-9.4-33.9 0L7 302.9c-9.4 9.4-9.4 24.6 0 34L175 505c9.4 9.4 24.6 9.4 33.9 0l296-296.2c9.4-9.5 9.4-24.7.1-34zm-324.3 106c6.2 6.3 16.4 6.3 22.6 0l208-208.2c6.2-6.3 6.2-16.4 0-22.6L366.1 4.7c-6.2-6.3-16.4-6.3-22.6 0L192 156.2l-55.4-55.5c-6.2-6.3-16.4-6.3-22.6 0L68.7 146c-6.2 6.3-6.2 16.4 0 22.6l112 112.2z"/></svg>
+            </span>
+            <span class="bgs-ps-item-text">আক্রমণকারীকে ১২ ফুট দূর থেকেই থামাতে পারবেন।</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         6. THREAT CONSEQUENCE VIDEO
+         ========================================================================== -->
+    <section class="bgs-ps-section">
+      <h2 class="bgs-ps-heading">বডিগার্ড স্প্রে আপনার সাথে না থাকলে কী হতে পারে?</h2>
+
+      <div class="bgs-ps-video-card">
+        <div class="bgs-ps-video-wrapper bgs-ps-shorts-single">
+          <iframe 
+            src="https://www.youtube.com/embed/oATq7LSmEy8?rel=0&modestbranding=1&playsinline=1" 
+            title="বডিগার্ড স্প্রে আপনার সাথে না থাকলে কী হতে পারে?" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         7. CUSTOMER REVIEWS (3 VIDEOS)
+         ========================================================================== -->
+    <section class="bgs-ps-section">
+      <h2 class="bgs-ps-heading">কাস্টমার রিভিউ (Customer Reviews)</h2>
+
+      <div class="bgs-ps-reviews-grid">
+        <!-- Review 1: Shorts -->
+        <div class="bgs-ps-review-card">
+          <div class="bgs-ps-video-wrapper bgs-ps-shorts-ratio">
+            <iframe 
+              src="https://www.youtube.com/embed/RyqHKNnoW-Y?rel=0&modestbranding=1&playsinline=1" 
+              title="Customer Review 1" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Review 2: Shorts -->
+        <div class="bgs-ps-review-card">
+          <div class="bgs-ps-video-wrapper bgs-ps-shorts-ratio">
+            <iframe 
+              src="https://www.youtube.com/embed/T7x7RT7ynxQ?rel=0&modestbranding=1&playsinline=1" 
+              title="Customer Review 2" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Review 3: Video -->
+        <div class="bgs-ps-review-card">
+          <div class="bgs-ps-video-wrapper bgs-ps-shorts-ratio">
+            <iframe 
+              src="https://www.youtube.com/embed/Id4CSc8QS1Y?rel=0&modestbranding=1&playsinline=1" 
+              title="Customer Review 3" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         8. QUICK CONTACT BUTTONS
+         ========================================================================== -->
+    <section class="bgs-ps-section bgs-ps-contact-sec">
+      <div class="bgs-ps-contact-grid">
+        <a href="tel:<?php echo esc_attr( $shop_phone ); ?>" class="bgs-ps-btn-call">
+          <span class="bgs-ps-btn-icon">📞</span>
+          <span>প্রয়োজনে কল করুন</span>
+        </a>
+        <a href="https://wa.me/<?php echo esc_attr( $shop_whatsapp ); ?>" target="_blank" rel="noopener" class="bgs-ps-btn-whatsapp">
+          <span class="bgs-ps-btn-icon">💬</span>
+          <span>Whatsapp মেসেজ করুন</span>
+        </a>
+      </div>
+    </section>
+
+</div><!-- /.bgs-ps-container -->
 
 
   <!-- ==========================================================================
@@ -1341,6 +1250,70 @@ body {
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid #333333;
+}
+
+/* Compact Alert Box (Item 20) */
+.bgs-ps-compact-alert-card {
+  background: #14141c;
+  border: 1px solid rgba(255, 59, 48, 0.4);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.bgs-ps-compact-badge {
+  color: #ff3b30;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.bgs-ps-compact-stats-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.bgs-ps-stat-pill {
+  background: rgba(255, 59, 48, 0.1);
+  border: 1px solid rgba(255, 59, 48, 0.25);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.bgs-ps-compact-sub {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  margin: 0;
+  line-height: 1.4;
+}
+.bgs-ps-free-shipping-card {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+}
+.bgs-ps-free-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bgs-ps-free-ic {
+  font-size: 1.6rem;
+}
+.bgs-ps-free-box strong {
+  color: #10b981;
+  font-size: 0.92rem;
+  display: block;
+}
+.bgs-ps-free-box p {
+  color: #d1d5db;
+  font-size: 0.8rem;
+  margin: 0;
 }
 </style>
 

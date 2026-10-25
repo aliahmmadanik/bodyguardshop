@@ -147,212 +147,6 @@ $video_embed_url .= ( strpos( $video_embed_url, '?' ) === false ? '?rel=0&modest
     </div>
   </section>
 
-
-  <!-- ==========================================================================
-       3. CTA BUTTON 1 (FROM GOOGLE DOC)
-       ========================================================================== -->
-  <section class="bgs-cta-block bgs-cta-block-top">
-    <div class="container text-center">
-      <a href="#bgs-order-form" class="bgs-order-btn bgs-pulse-glow">
-        <span class="bgs-btn-text">Order now</span>
-        <span class="bgs-btn-arrow">⚡</span>
-      </a>
-      <p class="bgs-cta-subtext">
-        <span class="bgs-green-dot">●</span> ক্যাশ অন ডেলিভারি সুবিধা • ডেলিভারির সময় দেখে পেমেন্ট করুন
-      </p>
-    </div>
-  </section>
-
-
-  <!-- ==========================================================================
-       4. AWARENESS / EMOTIONAL IMPACT BLOCK 1 (FROM GOOGLE DOC)
-       ========================================================================== -->
-  <section class="bgs-awareness-block-1">
-    <div class="container bgs-narrow-container">
-
-      <div class="bgs-security-cards-grid">
-        <!-- Card 1 -->
-        <div class="bgs-sec-card">
-          <div class="bgs-sec-icon-wrap">
-            <span class="bgs-sec-icon">💳</span>
-          </div>
-          <div class="bgs-sec-content">
-            <h3 class="bgs-sec-title">আপনি আপনার টাকা সুরক্ষিত রাখেন।</h3>
-            <p class="bgs-sec-desc">ব্যাংকে বা লকারে কষ্টার্জিত টাকা শতভাগ নিরাপদে রাখেন।</p>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="bgs-sec-card">
-          <div class="bgs-sec-icon-wrap">
-            <span class="bgs-sec-icon">🚗</span>
-          </div>
-          <div class="bgs-sec-content">
-            <h3 class="bgs-sec-title">গাড়ি সুরক্ষিত রাখেন।</h3>
-            <p class="bgs-sec-desc">জিপিএস ট্র্যাকার, লক ও ইনস্যুরেন্স দিয়ে গাড়ি সুরক্ষিত রাখেন।</p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bgs-sec-card">
-          <div class="bgs-sec-icon-wrap">
-            <span class="bgs-sec-icon">🏢</span>
-          </div>
-          <div class="bgs-sec-content">
-            <h3 class="bgs-sec-title">ব্যবসা সুরক্ষিত রাখেন।</h3>
-            <p class="bgs-sec-desc">সিসিটিভি ক্যামেরা, সিকিউরিটি গার্ড দিয়ে ব্যবসা সুরক্ষিত রাখেন।</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Reflection Box: কিন্তু নিজের জীবন? -->
-      <div class="bgs-life-question-card">
-        <div class="bgs-question-badge">প্রশ্ন</div>
-        <h2 class="bgs-life-headline">কিন্তু নিজের জীবন?</h2>
-        <div class="bgs-gold-accent-line"></div>
-        <p class="bgs-life-quote">
-          আপনার উপার্জন, পরিবার, ভবিষ্যৎ—সবকিছুর ভিত্তি একটাই <span class="bgs-glow-text">আপনি নিজে।</span>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ==========================================================================
-       5. CUSTOMER REVIEW / REELS SECTION (FROM GOOGLE DOC DRAWING 2)
-       ========================================================================== -->
-  <section class="bgs-reviews-section" id="customer-reviews">
-    <div class="container">
-
-      <div class="bgs-section-header">
-        <h2 class="bgs-sec-heading">Customer review</h2>
-        <div class="bgs-gold-divider"></div>
-      </div>
-
-      <!-- Vertical Reels Grid (9:16 Aspect Ratio) -->
-      <div class="bgs-reels-grid">
-
-        <!-- Reel Card 1 -->
-        <div class="bgs-vertical-reel-card">
-          <div class="bgs-reel-frame">
-            <iframe 
-              src="https://www.youtube.com/embed/RyqHKNnoW-Y?rel=0&modestbranding=1&playsinline=1" 
-              title="Customer Review 1 — Bodyguard Shop" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen 
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Reel Card 2 -->
-        <div class="bgs-vertical-reel-card">
-          <div class="bgs-reel-frame">
-            <iframe 
-              src="https://www.youtube.com/embed/T7x7RT7ynxQ?rel=0&modestbranding=1&playsinline=1" 
-              title="Customer Review 2 — Bodyguard Shop" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen 
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ==========================================================================
-       6. AWARENESS / VALUE COMPARISON BLOCK 2 (FROM GOOGLE DOC)
-       ========================================================================== -->
-  <section class="bgs-comparison-section">
-    <div class="container bgs-narrow-container">
-
-      <h2 class="bgs-comp-title">
-        আপনি 9 হাজার টাকার কী কী সুরক্ষিত রাখেন?
-      </h2>
-
-      <!-- Items Grid -->
-      <div class="bgs-comp-items-grid">
-        <div class="bgs-comp-item">
-          <span class="bgs-ci-icon">🚗</span>
-          <span class="bgs-ci-text">গাড়ি।</span>
-          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
-        </div>
-
-        <div class="bgs-comp-item">
-          <span class="bgs-ci-icon">📱</span>
-          <span class="bgs-ci-text">মোবাইল।</span>
-          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
-        </div>
-
-        <div class="bgs-comp-item">
-          <span class="bgs-ci-icon">💻</span>
-          <span class="bgs-ci-text">ল্যাপটপ।</span>
-          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
-        </div>
-
-        <div class="bgs-comp-item">
-          <span class="bgs-ci-icon">💼</span>
-          <span class="bgs-ci-text">ব্যবসার টাকা।</span>
-          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
-        </div>
-
-        <div class="bgs-comp-item">
-          <span class="bgs-ci-icon">💎</span>
-          <span class="bgs-ci-text">মূল্যবান সম্পদ।</span>
-          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
-        </div>
-      </div>
-
-      <!-- Impact Punchline Box -->
-      <div class="bgs-comp-punchline-box">
-        <h3 class="bgs-punchline-heading">
-          কিন্তু যে জীবন দিয়ে এগুলো অর্জন করেন?
-        </h3>
-        <p class="bgs-punchline-strong">
-          সেটার নিরাপত্তার মূল্য কত?
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ==========================================================================
-       7. PREPAREDNESS & DECISION QUOTE CARD (FROM GOOGLE DOC)
-       ========================================================================== -->
-  <section class="bgs-quote-section">
-    <div class="container bgs-narrow-container">
-
-      <div class="bgs-golden-quote-card">
-        <div class="bgs-quote-mark-top">“</div>
-
-        <div class="bgs-quote-body">
-          <p class="bgs-qb-line-1">
-            বিপদ আসবে কি না, আমরা জানি না।
-          </p>
-          <p class="bgs-qb-line-2">
-            কিন্তু প্রস্তুত থাকব কি না—সেটা আমাদের সিদ্ধান্ত।
-          </p>
-        </div>
-
-        <div class="bgs-quote-mark-bottom">”</div>
-
-        <div class="bgs-quote-footer-badge">
-          🛡️ নিজের ও পরিবারের নিরাপত্তা আগে থেকেই নিশ্চিত করুন
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
   <!-- ==========================================================================
        8. DIRECT CASH ON DELIVERY CHECKOUT FORM (ORDER NOW)
        ========================================================================== -->
@@ -618,19 +412,14 @@ $video_embed_url .= ( strpos( $video_embed_url, '?' ) === false ? '?rel=0&modest
                 </div>
               </div>
 
-              <!-- Delivery Zone Selection -->
+              <!-- Delivery Zone Selection (Item 10: Free Delivery) -->
               <div class="bgs-input-group">
-                <label>ডেলিভারি এলাকা সিলেক্ট করুন <span class="bgs-req">*</span></label>
+                <label>ডেলিভারি চার্জ</label>
                 <div class="bgs-delivery-options">
-                  <label class="bgs-zone-label active" data-cost="60">
-                    <input type="radio" name="delivery_zone" value="inside_dhaka" checked>
-                    <span class="bgs-zone-title">ঢাকার ভিতরে</span>
-                    <span class="bgs-zone-cost">৳৬০</span>
-                  </label>
-                  <label class="bgs-zone-label" data-cost="130">
-                    <input type="radio" name="delivery_zone" value="outside_dhaka">
-                    <span class="bgs-zone-title">ঢাকার বাইরে</span>
-                    <span class="bgs-zone-cost">৳১৩০</span>
+                  <label class="bgs-zone-label active" data-cost="0" style="grid-column: 1 / -1;">
+                    <input type="radio" name="delivery_zone" value="free_shipping" checked>
+                    <span class="bgs-zone-title">🚚 ফ্রি হোম ডেলিভারি (সারা বাংলাদেশ)</span>
+                    <span class="bgs-zone-cost" style="color: #22C55E; font-weight: 800;">৳ ০ (ফ্রি)</span>
                   </label>
                 </div>
               </div>
@@ -645,7 +434,7 @@ $video_embed_url .= ( strpos( $video_embed_url, '?' ) === false ? '?rel=0&modest
                 </div>
               </div>
 
-              <!-- Live Cost Calculation Table -->
+              <!-- Live Cost Calculation Table (Item 10: Free Delivery) -->
               <div class="bgs-order-calc-table">
                 <div class="bgs-calc-row">
                   <span>প্রোডাক্ট মূল্য:</span>
@@ -653,12 +442,12 @@ $video_embed_url .= ( strpos( $video_embed_url, '?' ) === false ? '?rel=0&modest
                 </div>
                 <div class="bgs-calc-row">
                   <span>ডেলিভারি চার্জ:</span>
-                  <span>৳<span id="bgs-shipping-val">60</span></span>
+                  <span style="color: #22C55E; font-weight: 700;">৳<span id="bgs-shipping-val">0</span> (ফ্রি)</span>
                 </div>
                 <div class="bgs-calc-divider"></div>
                 <div class="bgs-calc-row bgs-total-row">
                   <strong>সর্বমোট প্রদেয়:</strong>
-                  <strong>৳<span id="bgs-total-val"><?php echo esc_html( floatval($price) + 60 ); ?></span></strong>
+                  <strong>৳<span id="bgs-total-val"><?php echo esc_html( floatval($price) ); ?></span></strong>
                 </div>
               </div>
 
@@ -693,6 +482,216 @@ $video_embed_url .= ( strpos( $video_embed_url, '?' ) === false ? '?rel=0&modest
 
     </div>
   </section>
+
+
+
+
+  <!-- ==========================================================================
+       3. CTA BUTTON 1 (FROM GOOGLE DOC)
+       ========================================================================== -->
+  <section class="bgs-cta-block bgs-cta-block-top">
+    <div class="container text-center">
+      <a href="#bgs-order-form" class="bgs-order-btn bgs-pulse-glow">
+        <span class="bgs-btn-text">Order now</span>
+        <span class="bgs-btn-arrow">⚡</span>
+      </a>
+      <p class="bgs-cta-subtext">
+        <span class="bgs-green-dot">●</span> ক্যাশ অন ডেলিভারি সুবিধা • ডেলিভারির সময় দেখে পেমেন্ট করুন
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       4. AWARENESS / EMOTIONAL IMPACT BLOCK 1 (FROM GOOGLE DOC)
+       ========================================================================== -->
+  <section class="bgs-awareness-block-1">
+    <div class="container bgs-narrow-container">
+
+      <div class="bgs-security-cards-grid">
+        <!-- Card 1 -->
+        <div class="bgs-sec-card">
+          <div class="bgs-sec-icon-wrap">
+            <span class="bgs-sec-icon">💳</span>
+          </div>
+          <div class="bgs-sec-content">
+            <h3 class="bgs-sec-title">আপনি আপনার টাকা সুরক্ষিত রাখেন।</h3>
+            <p class="bgs-sec-desc">ব্যাংকে বা লকারে কষ্টার্জিত টাকা শতভাগ নিরাপদে রাখেন।</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bgs-sec-card">
+          <div class="bgs-sec-icon-wrap">
+            <span class="bgs-sec-icon">🚗</span>
+          </div>
+          <div class="bgs-sec-content">
+            <h3 class="bgs-sec-title">গাড়ি সুরক্ষিত রাখেন।</h3>
+            <p class="bgs-sec-desc">জিপিএস ট্র্যাকার, লক ও ইনস্যুরেন্স দিয়ে গাড়ি সুরক্ষিত রাখেন।</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bgs-sec-card">
+          <div class="bgs-sec-icon-wrap">
+            <span class="bgs-sec-icon">🏢</span>
+          </div>
+          <div class="bgs-sec-content">
+            <h3 class="bgs-sec-title">ব্যবসা সুরক্ষিত রাখেন।</h3>
+            <p class="bgs-sec-desc">সিসিটিভি ক্যামেরা, সিকিউরিটি গার্ড দিয়ে ব্যবসা সুরক্ষিত রাখেন।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reflection Box: কিন্তু নিজের জীবন? -->
+      <div class="bgs-life-question-card">
+        <div class="bgs-question-badge">প্রশ্ন</div>
+        <h2 class="bgs-life-headline">কিন্তু নিজের জীবন?</h2>
+        <div class="bgs-gold-accent-line"></div>
+        <p class="bgs-life-quote">
+          আপনার উপার্জন, পরিবার, ভবিষ্যৎ—সবকিছুর ভিত্তি একটাই <span class="bgs-glow-text">আপনি নিজে।</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       5. CUSTOMER REVIEW / REELS SECTION (FROM GOOGLE DOC DRAWING 2)
+       ========================================================================== -->
+  <section class="bgs-reviews-section" id="customer-reviews">
+    <div class="container">
+
+      <div class="bgs-section-header">
+        <h2 class="bgs-sec-heading">Customer review</h2>
+        <div class="bgs-gold-divider"></div>
+      </div>
+
+      <!-- Vertical Reels Grid (9:16 Aspect Ratio) -->
+      <div class="bgs-reels-grid">
+
+        <!-- Reel Card 1 -->
+        <div class="bgs-vertical-reel-card">
+          <div class="bgs-reel-frame">
+            <iframe 
+              src="https://www.youtube.com/embed/RyqHKNnoW-Y?rel=0&modestbranding=1&playsinline=1" 
+              title="Customer Review 1 — Bodyguard Shop" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Reel Card 2 -->
+        <div class="bgs-vertical-reel-card">
+          <div class="bgs-reel-frame">
+            <iframe 
+              src="https://www.youtube.com/embed/T7x7RT7ynxQ?rel=0&modestbranding=1&playsinline=1" 
+              title="Customer Review 2 — Bodyguard Shop" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       6. AWARENESS / VALUE COMPARISON BLOCK 2 (FROM GOOGLE DOC)
+       ========================================================================== -->
+  <section class="bgs-comparison-section">
+    <div class="container bgs-narrow-container">
+
+      <h2 class="bgs-comp-title">
+        আপনি 9 হাজার টাকার কী কী সুরক্ষিত রাখেন?
+      </h2>
+
+      <!-- Items Grid -->
+      <div class="bgs-comp-items-grid">
+        <div class="bgs-comp-item">
+          <span class="bgs-ci-icon">🚗</span>
+          <span class="bgs-ci-text">গাড়ি।</span>
+          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
+        </div>
+
+        <div class="bgs-comp-item">
+          <span class="bgs-ci-icon">📱</span>
+          <span class="bgs-ci-text">মোবাইল।</span>
+          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
+        </div>
+
+        <div class="bgs-comp-item">
+          <span class="bgs-ci-icon">💻</span>
+          <span class="bgs-ci-text">ল্যাপটপ।</span>
+          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
+        </div>
+
+        <div class="bgs-comp-item">
+          <span class="bgs-ci-icon">💼</span>
+          <span class="bgs-ci-text">ব্যবসার টাকা।</span>
+          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
+        </div>
+
+        <div class="bgs-comp-item">
+          <span class="bgs-ci-icon">💎</span>
+          <span class="bgs-ci-text">মূল্যবান সম্পদ।</span>
+          <span class="bgs-ci-status">✓ সুরক্ষিত</span>
+        </div>
+      </div>
+
+      <!-- Impact Punchline Box -->
+      <div class="bgs-comp-punchline-box">
+        <h3 class="bgs-punchline-heading">
+          কিন্তু যে জীবন দিয়ে এগুলো অর্জন করেন?
+        </h3>
+        <p class="bgs-punchline-strong">
+          সেটার নিরাপত্তার মূল্য কত?
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       7. PREPAREDNESS & DECISION QUOTE CARD (FROM GOOGLE DOC)
+       ========================================================================== -->
+  <section class="bgs-quote-section">
+    <div class="container bgs-narrow-container">
+
+      <div class="bgs-golden-quote-card">
+        <div class="bgs-quote-mark-top">“</div>
+
+        <div class="bgs-quote-body">
+          <p class="bgs-qb-line-1">
+            বিপদ আসবে কি না, আমরা জানি না।
+          </p>
+          <p class="bgs-qb-line-2">
+            কিন্তু প্রস্তুত থাকব কি না—সেটা আমাদের সিদ্ধান্ত।
+          </p>
+        </div>
+
+        <div class="bgs-quote-mark-bottom">”</div>
+
+        <div class="bgs-quote-footer-badge">
+          🛡️ নিজের ও পরিবারের নিরাপত্তা আগে থেকেই নিশ্চিত করুন
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
 
 
   <!-- ==========================================================================
@@ -1968,7 +1967,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const basePrice = <?php echo floatval( $price ); ?>;
   let currentUnitPrice = <?php echo floatval( $has_levels ? $lvl1_price : $price ); ?>;
   let currentQty = 1;
-  let deliveryCost = 60; // Default Inside Dhaka
+  let deliveryCost = 0; // Default Inside Dhaka
 
   const qtyInput           = document.getElementById('bgs-order-qty');
   const qtyMinus           = document.getElementById('bgs-qty-minus');
@@ -2054,7 +2053,7 @@ document.addEventListener('DOMContentLoaded', function() {
       label.classList.add('active');
       const radio = label.querySelector('input[type="radio"]');
       if (radio) radio.checked = true;
-      deliveryCost = parseInt(label.getAttribute('data-cost'), 10) || 60;
+      deliveryCost = 0;
       updateOrderTotals();
     });
   });

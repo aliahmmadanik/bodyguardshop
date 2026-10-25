@@ -737,16 +737,9 @@ function bgs_process_direct_order_handler() {
         wp_send_json_error(['message' => 'প্রোডাক্টটি খুঁজে পাওয়া যায়নি।']);
     }
 
-    if ( $zone === 'free' || $zone === 'free_shipping' ) {
-        $shipping_cost  = 0;
-        $shipping_title = 'ডেলিভারি চার্জ ফ্রি';
-    } elseif ( $zone === 'outside_dhaka' ) {
-        $shipping_cost  = 130;
-        $shipping_title = 'ঢাকার বাইরে ডেলিভারি';
-    } else {
-        $shipping_cost  = 60;
-        $shipping_title = 'ঢাকার ভিতরে ডেলিভারি';
-    }
+    // Item 10: Free delivery across Bangladesh for all products
+    $shipping_cost  = 0;
+    $shipping_title = 'ফ্রি হোম ডেলিভারি (সারা বাংলাদেশ)';
 
     $selected_level = isset($_POST['selected_level']) ? sanitize_text_field($_POST['selected_level']) : (isset($_POST['selected_package']) ? sanitize_text_field($_POST['selected_package']) : '');
     $level_price    = isset($_POST['level_price']) ? floatval($_POST['level_price']) : 0;
@@ -907,7 +900,7 @@ function bgs_auto_setup_store_data( $force = false ) {
     update_option( 'bgs_whatsapp', '8801409710012' );
     update_option( 'bgs_facebook', 'https://www.facebook.com/share/1EJkyvjkhP/' );
     update_option( 'bgs_youtube', 'https://youtube.com/@bodygardshop?si=136tfZviJHAAZU05' );
-    update_option( 'bgs_hero_video_url', 'https://www.youtube.com/watch?v=4NrRuGW7q7Q' );
+    update_option( 'bgs_hero_video_url', 'https://youtu.be/76R7VC9NpR8' );
     update_option( 'bgs_review_video_1', 'https://www.youtube.com/shorts/RyqHKNnoW-Y' );
     update_option( 'bgs_review_video_2', 'https://www.youtube.com/shorts/T7x7RT7ynxQ' );
     update_option( 'bgs_review_video_3', 'https://www.youtube.com/watch?v=Id4CSc8QS1Y' );
@@ -1043,6 +1036,15 @@ function bgs_auto_setup_store_data( $force = false ) {
         }
     }
 
+        // Remove/Trash Shock Gun products (Item 17)
+    global $wpdb;
+    $stun_ids = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_name IN ('stun-gun', 'shut-gun', 'bodyguard-tactical-stun-gun', '928-type-stun-gun') OR post_title LIKE '%Stun Gun%' OR post_title LIKE '%Shock Gun%'");
+    if (!empty($stun_ids)) {
+        foreach ($stun_ids as $sid) {
+            wp_update_post(['ID' => $sid, 'post_status' => 'draft']);
+        }
+    }
+
     update_option( 'bgs_store_data_v1_seeded', 'yes' );
 }
 
@@ -1090,3 +1092,88 @@ add_action( 'admin_notices', function() {
     echo '</div>';
 } );
 
+
+
+// Ensure /shop/ route always loads the Dark Luxury Shop Page (never 404s even if permalinks aren't flushed)
+add_filter( 'template_include', function( $template ) {
+    $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? strtok( $_SERVER['REQUEST_URI'], '?' ) : '';
+    $path    = trim( parse_url( $req_uri, PHP_URL_PATH ), '/' );
+    $segments = explode( '/', $path );
+    $last_seg = end( $segments );
+
+    if (
+        ( function_exists( 'is_shop' ) && is_shop() ) ||
+        is_post_type_archive( 'product' ) ||
+        is_page( 'shop' ) ||
+        is_page( 'all-products' ) ||
+        in_array( $last_seg, [ 'shop', 'all-products' ], true )
+    ) {
+        global $wp_query;
+        if ( $wp_query ) {
+            $wp_query->is_404 = false;
+        }
+        status_header( 200 );
+        $shop_tpl = get_template_directory() . '/woocommerce/archive-product.php';
+        if ( file_exists( $shop_tpl ) ) {
+            return $shop_tpl;
+        }
+    }
+    return $template;
+}, 99 );
+
+
+/**
+ * Ensure the 4 Situation Product Categories exist in WooCommerce (`product_cat`)
+ * so when the admin adds/updates products, they can select the Category Name.
+ * Does NOT auto-assign products — products only appear once manually assigned by admin.
+ */
+function bgs_ensure_situation_categories() {
+    if ( ! taxonomy_exists( 'product_cat' ) ) {
+        return;
+    }
+
+    $cats = [
+        'personal-protection' => [
+            'name' => 'Personal Protection',
+            'desc' => 'দৈনন্দিন personal safety-এর জন্য',
+        ],
+        'home-security' => [
+            'name' => 'Home Security',
+            'desc' => 'বাড়ির নিরাপত্তার জন্য',
+        ],
+        'travel-safety' => [
+            'name' => 'Travel Safety',
+            'desc' => 'ভ্রমণ ও চলাচলের সময়',
+        ],
+        'emergency-preparedness' => [
+            'name' => 'Emergency Preparedness',
+            'desc' => 'জরুরি পরিস্থিতির জন্য',
+        ],
+    ];
+
+    foreach ( $cats as $slug => $info ) {
+        $term = term_exists( $slug, 'product_cat' );
+        if ( ! $term ) {
+            $term = term_exists( $info['name'], 'product_cat' );
+        }
+        if ( ! $term ) {
+            wp_insert_term( $info['name'], 'product_cat', [
+                'slug'        => $slug,
+                'description' => $info['desc'],
+            ] );
+        }
+    }
+
+    // One-time cleanup of any previously auto-assigned situation categories on seeded products
+    if ( get_option( 'bgs_cleaned_auto_cats_v1' ) !== 'yes' ) {
+        $seeded_slugs = [ 'pepper-spray', 'baseball-bat', 'bodygard-combo', 'cut-proof-t-shirt' ];
+        foreach ( $seeded_slugs as $s_slug ) {
+            $p_post = get_page_by_path( $s_slug, OBJECT, 'product' );
+            if ( $p_post ) {
+                wp_remove_object_terms( $p_post->ID, array_keys( $cats ), 'product_cat' );
+            }
+        }
+        update_option( 'bgs_cleaned_auto_cats_v1', 'yes' );
+    }
+}
+add_action( 'init', 'bgs_ensure_situation_categories', 20 );
