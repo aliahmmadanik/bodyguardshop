@@ -38,19 +38,19 @@ $shop_url = esc_url( home_url('/shop/') );
 
       <h1 class="bgs-headline-h1">
 
-        নিরাপত্তা শুধু প্রয়োজনের সময় মনে করার বিষয় নয়
+        নিরাপত্তা বিলাসিতা নয়—এটা আপনার অধিকার
 
       </h1>
 
       <h2 class="bgs-headline-h2">
 
-        এটি আগে থেকেই নিশ্চিত করার বিষয়।
+        সবসময় নিরাপদ থাকা সম্ভব নয়—কিন্তু সবসময় প্রস্তুত থাকা সম্ভব।
 
       </h2>
 
       <h3 class="bgs-headline-h3 bgs-headline-red">
 
-        আপনার পরিবারের নিরাপত্তা কোনো বিলাসিতা নয়, এটি আপনার দায়িত্ব।
+        আপনার সবচেয়ে মূল্যবান সম্পদ—আপনার জীবন।
 
       </h3>
 
@@ -1068,45 +1068,66 @@ $shop_url = esc_url( home_url('/shop/') );
 
 /* Hero 3-Line Headings (Strictly 1 Line on All Devices) */
 
+/* Hero 3-Line Headings (Executive Dark Luxury Typography) */
 .bgs-hero-headings-wrap {
-
   text-align: center;
-
   width: 100%;
-
   max-width: 1050px;
-
-  margin: 0 auto 28px;
-
+  margin: 0 auto 30px;
   padding: 0 2px;
-
 }
-
-  .bgs-headline-h1,
-  h1.bgs-headline-h1 {
-    font-size: clamp(10px, 3.1vw, 14.5px) !important;
-    margin-bottom: 6px !important;
-    white-space: nowrap !important;
-    line-height: 1.25 !important;
-    letter-spacing: -0.2px !important;
-  }
-  .bgs-headline-h2,
-  h2.bgs-headline-h2 {
-    font-size: clamp(8.8px, 2.7vw, 12px) !important;
-    margin-bottom: 8px !important;
-    white-space: nowrap !important;
-    line-height: 1.3 !important;
-  }
-  .bgs-headline-h3,
-  h3.bgs-headline-h3,
-  .bgs-headline-red {
-    font-size: clamp(8.2px, 2.38vw, 11.2px) !important;
-    margin-bottom: 20px !important;
-    white-space: nowrap !important;
-    color: #FF2424 !important;
-    line-height: 1.3 !important;
-    letter-spacing: -0.35px !important;
-  }
+.bgs-headline-h1,
+h1.bgs-headline-h1 {
+  display: block !important;
+  font-family: inherit;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  white-space: nowrap !important;
+  text-align: center !important;
+  line-height: 1.25 !important;
+  margin: 0 auto 12px !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: clamp(1.65rem, 3.2vw, 2.45rem) !important;
+  letter-spacing: -0.2px;
+}
+.bgs-headline-h2,
+h2.bgs-headline-h2 {
+  display: block !important;
+  font-family: inherit;
+  font-weight: 600 !important;
+  color: #D1D5DB !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  line-height: 1.3 !important;
+  margin: 0 auto 14px !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: clamp(1.05rem, 2.0vw, 1.4rem) !important;
+  letter-spacing: 0.3px;
+}
+.bgs-headline-h3,
+h3.bgs-headline-h3,
+.bgs-headline-red {
+  display: block !important;
+  font-family: inherit;
+  font-weight: 800 !important;
+  color: #FF2E2E !important;
+  filter: drop-shadow(0 2px 12px rgba(255, 46, 46, 0.45));
+  white-space: nowrap !important;
+  text-align: center !important;
+  line-height: 1.3 !important;
+  margin: 0 auto 30px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: clamp(1.35rem, 2.6vw, 1.95rem) !important;
+  letter-spacing: -0.2px;
+}
 
 
 
@@ -2329,75 +2350,46 @@ h3.bgs-why-title {
 }
 
 @media (max-width: 650px) {
-
   .bgs-hero-section {
-
     padding: 24px 6px 20px !important;
-
   }
-
   .bgs-hero-container {
-
-    padding-left: 4px !important;
-
-    padding-right: 4px !important;
-
+    padding-left: 2px !important;
+    padding-right: 2px !important;
     max-width: 100% !important;
-
   }
-
   .bgs-hero-headings-wrap {
-
     margin-bottom: 20px !important;
-
-    padding: 0 2px !important;
-
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
-
   .bgs-headline-h1,
-
   h1.bgs-headline-h1 {
-
-    font-size: clamp(0.95rem, 4.3vw, 1.35rem) !important;
-
+    font-size: clamp(11px, 3.4vw, 16px) !important;
     margin-bottom: 6px !important;
-
     white-space: nowrap !important;
-
     line-height: 1.25 !important;
-
+    letter-spacing: -0.2px !important;
   }
-
   .bgs-headline-h2,
-
   h2.bgs-headline-h2 {
-
-    font-size: clamp(0.68rem, 3.1vw, 0.98rem) !important;
-
+    font-size: clamp(8.8px, 2.7vw, 12px) !important;
     margin-bottom: 8px !important;
-
     white-space: nowrap !important;
-
     line-height: 1.3 !important;
-
+    letter-spacing: -0.25px !important;
   }
-
   .bgs-headline-h3,
-
   h3.bgs-headline-h3,
-
   .bgs-headline-red {
-
-    font-size: clamp(0.85rem, 3.9vw, 1.2rem) !important;
-
+    font-size: clamp(10.5px, 3.2vw, 15px) !important;
     margin-bottom: 20px !important;
-
     white-space: nowrap !important;
-
     color: #FF2424 !important;
-
     line-height: 1.3 !important;
-
+    letter-spacing: -0.2px !important;
   }
 
   .bgs-video-showcase {
@@ -2586,7 +2578,7 @@ h3.bgs-why-title {
 
 @media (max-width: 480px) {
   .bgs-hero-section {
-    padding: 24px 6px 20px !important;
+    padding: 22px 6px 18px !important;
   }
   .bgs-hero-container {
     padding-left: 2px !important;
@@ -2598,25 +2590,26 @@ h3.bgs-why-title {
   }
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: clamp(10px, 3.0vw, 13px) !important;
+    font-size: clamp(11px, 3.3vw, 14.5px) !important;
     white-space: nowrap !important;
     margin-bottom: 5px !important;
     letter-spacing: -0.25px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: clamp(8.8px, 2.6vw, 11px) !important;
+    font-size: clamp(8.8px, 2.65vw, 11px) !important;
     white-space: nowrap !important;
     margin-bottom: 7px !important;
+    letter-spacing: -0.25px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: clamp(8.2px, 2.35vw, 10.2px) !important;
+    font-size: clamp(10.5px, 3.15vw, 13.5px) !important;
     white-space: nowrap !important;
     color: #FF2424 !important;
     margin-bottom: 18px !important;
-    letter-spacing: -0.35px !important;
+    letter-spacing: -0.25px !important;
   }
   .bgs-sit-main-title,
   h2.bgs-sit-main-title {
@@ -2651,36 +2644,38 @@ h3.bgs-why-title {
 @media (max-width: 390px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 11px !important;
+    font-size: 11.5px !important;
     letter-spacing: -0.25px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: 9.8px !important;
+    font-size: 9.6px !important;
+    letter-spacing: -0.25px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 9px !important;
-    letter-spacing: -0.35px !important;
+    font-size: 11px !important;
+    letter-spacing: -0.25px !important;
   }
 }
 
 @media (max-width: 375px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 10.8px !important;
+    font-size: 11.8px !important;
     letter-spacing: -0.25px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: 9.5px !important;
+    font-size: 9.4px !important;
+    letter-spacing: -0.25px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 8.8px !important;
-    letter-spacing: -0.35px !important;
+    font-size: 11.2px !important;
+    letter-spacing: -0.25px !important;
   }
   .bgs-best-main-title,
   h2.bgs-best-main-title {
@@ -2692,20 +2687,21 @@ h3.bgs-why-title {
 @media (max-width: 360px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 10.2px !important;
+    font-size: 11.2px !important;
     letter-spacing: -0.3px !important;
     white-space: nowrap !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
     font-size: 9px !important;
+    letter-spacing: -0.3px !important;
     white-space: nowrap !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 8.5px !important;
-    letter-spacing: -0.4px !important;
+    font-size: 10.6px !important;
+    letter-spacing: -0.3px !important;
     white-space: nowrap !important;
   }
   .bgs-sit-main-title,
@@ -2723,7 +2719,7 @@ h3.bgs-why-title {
 @media (max-width: 330px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 9.2px !important;
+    font-size: 10px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
@@ -2732,18 +2728,14 @@ h3.bgs-why-title {
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 7.8px !important;
-    letter-spacing: -0.4px !important;
+    font-size: 9.6px !important;
+    letter-spacing: -0.35px !important;
   }
   .bgs-best-main-title,
   h2.bgs-best-main-title {
     font-size: 8.8px !important;
   }
 }
-
-}
-
-
 
 </style>
 
