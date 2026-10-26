@@ -12,14 +12,23 @@ if (is_front_page()) {
 
 get_header(); ?>
 
-<main id="main-content" style="padding: 40px 0 60px; min-height: 65vh; background: #ffffff;">
-  <div class="container">
+<main id="main-content" style="padding: 45px 0 75px; min-height: 70vh; background: #0A0A0E; color: #FFFFFF;">
+  <div class="container" style="max-width: 1180px; margin: 0 auto; padding: 0 20px;">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <h1 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin-bottom: 20px; color: var(--sob-dark, #1c1c26);">
-        <?php the_title(); ?>
-      </h1>
-      <div style="color: var(--sob-text, #2d2d3a); line-height: 1.8; font-size: 15px;">
-        <?php the_content(); ?>
+      <?php if (!is_cart() && !is_checkout()) : ?>
+        <h1 style="font-family: var(--font-heading, 'Hind Siliguri', sans-serif); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 10px; color: #FFFFFF;">
+          <?php the_title(); ?>
+        </h1>
+        <div style="width: 50px; height: 3px; background: linear-gradient(90deg, #C9A96E, #E5C384); margin-bottom: 25px; border-radius: 2px;"></div>
+      <?php endif; ?>
+      <div class="entry-content" style="color: #E2E2EA; line-height: 1.8; font-size: 15px;">
+        <?php
+        if ( function_exists('is_cart') && is_cart() ) {
+            echo do_shortcode('[woocommerce_cart]');
+        } else {
+            the_content();
+        }
+        ?>
       </div>
     <?php endwhile; endif; ?>
   </div>

@@ -1,26 +1,28 @@
 <?php
 /**
  * Template Name: Terms & Conditions Page
- * page-terms.php
+ * Description: High-Contrast Dark Luxury Terms & Conditions Page for Bodyguard Shop
  */
+defined('ABSPATH') || exit;
+
 get_header();
 ?>
 
-<main id="main-content" style="padding-top: 72px; background: #0A0A0A; min-height: 100vh;">
+<main id="main-content" class="bodyguard-terms-page" style="padding-top: 30px; background: #0A0A0E; color: #FFFFFF; min-height: 100vh;">
 
 <!-- Page Hero -->
 <div class="terms-hero" id="terms-hero">
   <div class="container">
-    <span class="gold-badge">Legal</span>
-    <h1 class="terms-hero-title">Terms & Conditions</h1>
+    <span class="gold-badge" style="display: inline-block; padding: 6px 18px; background: rgba(201,169,110,0.14); border: 1px solid rgba(201,169,110,0.35); border-radius: 30px; color: #C9A96E; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">Legal &amp; Policy</span>
+    <h1 class="terms-hero-title">Terms &amp; Conditions</h1>
     <div class="terms-hero-sub">
-      <span class="sub-line">SaleOnBeauty গ্রাহক সেবা ও ব্যবহারের নীতিমালা,</span>
-      <span class="sub-line">অর্ডার করার পূর্বে অনুগ্রহ করে শর্তাবলী জেনে নিন।</span>
+      <span class="sub-line" style="display: block; color: #E2E2EA;">Bodyguard Shop গ্রাহক সেবা, অর্ডার ও সেলফ-ডিফেন্স গ্যাজেট ব্যবহারের নীতিমালা,</span>
+      <span class="sub-line" style="display: block; color: #E2E2EA;">অর্ডার করার পূর্বে অনুগ্রহ করে আমাদের শর্তাবলী ভালোভাবে জেনে নিন।</span>
     </div>
     <div class="terms-meta">
       <span>📅 সর্বশেষ আপডেট: ২০২৬</span>
       <span>•</span>
-      <span>🏢 Salon Beauty</span>
+      <span>🛡️ Bodyguard Shop</span>
     </div>
   </div>
 </div>
@@ -36,17 +38,17 @@ get_header();
           <h3 class="index-title">📋 সূচিপত্র</h3>
           <nav class="index-nav" id="terms-index-nav">
             <a href="#term-1" class="index-link active">১. Product Authenticity</a>
-            <a href="#term-2" class="index-link">২. Result Guarantee</a>
-            <a href="#term-3" class="index-link">৩. Individual Results</a>
-            <a href="#term-4" class="index-link">৪. Result Timeline</a>
-            <a href="#term-5" class="index-link">৫. Proper Usage</a>
-            <a href="#term-6" class="index-link">৬. Consistency</a>
+            <a href="#term-2" class="index-link">২. Quality &amp; Replacement</a>
+            <a href="#term-3" class="index-link">৩. Responsible Usage</a>
+            <a href="#term-4" class="index-link">৪. Delivery Timeline</a>
+            <a href="#term-5" class="index-link">৫. Safety Instructions</a>
+            <a href="#term-6" class="index-link">৬. Maintenance &amp; Care</a>
             <a href="#term-7" class="index-link">৭. Product Storage</a>
-            <a href="#term-8" class="index-link">৮. Guarantee Eligibility</a>
+            <a href="#term-8" class="index-link">৮. Warranty &amp; Claim</a>
           </nav>
           <!-- Contact Box -->
           <div class="terms-contact-box">
-            <p>প্রশ্ন আছে?</p>
+            <p>কোনো প্রশ্ন আছে?</p>
             <a href="https://wa.me/<?php echo esc_attr( get_option('bgs_whatsapp', '8801409710012') ); ?>" class="terms-contact-btn" id="terms-whatsapp" target="_blank" rel="noopener">
               💬 WhatsApp করুন
             </a>
@@ -60,19 +62,19 @@ get_header();
         <!-- Intro -->
         <div class="terms-intro" id="terms-intro-box">
           <div class="intro-icon">⚖️</div>
-          <p>এই Terms & Conditions Salon Beauty এবং তার গ্রাহকদের মধ্যে একটি চুক্তি হিসেবে কাজ করে। আমাদের সেবা ব্যবহার করে আপনি এই শর্তগুলো মেনে নিচ্ছেন।</p>
+          <p>এই Terms &amp; Conditions <strong>Bodyguard Shop</strong> এবং তার সম্মানিত গ্রাহকদের মধ্যে একটি সেবা চুক্তি হিসেবে কাজ করে। আমাদের ওয়েবসাইট থেকে অর্ডার বা সেবা গ্রহণ করার মাধ্যমে আপনি নিচের শর্তগুলো মেনে নিচ্ছেন।</p>
         </div>
 
         <!-- Term 1 -->
         <div class="term-item" id="term-1">
           <div class="term-header">
             <div class="term-number">১</div>
-            <h2 class="term-title">Product Authenticity</h2>
+            <h2 class="term-title">Product Authenticity (১০০% আসল পণ্যের নিশ্চয়তা)</h2>
           </div>
           <div class="term-body">
-            <p>Salon Beauty-এর সকল product authentic ও quality-checked product হিসেবে সরবরাহ করা হয়।</p>
+            <p>Bodyguard Shop-এর প্রতিটি সেলফ-ডিফেন্স ও সিকিউরিটি গ্যাজেট ১০০% অথেন্টিক এবং ডেলিভারির পূর্বে আমাদের কোয়ালিটি টিম দ্বারা ম্যানুয়ালি টেস্ট করে পাঠানো হয়।</p>
             <div class="term-highlight">
-              <span>✓</span> প্রতিটি পণ্য সরাসরি অথরাইজড সোর্স থেকে সংগ্রহ করা হয়
+              <span>✓</span> প্রতিটি পণ্য সরাসরি অথরাইজড সোর্স থেকে আমদানিকৃত ও পরীক্ষিত
             </div>
           </div>
         </div>
@@ -81,12 +83,12 @@ get_header();
         <div class="term-item" id="term-2">
           <div class="term-header">
             <div class="term-number">২</div>
-            <h2 class="term-title">Result Guarantee</h2>
+            <h2 class="term-title">Quality &amp; Replacement Guarantee</h2>
           </div>
           <div class="term-body">
-            <p>আমাদের product-এর effectiveness-এর প্রতি আমরা confident এবং নির্ধারিত usage অনুযায়ী ব্যবহারে expected result পাওয়ার জন্য guarantee প্রদান করি।</p>
+            <p>ডেলিভারি পাওয়ার সময় পণ্যে কোনো ধরনের ত্রুটি বা ড্যামেজ থাকলে আমরা দ্রুত রিপ্লেসমেন্ট সুবিধা প্রদান করি। পার্সেল রিসিভ করার সময় আনবক্সিং ভিডিও সংরক্ষণ করার অনুরোধ করা হচ্ছে।</p>
             <div class="term-highlight featured">
-              <span>🛡️</span> ১০০% Money-Back Guarantee — কাজ না করলে সম্পূর্ণ টাকা ফেরত
+              <span>🛡️</span> ১০০% রিপ্লেসমেন্ট গ্যারান্টি — ত্রুটিপূর্ণ পণ্য বিনা মূল্যে পরিবর্তনযোগ্য
             </div>
           </div>
         </div>
@@ -95,15 +97,15 @@ get_header();
         <div class="term-item" id="term-3">
           <div class="term-header">
             <div class="term-number">৩</div>
-            <h2 class="term-title">Individual Results May Vary</h2>
+            <h2 class="term-title">Responsible &amp; Lawful Usage (দায়িত্বশীল ব্যবহার)</h2>
           </div>
           <div class="term-body">
-            <p>প্রতিটি মানুষের skin type, condition, lifestyle, metabolism এবং অন্যান্য ব্যক্তিগত factors ভিন্ন হওয়ায় result পাওয়ার সময় ও মাত্রা ব্যক্তি অনুযায়ী আলাদা হতে পারে।</p>
+            <p>আমাদের সকল পণ্য শুধুমাত্র ব্যক্তিগত ও পারিবারিক আত্মরক্ষা (Self-Defense) এবং জরুরি নিরাপত্তার উদ্দেশ্যে তৈরি। কোনো ধরনের বেআইনি বা ক্ষতিকর কাজে ব্যবহার সম্পূর্ণ নিষিদ্ধ।</p>
             <div class="term-factors-grid">
-              <div class="factor-tag">🧬 Skin Type</div>
-              <div class="factor-tag">⚡ Metabolism</div>
-              <div class="factor-tag">🌿 Lifestyle</div>
-              <div class="factor-tag">💊 Condition</div>
+              <div class="factor-tag">🛡️ আত্মরক্ষা (Self-Defense)</div>
+              <div class="factor-tag">🏠 হোম সিকিউরিটি</div>
+              <div class="factor-tag">🚗 ট্রাভেল সেফটি</div>
+              <div class="factor-tag">⚡ ইমার্জেন্সি প্রস্তুতি</div>
             </div>
           </div>
         </div>
@@ -112,27 +114,27 @@ get_header();
         <div class="term-item" id="term-4">
           <div class="term-header">
             <div class="term-number">৪</div>
-            <h2 class="term-title">Result Timeline</h2>
+            <h2 class="term-title">Delivery Timeline (ডেলিভারি সময়সীমা)</h2>
           </div>
           <div class="term-body">
-            <p>কারও ক্ষেত্রে তুলনামূলকভাবে দ্রুত result দেখা দিতে পারে, আবার কারও ক্ষেত্রে noticeable result পেতে বেশি সময় লাগতে পারে। তাই সকল customer একই সময়ে একই ধরনের result পাবেন—এমন নিশ্চয়তা দেওয়া হয় না।</p>
+            <p>অর্ডার কনফার্ম করার পর ঢাকা সিটির ভেতরে সাধারণত ২৪–৪৮ ঘণ্টা এবং ঢাকার বাইরে সারা বাংলাদেশে ২–৪ কার্যদিবসের মধ্যে ক্যাশ অন ডেলিভারিতে পণ্য পৌঁছে দেওয়া হয়।</p>
             <div class="timeline-bar">
               <div class="tl-item">
                 <div class="tl-dot"></div>
-                <span>২১ দিন</span>
-                <p>প্রাথমিক result</p>
+                <span>দিন ১</span>
+                <p>অর্ডার ভেরিফিকেশন ও প্যাকিং</p>
               </div>
               <div class="tl-line"></div>
               <div class="tl-item">
                 <div class="tl-dot"></div>
-                <span>৩০ দিন</span>
-                <p>নিয়মিত result</p>
+                <span>১–২ দিন</span>
+                <p>ঢাকা সিটিতে ডেলিভারি</p>
               </div>
               <div class="tl-line"></div>
               <div class="tl-item">
                 <div class="tl-dot"></div>
-                <span>৪১ দিন</span>
-                <p>সর্বোচ্চ result</p>
+                <span>২–৪ দিন</span>
+                <p>সারা বাংলাদেশে হোম ডেলিভারি</p>
               </div>
             </div>
           </div>
@@ -142,12 +144,12 @@ get_header();
         <div class="term-item" id="term-5">
           <div class="term-header">
             <div class="term-number">৫</div>
-            <h2 class="term-title">Proper Usage</h2>
+            <h2 class="term-title">Safety Instructions (ব্যবহারের নিয়মাবলি)</h2>
           </div>
           <div class="term-body">
-            <p>Guarantee valid রাখার জন্য customer-কে product-এর recommended dosage, frequency এবং usage instructions যথাযথভাবে অনুসরণ করতে হবে।</p>
+            <p>প্রতিটি সিকিউরিটি টুল ও ডিভাইস নিরাপদে পরিচালনার জন্য নির্দেশিকা অনুসরণ করতে হবে। শিশুদের নাগালের বাইরে রাখুন।</p>
             <div class="term-highlight">
-              <span>📖</span> প্রতিটি পণ্যের সাথে usage instruction দেওয়া থাকে
+              <span>📖</span> প্রতিটি পণ্যের সঠিক ও নিরাপদ ব্যবহার বিধি মেনে চলুন
             </div>
           </div>
         </div>
@@ -156,12 +158,12 @@ get_header();
         <div class="term-item" id="term-6">
           <div class="term-header">
             <div class="term-number">৬</div>
-            <h2 class="term-title">Consistency</h2>
+            <h2 class="term-title">Maintenance &amp; Care (যত্ন ও চার্জিং)</h2>
           </div>
           <div class="term-body">
-            <p>Product নিয়মিত ও নির্দেশনা অনুযায়ী ব্যবহার না করলে expected result নাও পাওয়া যেতে পারে। দীর্ঘমেয়াদি ও consistent usage result-এর জন্য গুরুত্বপূর্ণ।</p>
+            <p>রিচার্জেবল ডিভাইসগুলো (যেমন Stun Gun বা Tactical Torch) দীর্ঘদিন কার্যকর রাখতে নিয়মিত চার্জ দিন এবং ব্যবহারের পর সেফটি সুইচ অফ রাখুন।</p>
             <div class="term-highlight">
-              <span>🔄</span> প্রতিদিন নিয়মিত ব্যবহার করাই সেরা ফলাফল দেয়
+              <span>🔄</span> নিয়মিত রক্ষণাবেক্ষণে ডিভাইস দীর্ঘদিন নতুনের মতো কার্যকর থাকে
             </div>
           </div>
         </div>
@@ -170,15 +172,15 @@ get_header();
         <div class="term-item" id="term-7">
           <div class="term-header">
             <div class="term-number">৭</div>
-            <h2 class="term-title">Product Storage</h2>
+            <h2 class="term-title">Product Storage (সংরক্ষণ বিধি)</h2>
           </div>
           <div class="term-body">
-            <p>Product-কে নির্দেশিত পরিবেশে সংরক্ষণ করতে হবে। অতিরিক্ত heat, sunlight, moisture বা improper storage-এর কারণে product-এর quality পরিবর্তিত হলে তার জন্য Salon Beauty দায়ী থাকবে না।</p>
+            <p>ডিভাইস ও স্প্রে ক্যানগুলো নির্ধারিত তাপমাত্রায় সংরক্ষণ করতে হবে। অতিরিক্ত তাপ, সরাসরি আগুন বা পানির সংস্পর্শে রাখলে পণ্যের কার্যকারিতা নষ্ট হতে পারে।</p>
             <div class="storage-rules">
-              <div class="storage-rule bad"><span>❌</span> অতিরিক্ত heat</div>
-              <div class="storage-rule bad"><span>❌</span> Direct sunlight</div>
-              <div class="storage-rule bad"><span>❌</span> অতিরিক্ত moisture</div>
-              <div class="storage-rule good"><span>✓</span> ঠান্ডা ও শুকনো জায়গায় রাখুন</div>
+              <div class="storage-rule bad"><span>❌</span> অতিরিক্ত তাপ ও আগুন থেকে দূরে</div>
+              <div class="storage-rule bad"><span>❌</span> শিশুদের নাগালের বাইরে</div>
+              <div class="storage-rule bad"><span>❌</span> অতিরিক্ত আর্দ্রতা বা পানি</div>
+              <div class="storage-rule good"><span>✓</span> ঠান্ডা, শুকনো ও নিরাপদ স্থানে সংরক্ষণ করুন</div>
             </div>
           </div>
         </div>
@@ -187,24 +189,24 @@ get_header();
         <div class="term-item" id="term-8">
           <div class="term-header">
             <div class="term-number">৮</div>
-            <h2 class="term-title">Guarantee Eligibility</h2>
+            <h2 class="term-title">Warranty &amp; Claim Eligibility</h2>
           </div>
           <div class="term-body">
-            <p>Guarantee claim করার ক্ষেত্রে customer-এর valid order information, purchase proof এবং প্রয়োজনীয় supporting information প্রদান করতে হতে পারে।</p>
+            <p>যেকোনো রিপ্লেসমেন্ট বা সাপোর্ট ক্লেইম করার ক্ষেত্রে গ্রাহকের ভ্যালিড Order ID, ইনভয়েস এবং আনবক্সিং ভিডিও বা ছবি প্রদান করা আবশ্যক।</p>
             <div class="eligibility-list">
               <div class="el-item"><span>✓</span> Valid Order ID</div>
-              <div class="el-item"><span>✓</span> Purchase Proof</div>
-              <div class="el-item"><span>✓</span> Supporting Information</div>
-              <div class="el-item"><span>✓</span> ২১–৪১ দিন ব্যবহারের প্রমাণ</div>
+              <div class="el-item"><span>✓</span> Purchase Invoice</div>
+              <div class="el-item"><span>✓</span> Unboxing Video Proof</div>
+              <div class="el-item"><span>✓</span> ডেলিভারির ২৪ ঘণ্টার মধ্যে অবহিতকরণ</div>
             </div>
           </div>
         </div>
 
         <!-- Footer Note -->
         <div class="terms-footer-note" id="terms-footer-note">
-          <p>এই Terms & Conditions পরিবর্তন করার অধিকার Bodyguard Shop সংরক্ষণ করে। যেকোনো পরিবর্তন এই পেজে আপডেট করা হবে।</p>
-          <a href="<?php echo esc_url( sob_shop_url() ); ?>" class="btn-primary" id="terms-shop-btn" style="margin-top: 24px; display: inline-flex;">
-            Shop Now →
+          <p>এই Terms &amp; Conditions যেকোনো সময় পরিমার্জন বা আপডেট করার অধিকার <strong>Bodyguard Shop</strong> সংরক্ষণ করে। যেকোনো পরিবর্তন এই পেজে সাথে সাথে আপডেট করা হবে।</p>
+          <a href="<?php echo esc_url( function_exists('sob_shop_url') ? sob_shop_url() : home_url('/shop/') ); ?>" class="btn-primary" id="terms-shop-btn" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; padding: 14px 34px; background: linear-gradient(135deg, #C9A96E 0%, #E5C384 50%, #A07840 100%); color: #0A0A0E !important; font-weight: 800; border-radius: 50px; text-decoration: none; box-shadow: 0 8px 24px rgba(201,169,110,0.35);">
+            <span>শপ ভিজিট করুন (Shop Now) →</span>
           </a>
         </div>
 
@@ -216,18 +218,34 @@ get_header();
 </main>
 
 <style>
-/* ===== TERMS PAGE ===== */
+/* ===== BODYGUARD SHOP — HIGH-CONTRAST DARK LUXURY TERMS PAGE ===== */
+.bodyguard-terms-page {
+  --dark-bg: #0A0A0E;
+  --dark-card: #14141C;
+  --dark-surface: #181824;
+  --dark-border: rgba(201, 169, 110, 0.22);
+  --gold: #C9A96E;
+  --gold-light: #E5C384;
+  --gold-dark: #A07840;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E2EA;
+  --text-muted: #B8B8C8;
+  --radius: 12px;
+  --radius-lg: 18px;
+  font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+}
+
 .terms-hero {
-  background: linear-gradient(135deg, rgba(201,169,110,0.06), transparent),
-              var(--dark-surface);
-  padding: 80px 0 60px;
+  background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(10,10,14,0.95)), #14141C;
+  padding: 65px 0 50px;
   text-align: center;
-  border-bottom: 1px solid var(--dark-border);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.22);
 }
 
 .terms-hero-title {
   font-size: clamp(2.2rem, 4vw, 3.2rem);
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E5C384 60%, #C9A96E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -235,9 +253,10 @@ get_header();
 }
 
 .terms-hero-sub {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  margin-bottom: 16px;
+  color: #E2E2EA !important;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
 }
 
 .terms-meta {
@@ -245,133 +264,164 @@ get_header();
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: var(--text-muted);
-  font-size: 0.88rem;
+  color: #C9A96E !important;
+  font-weight: 600;
+  font-size: 0.92rem;
 }
 
 /* Layout */
-.terms-section { padding: 60px 0 100px; }
+.terms-section {
+  padding: 55px 0 95px;
+  background: #0A0A0E;
+}
 
 .terms-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 48px;
+  grid-template-columns: 270px 1fr;
+  gap: 44px;
   align-items: start;
 }
 
 /* Sidebar */
-.terms-sidebar { position: sticky; top: 90px; }
+.terms-sidebar {
+  position: sticky;
+  top: 90px;
+}
 
 .terms-index {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: var(--radius-lg);
+  background: #14141C;
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
 
 .index-title {
-  font-size: 0.88rem;
-  color: var(--gold);
-  padding: 20px 20px 12px;
-  border-bottom: 1px solid var(--dark-border);
-  letter-spacing: 1px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #C9A96E !important;
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+  letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 
 .index-nav {
-  padding: 12px 12px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .index-link {
   display: block;
-  padding: 9px 12px;
-  font-size: 0.83rem;
-  color: var(--text-muted);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #D0D0DC !important;
   border-radius: 8px;
-  transition: var(--transition);
-  border-left: 2px solid transparent;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  border-left: 3px solid transparent;
 }
 
-.index-link:hover, .index-link.active {
-  color: var(--gold);
-  background: rgba(201,169,110,0.08);
-  border-left-color: var(--gold);
+.index-link:hover,
+.index-link.active {
+  color: #C9A96E !important;
+  background: rgba(201, 169, 110, 0.12);
+  border-left-color: #C9A96E;
 }
 
 .terms-contact-box {
   padding: 20px;
-  border-top: 1px solid var(--dark-border);
+  border-top: 1px solid rgba(201, 169, 110, 0.2);
   text-align: center;
+  background: #101017;
 }
 
 .terms-contact-box p {
-  color: var(--text-muted);
-  font-size: 0.85rem;
+  color: #E2E2EA !important;
+  font-size: 0.9rem;
+  font-weight: 600;
   margin-bottom: 12px;
 }
 
 .terms-contact-btn {
   display: inline-block;
-  padding: 10px 20px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--dark-bg);
-  font-weight: 700;
-  font-size: 0.85rem;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #C9A96E, #A07840);
+  color: #0A0A0E !important;
+  font-weight: 800;
+  font-size: 0.88rem;
   border-radius: 50px;
-  transition: var(--transition);
+  text-decoration: none !important;
+  transition: all 0.25s ease;
 }
 
 .terms-contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(201,169,110,0.35);
+  box-shadow: 0 6px 20px rgba(201, 169, 110, 0.4);
 }
 
 /* Terms Items */
-.terms-content { display: flex; flex-direction: column; gap: 0; }
+.terms-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 
 .terms-intro {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.02));
-  border: 1px solid rgba(201,169,110,0.2);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  margin-bottom: 32px;
+  background: linear-gradient(135deg, rgba(201,169,110,0.12), rgba(20,20,28,0.95));
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: 18px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
 }
 
-.intro-icon { font-size: 2rem; flex-shrink: 0; }
-.terms-intro p { color: var(--text-secondary); line-height: 1.7; }
+.intro-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.terms-intro p {
+  color: #F0F0F5 !important;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+}
 
 .term-item {
-  padding: 36px 0;
-  border-bottom: 1px solid var(--dark-border);
+  padding: 34px 28px;
+  margin-bottom: 20px;
+  background: #14141C;
+  border: 1px solid rgba(201, 169, 110, 0.18);
+  border-radius: 16px;
   scroll-margin-top: 100px;
-  transition: var(--transition);
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
-.term-item:last-child { border-bottom: none; }
-
-.term-item:hover { padding-left: 8px; }
+.term-item:hover {
+  border-color: rgba(201, 169, 110, 0.4);
+}
 
 .term-header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .term-number {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--dark-bg);
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
+  background: linear-gradient(135deg, #C9A96E, #A07840);
+  color: #0A0A0E !important;
+  font-size: 1.15rem;
+  font-weight: 800;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -380,13 +430,15 @@ get_header();
 }
 
 .term-title {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  color: var(--text-primary);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF !important;
+  margin: 0;
 }
 
 .term-body p {
-  color: var(--text-secondary);
+  color: #E2E2EA !important;
+  font-size: 15.5px;
   line-height: 1.8;
   margin-bottom: 16px;
 }
@@ -397,22 +449,27 @@ get_header();
   align-items: center;
   gap: 12px;
   padding: 14px 18px;
-  background: rgba(201,169,110,0.06);
-  border: 1px solid rgba(201,169,110,0.15);
-  border-left: 3px solid var(--gold);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-}
-
-.term-highlight.featured {
-  background: rgba(201,169,110,0.1);
-  border-left-color: var(--gold);
-  color: var(--gold);
+  background: rgba(201, 169, 110, 0.08);
+  border: 1px solid rgba(201, 169, 110, 0.22);
+  border-left: 4px solid #C9A96E;
+  border-radius: 0 12px 12px 0;
+  color: #F4F4F8 !important;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
-.term-highlight span { font-size: 1.2rem; flex-shrink: 0; }
+.term-highlight.featured {
+  background: rgba(201, 169, 110, 0.14);
+  border-left-color: #E5C384;
+  color: #E5C384 !important;
+  font-weight: 700;
+}
+
+.term-highlight span {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  color: #C9A96E;
+}
 
 /* Factor Tags */
 .term-factors-grid {
@@ -423,18 +480,19 @@ get_header();
 }
 
 .factor-tag {
-  padding: 8px 16px;
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
+  padding: 8px 18px;
+  background: #1E1E2A;
+  border: 1px solid rgba(201, 169, 110, 0.28);
   border-radius: 50px;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  transition: var(--transition);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  transition: all 0.25s ease;
 }
 
 .factor-tag:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: #C9A96E;
+  color: #C9A96E !important;
 }
 
 /* Timeline */
@@ -443,43 +501,46 @@ get_header();
   align-items: center;
   gap: 0;
   margin-top: 24px;
-  padding: 20px;
-  background: var(--dark-surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--dark-border);
+  padding: 22px;
+  background: #181824;
+  border-radius: 14px;
+  border: 1px solid rgba(201, 169, 110, 0.22);
 }
 
-.tl-item { text-align: center; flex-shrink: 0; }
+.tl-item {
+  text-align: center;
+  flex-shrink: 0;
+}
 
 .tl-dot {
   width: 14px;
   height: 14px;
-  background: var(--gold);
+  background: #C9A96E;
   border-radius: 50%;
   margin: 0 auto 8px;
-  box-shadow: 0 0 10px rgba(201,169,110,0.4);
+  box-shadow: 0 0 10px rgba(201, 169, 110, 0.5);
 }
 
 .tl-item span {
   display: block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #C9A96E !important;
   margin-bottom: 4px;
 }
 
 .tl-item p {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: #D4D4DC !important;
   margin: 0 !important;
 }
 
 .tl-line {
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  background: linear-gradient(90deg, #A07840, #C9A96E);
   margin-bottom: 16px;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 /* Storage Rules */
@@ -494,21 +555,22 @@ get_header();
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
-  border-radius: var(--radius);
-  font-size: 0.88rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .storage-rule.bad {
-  background: rgba(255,80,80,0.06);
-  border: 1px solid rgba(255,80,80,0.15);
-  color: #ff8080;
+  background: rgba(255, 80, 80, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  color: #FF9999 !important;
 }
 
 .storage-rule.good {
-  background: rgba(80,200,120,0.06);
-  border: 1px solid rgba(80,200,120,0.15);
-  color: #6dcc8a;
+  background: rgba(80, 200, 120, 0.1);
+  border: 1px solid rgba(80, 200, 120, 0.28);
+  color: #7CE89B !important;
   grid-column: span 2;
 }
 
@@ -525,46 +587,51 @@ get_header();
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  border-radius: var(--radius);
-  font-size: 0.88rem;
-  color: var(--text-secondary);
+  background: #181824;
+  border: 1px solid rgba(201, 169, 110, 0.22);
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #FFFFFF !important;
 }
 
-.el-item span { color: var(--gold); font-weight: 700; }
+.el-item span {
+  color: #C9A96E !important;
+  font-weight: 800;
+}
 
 /* Footer Note */
 .terms-footer-note {
-  margin-top: 48px;
+  margin-top: 36px;
   padding: 32px;
-  background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.02));
-  border: 1px solid rgba(201,169,110,0.2);
-  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(201,169,110,0.12), rgba(20,20,28,0.95));
+  border: 1px solid rgba(201, 169, 110, 0.28);
+  border-radius: 18px;
   text-align: center;
 }
 
 .terms-footer-note p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  color: #E2E2EA !important;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
   .terms-layout { grid-template-columns: 1fr; }
   .terms-sidebar { position: static; }
-  .terms-index { display: flex; flex-wrap: wrap; gap: 12px; align-items: start; }
+  .terms-index { display: flex; flex-direction: column; }
   .index-nav { flex-direction: row; flex-wrap: wrap; padding: 12px; }
   .index-link { white-space: nowrap; }
 }
 
 @media (max-width: 600px) {
+  .term-item { padding: 24px 18px; }
   .storage-rules { grid-template-columns: 1fr; }
   .storage-rule.good { grid-column: span 1; }
   .eligibility-list { grid-template-columns: 1fr; }
   .timeline-bar { flex-direction: column; gap: 12px; }
-  .tl-line { width: 2px; height: 30px; margin: 0 0 0 16px; background: linear-gradient(180deg, var(--gold-dark), var(--gold)); }
+  .tl-line { width: 2px; height: 24px; margin: 0; background: linear-gradient(180deg, #A07840, #C9A96E); }
 }
 </style>
 
