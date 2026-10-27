@@ -10,11 +10,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $pid     = get_the_ID();
 $product = wc_get_product( $pid );
 
-$product_title = $product ? $product->get_name() : 'Bodyguard Self-Defense Pepper Spray';
+$product_title = $product ? $product->get_name() : 'Pepper Spray';
+$ps_base_uri   = get_template_directory_uri() . '/assets/images/pepper-spray/';
+
+$img_20ml      = $ps_base_uri . 'pepper-spray-20ml.jpg';
+$img_60ml      = $ps_base_uri . 'pepper-spray-60ml.jpg';
+$img_110ml     = $ps_base_uri . 'pepper-spray-110ml.jpg';
+
 $thumb_url     = get_the_post_thumbnail_url( $pid, 'large' );
 if ( ! $thumb_url ) {
-    $thumb_url = get_template_directory_uri() . '/assets/images/products/pepper-spray.png';
+    $thumb_url = $img_60ml;
 }
+
+// Gallery images from pepper-spray folder
+$gallery_images = [
+    [ 'src' => $img_20ml,  'label' => '20ml' ],
+    [ 'src' => $img_60ml,  'label' => '60ml' ],
+    [ 'src' => $img_110ml, 'label' => '110ml' ],
+    [ 'src' => $ps_base_uri . 'gallery-02.jpg', 'label' => 'Model 1' ],
+    [ 'src' => $ps_base_uri . 'gallery-03.jpg', 'label' => 'Model 2' ],
+    [ 'src' => $ps_base_uri . 'gallery-04.jpg', 'label' => 'Model 3' ],
+    [ 'src' => $ps_base_uri . 'gallery-05.jpg', 'label' => 'Model 4' ],
+    [ 'src' => $ps_base_uri . 'gallery-06.jpg', 'label' => 'Model 5' ],
+    [ 'src' => $ps_base_uri . 'gallery-07.jpg', 'label' => 'Model 6' ],
+    [ 'src' => $ps_base_uri . 'gallery-08.jpg', 'label' => 'Model 7' ],
+    [ 'src' => $ps_base_uri . 'gallery-09.jpg', 'label' => 'Model 8' ],
+];
 
 $shop_phone    = get_option( 'bgs_phone', '01409710012' );
 $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
@@ -32,7 +53,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
         <div class="bgs-ps-video-wrapper">
           <iframe 
             src="https://www.youtube.com/embed/4NrRuGW7q7Q?rel=0&modestbranding=1&playsinline=1" 
-            title="Bodyguard Pepper Spray Main Video" 
+            title="Pepper Spray Main Video" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
           </iframe>
@@ -59,17 +80,33 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
 
 
     <!-- ==========================================================================
-         3. YOUR PRODUCT FIRST (ITEM 21: PRODUCT DETAILS & CAPACITIES)
+         3. YOUR PRODUCT FIRST (ITEM 21: PRODUCT DETAILS, GALLERY & CAPACITIES)
          ========================================================================== -->
     <section class="bgs-ps-section" id="product-details">
       <div class="bgs-ps-capacity-card">
 
-        <!-- Authentic Product Image Showcase -->
+        <!-- Authentic Product Image Showcase + Interactive Gallery -->
         <div class="bgs-ps-product-visual-box">
           <div class="bgs-ps-visual-img-wrap">
-            <img src="<?php echo esc_url( $thumb_url ); ?>" alt="Bodyguard Pepper Spray Canister" class="bgs-ps-showcase-img" loading="lazy">
-            <span class="bgs-ps-floating-tag">🛡️ HIGH-POWER FORMULA • PS 007-60</span>
+            <img src="<?php echo esc_url( $img_20ml ); ?>" alt="Pepper Spray" id="bgs-ps-main-showcase-img" class="bgs-ps-showcase-img" loading="lazy">
+            <span class="bgs-ps-floating-tag" id="bgs-ps-showcase-tag">🛡️ HIGH-POWER FORMULA • 20ML / 60ML / 110ML</span>
           </div>
+
+          <!-- Interactive Thumbnail Gallery (20ml, 60ml, 110ml + Pepper Spray Folder Gallery) -->
+          <div class="bgs-ps-gallery-strip" id="bgs-ps-gallery-strip">
+            <?php foreach ( $gallery_images as $g_idx => $g_item ) : ?>
+              <button type="button"
+                      class="bgs-ps-gallery-thumb <?php echo $g_idx === 0 ? 'active' : ''; ?>"
+                      data-src="<?php echo esc_url( $g_item['src'] ); ?>"
+                      title="<?php echo esc_attr( $g_item['label'] ); ?>">
+                <img src="<?php echo esc_url( $g_item['src'] ); ?>" alt="<?php echo esc_attr( $g_item['label'] ); ?>" loading="lazy">
+                <?php if ( in_array( $g_item['label'], [ '20ml', '60ml', '110ml' ], true ) ) : ?>
+                  <span class="bgs-ps-gthumb-cap"><?php echo esc_html( $g_item['label'] ); ?></span>
+                <?php endif; ?>
+              </button>
+            <?php endforeach; ?>
+          </div>
+
           <div class="bgs-ps-visual-badge-row">
             <span class="bgs-ps-vbadge">🛡️ ১০০% আসল ও নির্ভরযোগ্য সেলফ-ডিফেন্স স্প্রে</span>
             <span class="bgs-ps-vbadge">⚡ ১২ ফুট দূরপাল্লার লং-রেঞ্জ স্ট্রিম</span>
@@ -84,19 +121,25 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
             <span class="bgs-ps-icon-check">
               <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
             </span>
-            <span class="bgs-ps-item-text"><strong>20ml</strong> (পকেট সাইজ) — ৪-৫ জন আক্রমণকারী থেকে বাঁচাবে | <strong>৳ ১,১৯০</strong></span>
+            <span class="bgs-ps-item-text">
+              <strong>Pepper spray 20ml</strong> (পকেট সাইজ) — <del style="color:#888;">৳1,630</del> <span class="bgs-ps-inline-off">27% OFF</span> | <strong>৳ 1,190</strong>
+            </span>
           </li>
           <li class="bgs-ps-icon-item">
             <span class="bgs-ps-icon-check">
               <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
             </span>
-            <span class="bgs-ps-item-text"><strong>60ml</strong> (ফ্যামিলি সাইজ) — ১০-১৫ জন আক্রমণকারী থেকে বাঁচাবে | <strong>৳ ১,৪৯০</strong></span>
+            <span class="bgs-ps-item-text">
+              <strong>Pepper Spray 60 ml</strong> (ফ্যামিলি সাইজ) — <del style="color:#888;">৳2,614</del> <span class="bgs-ps-inline-off">43% OFF</span> | <strong>৳1,490</strong>
+            </span>
           </li>
           <li class="bgs-ps-icon-item">
             <span class="bgs-ps-icon-check">
               <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
             </span>
-            <span class="bgs-ps-item-text"><strong>110ml</strong> (জাম্বো সাইজ) — ২০-২৫ জন আক্রমণকারী থেকে বাঁচাবে | <strong>৳ ১,৯৯০</strong></span>
+            <span class="bgs-ps-item-text">
+              <strong>Pepper Spray 110 ml</strong> (জাম্বো সাইজ) — <del style="color:#888;">৳4,628</del> <span class="bgs-ps-inline-off">57% OFF</span> | <strong>৳1,990</strong>
+            </span>
           </li>
         </ul>
 
@@ -117,22 +160,22 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
         <form id="bgs-ps-checkout-form" class="bgs-ps-form" novalidate>
           <input type="hidden" name="action" value="bgs_process_direct_order">
           <input type="hidden" name="product_id" value="<?php echo esc_attr( $pid ); ?>">
-          <input type="hidden" id="bgs-selected-package" name="selected_level" value="Paper Spray 20ml">
+          <input type="hidden" id="bgs-selected-package" name="selected_level" value="Pepper spray 20ml">
           <input type="hidden" id="bgs-level-price" name="level_price" value="1190">
           <input type="hidden" name="delivery_zone" value="free">
 
           <!-- Selected Product Live Preview Card -->
           <div class="bgs-ps-form-summary-card">
             <div class="bgs-ps-fsc-thumb">
-              <img src="<?php echo esc_url( $thumb_url ); ?>" alt="Bodyguard Pepper Spray" id="bgs-form-prod-thumb">
+              <img src="<?php echo esc_url( $img_20ml ); ?>" alt="Pepper Spray" id="bgs-form-prod-thumb">
             </div>
             <div class="bgs-ps-fsc-info">
-              <span class="bgs-ps-fsc-badge">🔥 LIMITED STOCK — ৫৭% অফার</span>
-              <h4 class="bgs-ps-fsc-title" id="bgs-fsc-title">Paper Spray 20ml</h4>
+              <span class="bgs-ps-fsc-badge" id="bgs-fsc-badge">🔥 27% OFF</span>
+              <h4 class="bgs-ps-fsc-title" id="bgs-fsc-title">Pepper spray 20ml</h4>
               <div class="bgs-ps-fsc-price-row">
                 <span class="bgs-ps-fsc-sale">৳ <span id="bgs-fsc-price">1,190</span></span>
-                <span class="bgs-ps-fsc-reg">৳ <span id="bgs-fsc-reg">2,790</span></span>
-                <span class="bgs-ps-fsc-save">সাশ্রয় ৳ <span id="bgs-fsc-save">1,600</span></span>
+                <span class="bgs-ps-fsc-reg">৳ <span id="bgs-fsc-reg">1,630</span></span>
+                <span class="bgs-ps-fsc-save">সাশ্রয় ৳ <span id="bgs-fsc-save">440</span></span>
               </div>
               <p class="bgs-ps-fsc-desc">🛡️ শক্তিশালী দূরপাল্লার স্প্রে • ১২ ফুট দূর থেকেই আক্রমণকারী নিস্তেজ</p>
             </div>
@@ -170,12 +213,21 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
             <h4 class="bgs-ps-box-title">প্যাকেজ নির্বাচন করুন:</h4>
 
             <!-- Package 1: 20ml -->
-            <label class="bgs-ps-product-row active" data-pkg="Paper Spray 20ml" data-price="1190">
+            <label class="bgs-ps-product-row active"
+                   data-pkg="Pepper spray 20ml"
+                   data-price="1190"
+                   data-reg="1630"
+                   data-off="27% OFF"
+                   data-img="<?php echo esc_url( $img_20ml ); ?>">
               <div class="bgs-ps-row-left">
                 <input type="radio" name="package_select" value="20ml" class="bgs-ps-radio" checked>
+                <img src="<?php echo esc_url( $img_20ml ); ?>" alt="20ml" class="bgs-ps-row-thumb">
                 <div class="bgs-ps-item-info">
-                  <span class="bgs-ps-item-title">Paper Spray 20ml</span>
-                  <span class="bgs-ps-item-sub">চাবির রিং সহ, ৪-৫ জন থেকে বাঁচাবে</span>
+                  <span class="bgs-ps-item-title">Pepper spray 20ml</span>
+                  <span class="bgs-ps-item-sub">
+                    <del class="bgs-ps-row-old">৳1,630</del>
+                    <span class="bgs-ps-row-off">27% OFF</span>
+                  </span>
                 </div>
               </div>
               <div class="bgs-ps-row-right">
@@ -185,18 +237,27 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
                   <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-20ml">+</button>
                 </div>
                 <div class="bgs-ps-price-cell">
-                  <span class="bgs-ps-amount">1,190</span><span class="bgs-ps-currency">৳</span>
+                  <span class="bgs-ps-currency">৳ </span><span class="bgs-ps-amount">1,190</span>
                 </div>
               </div>
             </label>
 
             <!-- Package 2: 60ml -->
-            <label class="bgs-ps-product-row" data-pkg="Paper Spray 60ml" data-price="1490">
+            <label class="bgs-ps-product-row"
+                   data-pkg="Pepper Spray 60 ml"
+                   data-price="1490"
+                   data-reg="2614"
+                   data-off="43% OFF"
+                   data-img="<?php echo esc_url( $img_60ml ); ?>">
               <div class="bgs-ps-row-left">
                 <input type="radio" name="package_select" value="60ml" class="bgs-ps-radio">
+                <img src="<?php echo esc_url( $img_60ml ); ?>" alt="60ml" class="bgs-ps-row-thumb">
                 <div class="bgs-ps-item-info">
-                  <span class="bgs-ps-item-title">Paper Spray 60ml</span>
-                  <span class="bgs-ps-item-sub">ফ্যামিলি সাইজ, ১০-১৫ জন থেকে বাঁচাবে</span>
+                  <span class="bgs-ps-item-title">Pepper Spray 60 ml</span>
+                  <span class="bgs-ps-item-sub">
+                    <del class="bgs-ps-row-old">৳2,614</del>
+                    <span class="bgs-ps-row-off">43% OFF</span>
+                  </span>
                 </div>
               </div>
               <div class="bgs-ps-row-right">
@@ -206,18 +267,27 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
                   <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-60ml">+</button>
                 </div>
                 <div class="bgs-ps-price-cell">
-                  <span class="bgs-ps-amount">1,490</span><span class="bgs-ps-currency">৳</span>
+                  <span class="bgs-ps-currency">৳</span><span class="bgs-ps-amount">1,490</span>
                 </div>
               </div>
             </label>
 
             <!-- Package 3: 110ml -->
-            <label class="bgs-ps-product-row" data-pkg="Paper Spray 110ml" data-price="1990">
+            <label class="bgs-ps-product-row"
+                   data-pkg="Pepper Spray 110 ml"
+                   data-price="1990"
+                   data-reg="4628"
+                   data-off="57% OFF"
+                   data-img="<?php echo esc_url( $img_110ml ); ?>">
               <div class="bgs-ps-row-left">
                 <input type="radio" name="package_select" value="110ml" class="bgs-ps-radio">
+                <img src="<?php echo esc_url( $img_110ml ); ?>" alt="110ml" class="bgs-ps-row-thumb">
                 <div class="bgs-ps-item-info">
-                  <span class="bgs-ps-item-title">Paper Spray 110ml</span>
-                  <span class="bgs-ps-item-sub">জাম্বো সাইজ, ২০-২৫ জন থেকে বাঁচাবে</span>
+                  <span class="bgs-ps-item-title">Pepper Spray 110 ml</span>
+                  <span class="bgs-ps-item-sub">
+                    <del class="bgs-ps-row-old">৳4,628</del>
+                    <span class="bgs-ps-row-off">57% OFF</span>
+                  </span>
                 </div>
               </div>
               <div class="bgs-ps-row-right">
@@ -227,7 +297,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
                   <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-110ml">+</button>
                 </div>
                 <div class="bgs-ps-price-cell">
-                  <span class="bgs-ps-amount">1,990</span><span class="bgs-ps-currency">৳</span>
+                  <span class="bgs-ps-currency">৳</span><span class="bgs-ps-amount">1,990</span>
                 </div>
               </div>
             </label>
@@ -246,7 +316,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
               <tbody>
                 <tr>
                   <td>
-                    <span id="bgs-summary-prod-name">Paper Spray 20ml</span> 
+                    <span id="bgs-summary-prod-name">Pepper spray 20ml</span> 
                     <strong>× <span id="bgs-summary-qty">1</span></strong>
                   </td>
                   <td class="bgs-ps-text-right">
@@ -432,9 +502,9 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
   <div class="bgs-ps-mobile-bar">
     <div class="bgs-ps-mb-inner">
       <div class="bgs-ps-mb-product">
-        <img src="<?php echo esc_url( $thumb_url ); ?>" alt="Pepper Spray" class="bgs-ps-mb-thumb">
+        <img src="<?php echo esc_url( $img_20ml ); ?>" alt="Pepper Spray" id="bgs-ps-mb-thumb" class="bgs-ps-mb-thumb">
         <div class="bgs-ps-mb-info">
-          <span class="bgs-ps-mb-title" id="bgs-mb-title">Paper Spray 20ml</span>
+          <span class="bgs-ps-mb-title" id="bgs-mb-title">Pepper spray 20ml</span>
           <span class="bgs-ps-mb-price">৳ <span id="bgs-mb-price">1,190</span></span>
         </div>
       </div>
@@ -1315,6 +1385,87 @@ body {
   font-size: 0.8rem;
   margin: 0;
 }
+
+/* Gallery Strip & Package Row Enhancements */
+.bgs-ps-gallery-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 6px 4px;
+}
+.bgs-ps-gallery-thumb {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #2a2a2a;
+  background: #0a0a0a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.bgs-ps-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bgs-ps-gallery-thumb.active,
+.bgs-ps-gallery-thumb:hover {
+  border-color: #C9A96E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.35);
+}
+.bgs-ps-gthumb-cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.82);
+  color: #C9A96E;
+  font-size: 10px;
+  font-weight: 800;
+  text-align: center;
+  padding: 1px 0;
+}
+.bgs-ps-inline-off {
+  display: inline-block;
+  background: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 12px;
+  margin: 0 4px;
+}
+.bgs-ps-row-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #333333;
+  flex-shrink: 0;
+}
+.bgs-ps-row-old {
+  color: #888888;
+  font-size: 13px;
+  margin-right: 6px;
+}
+.bgs-ps-row-off {
+  display: inline-block;
+  background: rgba(241, 99, 52, 0.16);
+  border: 1px solid rgba(241, 99, 52, 0.45);
+  color: #ff7448;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
 </style>
 
 
@@ -1350,13 +1501,29 @@ document.addEventListener('DOMContentLoaded', function() {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // 2. Package Selector & Live Calculations
-  var currentPkgName = 'Paper Spray 20ml';
-  var currentPrice   = 1190;
-  var currentRegPrice = 2790;
-  var currentQty     = 1;
+  // 1b. Interactive Product Gallery Thumbnail Switcher
+  var mainShowcaseImg = document.getElementById('bgs-ps-main-showcase-img');
+  var galleryThumbs   = document.querySelectorAll('.bgs-ps-gallery-thumb');
+  galleryThumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var newSrc = this.getAttribute('data-src');
+      if (newSrc && mainShowcaseImg) {
+        mainShowcaseImg.src = newSrc;
+      }
+      galleryThumbs.forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
 
-  var pkgRows = document.querySelectorAll('.bgs-ps-product-row');
+  // 2. Package Selector & Live Calculations
+  var currentPkgName  = 'Pepper spray 20ml';
+  var currentPrice    = 1190;
+  var currentRegPrice = 1630;
+  var currentOffText  = '27% OFF';
+  var currentImgUrl   = '<?php echo esc_js( $img_20ml ); ?>';
+  var currentQty      = 1;
+
+  var pkgRows          = document.querySelectorAll('.bgs-ps-product-row');
   var hiddenPkgInput   = document.getElementById('bgs-selected-package');
   var hiddenPriceInput = document.getElementById('bgs-level-price');
 
@@ -1369,8 +1536,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var mbTitle     = document.getElementById('bgs-mb-title');
   var mbPrice     = document.getElementById('bgs-mb-price');
+  var mbThumb     = document.getElementById('bgs-ps-mb-thumb');
 
   // Form preview card elements
+  var fscThumb = document.getElementById('bgs-form-prod-thumb');
+  var fscBadge = document.getElementById('bgs-fsc-badge');
   var fscTitle = document.getElementById('bgs-fsc-title');
   var fscPrice = document.getElementById('bgs-fsc-price');
   var fscReg   = document.getElementById('bgs-fsc-reg');
@@ -1393,16 +1563,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mbTitle) mbTitle.textContent = currentPkgName;
     if (mbPrice) mbPrice.textContent = formatMoney(total);
+    if (mbThumb && currentImgUrl) mbThumb.src = currentImgUrl;
 
+    if (fscThumb && currentImgUrl) fscThumb.src = currentImgUrl;
+    if (fscBadge && currentOffText) fscBadge.textContent = '🔥 ' + currentOffText;
     if (fscTitle) fscTitle.textContent = currentPkgName;
     if (fscPrice) fscPrice.textContent = formatMoney(total);
     if (fscReg)   fscReg.textContent   = formatMoney(currentRegPrice * currentQty);
     if (fscSave)  fscSave.textContent  = formatMoney(Math.max(0, save));
 
+    if (mainShowcaseImg && currentImgUrl) {
+      mainShowcaseImg.src = currentImgUrl;
+    }
+
     if (hiddenPkgInput) hiddenPkgInput.value = currentPkgName;
     if (hiddenPriceInput) hiddenPriceInput.value = currentPrice;
   }
-
 
   // Row selection handler
   pkgRows.forEach(function(row) {
@@ -1416,16 +1592,11 @@ document.addEventListener('DOMContentLoaded', function() {
       var radio = row.querySelector('.bgs-ps-radio');
       if (radio) radio.checked = true;
 
-      currentPkgName = row.getAttribute('data-pkg');
-      currentPrice   = parseInt(row.getAttribute('data-price'), 10) || 1190;
-      if (currentPrice === 1190) {
-        currentRegPrice = 2790;
-      } else if (currentPrice === 1490) {
-        currentRegPrice = 3490;
-      } else if (currentPrice === 1990) {
-        currentRegPrice = 3990;
-      }
-
+      currentPkgName  = row.getAttribute('data-pkg') || 'Pepper spray 20ml';
+      currentPrice    = parseInt(row.getAttribute('data-price'), 10) || 1190;
+      currentRegPrice = parseInt(row.getAttribute('data-reg'), 10) || 1630;
+      currentOffText  = row.getAttribute('data-off') || '27% OFF';
+      currentImgUrl   = row.getAttribute('data-img') || currentImgUrl;
 
       // sync qty from that row's qty input
       var qtyInput = row.querySelector('.bgs-ps-qty-input');

@@ -202,6 +202,10 @@ $shop_url = esc_url( home_url('/shop/') );
 
                   'posts_per_page' => 4,
 
+                  'orderby'        => 'menu_order',
+
+                  'order'          => 'ASC',
+
                   'tax_query'      => [
 
                       [
@@ -266,7 +270,7 @@ $shop_url = esc_url( home_url('/shop/') );
 
                 $perm      = get_permalink( $pid );
 
-                $thumb_url = get_the_post_thumbnail_url( $pid, 'medium_large' );
+                $thumb_url = function_exists( 'bgs_get_product_card_image_url' ) ? bgs_get_product_card_image_url( $pid, $slug ) : get_the_post_thumbnail_url( $pid, 'medium_large' );
 
                 $price     = $product ? (float) $product->get_price() : 0;
 
@@ -438,13 +442,13 @@ $shop_url = esc_url( home_url('/shop/') );
 
               'match_slugs' => [ 'cut-proof-t-shirt', 'cut-proof-vest', 'cut-proof' ],
 
-              'title'       => 'Bodyguard Cut-Proof Vest & Body Armor (লেভেল ১, ২, ৩)',
+              'title'       => 'Cut-Proof Vest',
 
               'slug'        => 'cut-proof-t-shirt',
 
               'price'       => 8990,
 
-              'reg'         => 12000,
+              'reg'         => 14500,
 
               'rating'      => '4.8',
 
@@ -462,9 +466,9 @@ $shop_url = esc_url( home_url('/shop/') );
 
               'slug'        => 'bodygard-combo',
 
-              'price'       => 1590,
+              'price'       => 2990,
 
-              'reg'         => 2990,
+              'reg'         => 6953,
 
               'rating'      => '4.9',
 

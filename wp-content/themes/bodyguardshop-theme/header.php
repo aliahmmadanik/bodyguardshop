@@ -21,6 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <meta name="theme-color" content="#0A0A0A">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icon/favicon-32.png' ); ?>">
+  <link rel="icon" type="image/png" sizes="64x64" href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icon/favicon-64.png' ); ?>">
+  <link rel="icon" type="image/png" sizes="192x192" href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icon/site-icon-192.png' ); ?>">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icon/apple-touch-icon.png' ); ?>">
+  <link rel="shortcut icon" href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icon/favicon.ico' ); ?>">
 
   <?php wp_head(); ?>
 
@@ -72,6 +77,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 .bgs-logo-icon {
   font-size: 1.35rem !important;
   line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+.bgs-logo-img-icon {
+  width: 34px !important;
+  height: 34px !important;
+  object-fit: contain !important;
+  border-radius: 6px !important;
+  display: block !important;
 }
 
 .sob-text-logo .logo-sale,
@@ -640,7 +654,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <?php the_custom_logo(); ?>
           <?php else : ?>
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sob-text-logo" rel="home">
-              <span class="bgs-logo-icon">🛡️</span>
+              <span class="bgs-logo-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icon/bgs-shield-icon.png' ); ?>" alt="Bodygard Shop" class="bgs-logo-img-icon"></span>
               <span class="logo-sale" style="color:var(--gold,#C9A96E);font-weight:800;letter-spacing:-0.5px;">Bodygard</span>
               <span class="logo-beauty" style="color:#ffffff;font-weight:700;">Shop</span>
             </a>
@@ -688,9 +702,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
   <div class="drawer-header">
 
-    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="drawer-logo" rel="home">
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="drawer-logo" rel="home" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
 
-      <span class="bgs-drawer-shield">🛡️</span>
+      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icon/bgs-shield-icon.png' ); ?>" alt="Bodygard Shop" style="width:30px;height:30px;object-fit:contain;border-radius:6px;">
 
       <span class="bgs-drawer-brand">Bodygard <span class="bgs-gold-txt">Shop</span></span>
 

@@ -715,6 +715,8 @@ function sob_slider_settings_page() {
    ========================================================================== */
 add_action('wp_ajax_bgs_process_direct_order', 'bgs_process_direct_order_handler');
 add_action('wp_ajax_nopriv_bgs_process_direct_order', 'bgs_process_direct_order_handler');
+add_action('wp_ajax_bgs_direct_checkout', 'bgs_process_direct_order_handler');
+add_action('wp_ajax_nopriv_bgs_direct_checkout', 'bgs_process_direct_order_handler');
 
 function bgs_process_direct_order_handler() {
     if ( ! function_exists('wc_create_order') ) {
@@ -892,6 +894,33 @@ function bgs_attach_theme_image_to_product( $product_id, $theme_relative_path, $
 }
 
 /**
+ * Helper: Get product card thumbnail URL with automatic bundled theme fallback for all 10 products
+ */
+function bgs_get_product_card_image_url( $product_id, $slug = '' ) {
+    if ( ! $slug ) {
+        $slug = get_post_field( 'post_name', $product_id );
+    }
+    $bundled_map = [
+        'cut-proof-t-shirt'    => '/assets/images/products/cut-proof-t-shirt.jpg',
+        'pepper-spray'         => '/assets/images/pepper-spray/pepper-spray-60ml.jpg',
+        'bodygard-combo'       => '/assets/images/combo/bodyguard-combo-7in1-kit.jpg',
+        'torch-light'          => '/assets/images/torch-light/torch-light-main.jpg',
+        'panic-alarm-130db'    => '/assets/images/panic-alarm/panic-alarm-main.jpg',
+        'panic-alarm'          => '/assets/images/panic-alarm/panic-alarm-main.jpg',
+        'multifunctional-tool' => '/assets/images/multifunctional-tool/multifunctional-tool-main.jpg',
+        'glass-breaker'        => '/assets/images/glass-breaker/glass-breaker-main.jpg',
+        'wire-saw'             => '/assets/images/wire-saw/wire-saw-main.jpg',
+        'baseball-bat'         => '/assets/images/baseball-bat/baseball-bat-main.jpg',
+        'pen-knife'            => '/assets/images/pen-knife/pen-knife-main.jpg',
+    ];
+    if ( isset( $bundled_map[ $slug ] ) ) {
+        return get_template_directory_uri() . $bundled_map[ $slug ];
+    }
+    $thumb_url = get_the_post_thumbnail_url( $product_id, 'medium_large' );
+    return $thumb_url ?: '';
+}
+
+/**
  * Auto-Setup Store Data (WooCommerce Products, Contacts, & Configuration)
  */
 function bgs_auto_setup_store_data( $force = false ) {
@@ -919,66 +948,252 @@ function bgs_auto_setup_store_data( $force = false ) {
     // 4. Products Specification
     $products_data = [
         'cut-proof-t-shirt' => [
-            'title'       => 'Bodyguard Cut Proof T-Shirt & Body Armor — মিলিটারি-গ্রেড সেলফ ডিফেন্স',
+            'title'       => 'Cut-Proof Vest',
             'price'       => '8990',
-            'reg_price'   => '12000',
-            'desc'        => 'ব্লেড, ছুরি ও ধারালো অস্ত্রের আক্রমণ থেকে আপনার জীবন রক্ষা করতে আলটিমেট বডি আর্মার টি-শার্ট।',
+            'reg_price'   => '14500',
+            'desc'        => 'ব্লেড, ছুরি ও ধারালো অস্ত্রের আক্রমণ থেকে আপনার জীবন রক্ষা করতে আলটিমেট বডি আর্মার ভেস্ট।',
             'image'       => 'assets/images/products/cut-proof-t-shirt.jpg',
+            'category'    => [ 'personal-protection', 'emergency-preparedness' ],
             'menu_order'  => 1,
             'meta'        => [
+                '_bgs_video_url'      => 'https://youtu.be/tswsvWbGuHY',
                 '_bgs_has_levels'     => 'yes',
-                '_bgs_lvl1_name'      => 'Level 1 — Cut Proof T-Shirt',
+                '_bgs_lvl1_name'      => 'Level 1 Cut-Proof T-Shirt',
                 '_bgs_lvl1_price'     => '8990',
-                '_bgs_lvl1_reg_price' => '12000',
-                '_bgs_lvl1_badge'     => '🛡️ বেসিক কাট প্রোটেকশন',
-                '_bgs_lvl1_desc'      => 'ব্লেড ও ছুরির ধারালো কাট প্রতিরোধক',
-                '_bgs_lvl2_name'      => 'Level 2 — Cut & Stab Proof T-Shirt',
+                '_bgs_lvl1_reg_price' => '14500',
+                '_bgs_lvl1_badge'     => '38% OFF',
+                '_bgs_lvl2_name'      => 'Level 2 Cut-Proof Vest',
                 '_bgs_lvl2_price'     => '18990',
-                '_bgs_lvl2_reg_price' => '24000',
-                '_bgs_lvl2_badge'     => '🔥 সবচেয়ে জনপ্রিয় (Most Popular)',
-                '_bgs_lvl2_desc'      => 'কাট ও স্ট্যাব (ছোরার গভীর আঘাত) নিরোধক',
-                '_bgs_lvl3_name'      => 'Level 3 — Bullet Proof Vest',
-                '_bgs_lvl3_price'     => '38990',
-                '_bgs_lvl3_reg_price' => '48000',
-                '_bgs_lvl3_badge'     => '🎖️ আলটিমেট মিলিটারি আর্মার',
-                '_bgs_lvl3_desc'      => 'স্টিল প্লেট সহ ব্যালিস্টিক বুলেট প্রুফ ভেস্ট',
+                '_bgs_lvl2_reg_price' => '33316',
+                '_bgs_lvl2_badge'     => '43% OFF',
+                '_bgs_lvl3_name'      => 'Level 3 Bullet-Proof Armor',
+                '_bgs_lvl3_price'     => '48990',
+                '_bgs_lvl3_reg_price' => '113930',
+                '_bgs_lvl3_badge'     => '57% OFF',
             ],
         ],
         'bodygard-combo' => [
-            'title'      => 'Bodyguard Combo — ৭-ইন-১ আলটিমেট সেলফ ডিফেন্স সেফটি কিট',
-            'price'      => '1590',
-            'reg_price'  => '2990',
-            'desc'       => 'মাত্র ১৫৯০ টাকায় নিজেকে ও পরিবারকে নিরাপদ রাখুন ছিনতাই, ডাকাতি ও মারাত্মক আক্রমণ থেকে।',
-            'image'      => 'assets/images/products/bodygard-combo.jpg',
-            'menu_order' => 2,
-            'meta'       => [],
+            'title'      => 'BodyGard Combo',
+            'price'      => '2990',
+            'reg_price'  => '6953',
+            'desc'       => 'মাত্র ২,৯৯০ টাকায় নিজেকে নিরাপদ রাখুন ছিনতাই, ডাকাতি, অপহরণ, ধর্ষণের মতো মারাত্মক আক্রমণের ঝুঁকি থেকে।',
+            'image'      => 'assets/images/combo/bodyguard-combo-7in1-kit.jpg',
+            'category'   => [ 'personal-protection', 'travel-safety', 'emergency-preparedness' ],
+            'menu_order' => 3,
+            'meta'       => [
+                '_bgs_video_url' => 'https://youtu.be/olvw4VShX-4',
+            ],
         ],
         'pepper-spray' => [
-            'title'      => 'Bodyguard Self-Defense Pepper Spray — আলটিমেট পার্সোনাল সিকিউরিটি',
+            'title'      => 'Pepper Spray',
             'price'      => '1190',
-            'reg_price'  => '1590',
-            'desc'       => 'আক্রমণকারীকে ৩-৫ সেকেন্ডের মধ্যে কাবু করার জন্য ২০ ফুট রেঞ্জের শক্তিশালী আমেরিকান ফর্মুলা পিপার স্প্রে।',
-            'image'      => 'assets/images/products/pepper-spray.png',
-            'menu_order' => 3,
-            'meta'       => [],
+            'reg_price'  => '1630',
+            'desc'       => 'আক্রমণকারীকে ৩-৫ সেকেন্ডের মধ্যে কাবু করার জন্য ১২ ফুট রেঞ্জের শক্তিশালী সেলফ-ডিফেন্স পিপার স্প্রে (20ml, 60ml, 110ml)।',
+            'image'      => 'assets/images/pepper-spray/pepper-spray-60ml.jpg',
+            'category'   => [ 'personal-protection', 'travel-safety', 'emergency-preparedness' ],
+            'menu_order' => 2,
+            'meta'       => [
+                '_bgs_has_levels'     => 'yes',
+                '_bgs_lvl1_name'      => 'Pepper spray 20ml',
+                '_bgs_lvl1_price'     => '1190',
+                '_bgs_lvl1_reg_price' => '1630',
+                '_bgs_lvl1_badge'     => '27% OFF',
+                '_bgs_lvl2_name'      => 'Pepper Spray 60 ml',
+                '_bgs_lvl2_price'     => '1490',
+                '_bgs_lvl2_reg_price' => '2614',
+                '_bgs_lvl2_badge'     => '43% OFF',
+                '_bgs_lvl3_name'      => 'Pepper Spray 110 ml',
+                '_bgs_lvl3_price'     => '1990',
+                '_bgs_lvl3_reg_price' => '4628',
+                '_bgs_lvl3_badge'     => '57% OFF',
+            ],
+        ],
+        'torch-light' => [
+            'title'      => 'Torch Light',
+            'price'      => '490',
+            'reg_price'  => '1140',
+            'desc'       => '৫০০ মিটার লং বিম, ৪ ঘণ্টার ব্যাটারি ব্যাকআপ ও ডুয়াল-টোন সাইড লাইট সমৃদ্ধ শক্তিশালী মেটালিক টর্চ লাইট।',
+            'image'      => 'assets/images/torch-light/torch-light-main.jpg',
+            'category'   => 'home-security',
+            'menu_order' => 4,
+            'meta'       => [
+                '_bgs_discount_text'  => '57% OFF',
+                '_bgs_specs_heading'  => 'Specifications & Features',
+                '_bgs_gallery_images' => [
+                    'assets/images/torch-light/torch-light-main.jpg',
+                    'assets/images/torch-light/torch-light-slide-1.jpg',
+                    'assets/images/torch-light/torch-light-slide-2.jpg',
+                    'assets/images/torch-light/torch-light-slide-3.jpg',
+                ],
+                '_bgs_specs_list'     => [
+                    'Battery Life: দীর্ঘক্ষণ ব্যবহারের জন্য ৪ ঘণ্টার ব্যাটারি ব্যাকআপ দেয়।',
+                    'Long Beam: ৫০০ মিটার দূর পর্যন্ত আলো দেয় এই টর্চটি।',
+                    'Side Light: এতে ডুয়াল-টোন প্রফেশনাল লাইট রয়েছে।',
+                    'Fast Charge: টাইপ-সি পোর্ট দিয়ে খুব সহজে চার্জ করা যায়।',
+                    'Strong Grip: শক্ত মেটালিক বডি ও গ্রিপ হাত থেকে পড়ে না।',
+                    'Portable: পকেটে বা ব্যাগে সহজে ঝুলিয়ে নেওয়া যায়।',
+                ],
+            ],
+        ],
+        'panic-alarm-130db' => [
+            'title'      => 'Panic Alarm (130DB)',
+            'price'      => '890',
+            'reg_price'  => '1413',
+            'desc'       => '১৩০ ডেসিবেল শক্তিশালী সাইরেন ও ২০০ মিটার সাউন্ড রেঞ্জ সমৃদ্ধ পার্সোনাল ও হোম সিকিউরিটি প্যানিক অ্যালার্ম।',
+            'image'      => 'assets/images/panic-alarm/panic-alarm-main.jpg',
+            'category'   => 'home-security',
+            'menu_order' => 5,
+            'meta'       => [
+                '_bgs_discount_text'  => '37% OFF',
+                '_bgs_specs_heading'  => 'Specifications & Features',
+                '_bgs_gallery_images' => [
+                    'assets/images/panic-alarm/panic-alarm-main.jpg',
+                    'assets/images/panic-alarm/panic-alarm-slide-1.jpg',
+                    'assets/images/panic-alarm/panic-alarm-slide-2.jpg',
+                    'assets/images/panic-alarm/panic-alarm-slide-3.jpg',
+                ],
+                '_bgs_specs_list'     => [
+                    '1. High Siren: ১৩০ ডেসিবেল শক্তিশালী সাইরেন বিপদের সময় দ্রুত সংকেত দেয়।',
+                    '2. Long Sound Range: ২০০ মিটার দূর পর্যন্ত এর জোরালো অ্যালার্মের শব্দ পৌঁছায়।',
+                    '3. Fast Pull-Pin: বিপদে পিন টানলেই মুহূর্তের মধ্যে সাইরেন চালু হয়ে যায়।',
+                    '4. Dog Protection: হিংস্র কুকুর বা প্রাণীর আক্রমণ থেকে নিজেকে রক্ষা করে।',
+                    '5. Strong Chain: শক্ত মেটাল চেইন দিয়ে সহজে চাবি বা ব্যাগে আটকানো যায়।',
+                    '6. Non-Slip Grip: উন্নত টেক্সচার্ড বডি তাই জরুরি মুহূর্তে হাত থেকে পিছলে যায় না।',
+                ],
+            ],
+        ],
+        'multifunctional-tool' => [
+            'title'      => 'Multifunctional Tool',
+            'price'      => '690',
+            'reg_price'  => '2156',
+            'desc'       => '১১টি কার্যকরী ফিচার ও ফাংশন সমৃদ্ধ স্টেইনলেস স্টিল মাল্টিফাংশনাল টুল।',
+            'image'      => 'assets/images/multifunctional-tool/multifunctional-tool-main.jpg',
+            'category'   => '',
+            'menu_order' => 6,
+            'meta'       => [
+                '_bgs_discount_text'  => '68% OFF',
+                '_bgs_specs_heading'  => '🛠️ Multi-Tool: 11 Features & Functions',
+                '_bgs_gallery_images' => [
+                    'assets/images/multifunctional-tool/multifunctional-tool-main.jpg',
+                    'assets/images/multifunctional-tool/multifunctional-tool-slide-1.jpg',
+                    'assets/images/multifunctional-tool/multifunctional-tool-slide-2.jpg',
+                    'assets/images/multifunctional-tool/multifunctional-tool-slide-3.jpg',
+                ],
+                '_bgs_specs_list'     => [
+                    '1. Large Blade: দড়ি, কাপড় বা যেকোনো শক্ত জিনিস সহজে কাটার জন্য ব্যবহার করা হয়।',
+                    '2. Precision Blade: সূক্ষ্ম বা ছোটখাটো জিনিস নিখুঁতভাবে কাটার জন্য উপযোগী।',
+                    '3. Phillips Driver: মেশিনের বা ইলেকট্রনিক্সের ক্রস (Plus/+) স্ক্রু খোলা ও লাগানোর জন্য।',
+                    '4. Flat Head Screwdriver: সাধারণ ফ্ল্যাট (Minus/-) হেক্স বা রেগুলার স্ক্রু খোলার কাজে ব্যবহৃত হয়।',
+                    '5. Precision Bit: ছোট সাইজের স্ক্রু বা ঘড়ি ও চশমার মতো বারিক স্ক্রু টাইট দেওয়ার জন্য।',
+                    "6. Wood Saw: গাছের ছোট ডালপালা বা শক্ত কাঠ দ্রুত কাটার জন্য ধারালো স' ব্লেড।",
+                    '7. Corkscrew: ওয়াইন বা যেকোনো বোতলের কাঠের ছিপি (Cork) খোলার জন্য।',
+                    '8. Multi-Hook / Cap Lifter: যেকোনো ড্রিংকস বা মেটাল বোতলের ক্যাপ অনায়াসে খোলার ওপেনার।',
+                    '9. Nail File: নখ সুন্দর শেপে ফিলিং করা বা মেটালের খাঁজ সমান করার জন্য।',
+                    '10. Scissors: ছোট ব্লেডের কাঁচি দিয়ে কাগজ, সুতা বা পাতলা প্যাক কাটিং করা যায়।',
+                    '11. Key Ring: পকেটে, ব্যাগে বা চাবির সাথে টুলটি সহজে আটকে রাখার জন্য।',
+                ],
+            ],
+        ],
+        'glass-breaker' => [
+            'title'      => 'Glass Breaker',
+            'price'      => '249',
+            'reg_price'  => '341',
+            'desc'       => 'গ্লাস ব্রেকার, সিটবেল্ট কাটার ও ইমার্জেন্সি হুইসেল সমৃদ্ধ 3-in-1 ইমার্জেন্সি সেফটি টুল।',
+            'image'      => 'assets/images/glass-breaker/glass-breaker-main.jpg',
+            'category'   => '',
+            'menu_order' => 7,
+            'meta'       => [
+                '_bgs_discount_text'  => '27% OFF',
+                '_bgs_specs_heading'  => '3-in-1 Emergency Safety Tool: Key Features',
+                '_bgs_gallery_images' => [
+                    'assets/images/glass-breaker/glass-breaker-main.jpg',
+                    'assets/images/glass-breaker/glass-breaker-slide-1.jpg',
+                    'assets/images/glass-breaker/glass-breaker-slide-2.jpg',
+                ],
+                '_bgs_specs_list'     => [
+                    '1. Glass Breaker: হার্ডেনড মেটাল টিপ দিয়ে বিপদের সময় গাড়ির গ্লাস দ্রুত ভেঙে বের হওয়া যায়।',
+                    '2. Seat Belt Cutter: শার্প ব্লেড দিয়ে জ্যাম হয়ে যাওয়া সিটবেল্ট এক টানে কেটে ফেলা যায়।',
+                    '3. Emergency Whistle: অত্যন্ত জোরালো হুইসেল বা বাঁশি যা দ্রুত মানুষের দৃষ্টি আকর্ষণ করে সাহায্য চাইতে সাহায্য করে।',
+                    '4. Compact & Portable: সাইজে ছোট ও হালকা হওয়ায় পকেটে বা ব্যাগে সবসময় সাথে রাখা যায়।',
+                    '5. Keychain Ready: শক্ত কি-রিং থাকায় গাড়ির চাবি বা ব্যাগের সাথে অনায়াসে ঝুলিয়ে রাখা সম্ভব।',
+                ],
+            ],
+        ],
+        'wire-saw' => [
+            'title'      => 'Wire Saw',
+            'price'      => '199',
+            'reg_price'  => '321',
+            'desc'       => 'হালকা ও শক্তিশালী স্টেইনলেস স্টিল ইমার্জেন্সি ওয়্যার স কি-চেইন।',
+            'image'      => 'assets/images/wire-saw/wire-saw-main.jpg',
+            'category'   => '',
+            'menu_order' => 8,
+            'meta'       => [
+                '_bgs_discount_text'  => '38% OFF',
+                '_bgs_specs_heading'  => 'Key Features & Benefits',
+                '_bgs_gallery_images' => [
+                    'assets/images/wire-saw/wire-saw-main.jpg',
+                    'assets/images/wire-saw/wire-saw-slide-1.jpg',
+                    'assets/images/wire-saw/wire-saw-slide-2.jpg',
+                ],
+                '_bgs_specs_list'     => [
+                    '1. Glass Breaker: হার্ডেনড মেটাল টিপ দিয়ে বিপদের সময় গাড়ির কাঁচ ভেঙে বের হওয়া যায়।',
+                    '2. Seat Belt Cutter: শার্প ব্লেড দিয়ে আটকে যাওয়া সিটবেল্ট দ্রুত কেটে ফেলা যায়।',
+                    '3. Emergency Whistle: জোরালো হুইসেল বাজিয়ে বিপদের সময় দ্রুত সাহায্য চাওয়া যায়।',
+                    '4. Compact & Portable: অত্যন্ত ছোট ও হালকা, পকেটে বা ব্যাগে সহজে রাখা যায়।',
+                    '5. Keychain Ready: শক্ত কি-রিং থাকায় গাড়ির চাবিতে সবসময় সাথে রাখা সম্ভব।',
+                ],
+            ],
         ],
         'baseball-bat' => [
-            'title'      => 'Bodyguard Heavy-Duty Metal Baseball Bat (32 Inch) — সেলফ ডিফেন্স ও সিকিউরিটি',
-            'price'      => '1890',
-            'reg_price'  => '2890',
-            'desc'       => 'বাড়ি ও গাড়ির বিশ্বস্ত সুরক্ষায় ৩২ ইঞ্চি আনব্রেকেবল অ্যারোস্পেস অ্যালয় মেটাল বেসবল ব্যাট।',
-            'image'      => 'assets/images/products/baseball-bat.jpg',
-            'menu_order' => 4,
-            'meta'       => [],
+            'title'      => 'Baseball Bat',
+            'price'      => '1990',
+            'reg_price'  => '3491',
+            'desc'       => 'বাসা বা গাড়িতে আত্মরক্ষা ও জরুরি নিরাপত্তার জন্য ৩২ ইঞ্চি হেভি-ডিউটি মেটাল ট্যাকটিক্যাল বেসবল ব্যাট।',
+            'image'      => 'assets/images/baseball-bat/baseball-bat-main.jpg',
+            'category'   => [ 'home-security', 'emergency-preparedness' ],
+            'menu_order' => 9,
+            'meta'       => [
+                '_bgs_discount_text'  => '43% OFF',
+                '_bgs_specs_heading'  => 'Heavy-Duty Metal Tactical Bat',
+                '_bgs_gallery_images' => [
+                    'assets/images/baseball-bat/baseball-bat-main.jpg',
+                    'assets/images/baseball-bat/baseball-bat-slide-1.jpg',
+                    'assets/images/baseball-bat/baseball-bat-slide-2.jpg',
+                ],
+                '_bgs_specs_list'     => [
+                    '1. 32-Inch Perfect Size: পারফেক্ট সাইজ ও ওজন, যা সহজে কন্ট্রোল করে সর্বোচ্চ ইমপ্যাক্ট দেয়।',
+                    '2. Ultra-Durable Body: শক্ত মেটাল বডি; গাড়ি বা কংক্রিটের আঘাতেও বাঁকা হয় না।',
+                    '3. Non-Slip Grip: অ্যান্টি-স্লিপ হ্যান্ডেল গ্রিপ, তাই জরুরি মুহূর্তে হাত থেকে ছিটকে যায় না।',
+                    '4. Home & Car Protection: বাসা বা গাড়িতে আত্মরক্ষা ও জরুরি নিরাপত্তার জন্য সেরা ব্যাকআপ।',
+                    '5. Emergency Glass Breaker: যেকোনো ইমার্জেন্সিতে গাড়ির শক্ত কাঁচ ভাঙতে ব্যবহার করা যায়।',
+                    '6. Rust-Proof Finish: অল-ওয়েদার কোটিং, তাই দীর্ঘ ব্যবহারে জং পড়ে না।',
+                ],
+            ],
         ],
-        'stun-gun' => [
-            'title'      => 'Bodyguard 928 Type Heavy-Duty Stun Gun (90k Volt) — রিচার্জেবল সেলফ ডিফেন্স ইলেকট্রিক শক ডিভাইস',
-            'price'      => '1690',
-            'reg_price'  => '2690',
-            'desc'       => 'উচ্চ ভোল্টেজ ৯০০০০ ভোল্ট ইলেকট্রিক শক ও বিকট স্পার্ক সাউন্ড—ব্যক্তিগত ও পারিবারিক সুরক্ষার চূড়ান্ত ডিভাইস।',
-            'image'      => 'assets/images/products/stun-gun.jpg',
-            'menu_order' => 5,
-            'meta'       => [],
+        'pen-knife' => [
+            'title'      => 'Pen Knife',
+            'price'      => '490',
+            'reg_price'  => '860',
+            'desc'       => 'সাধারণ কলমের ছদ্মবেশে ভেতরে ধারালো হিডেন ব্লেড সমৃদ্ধ স্টেইনলেস স্টিল ট্যাকটিক্যাল পেন-নাইফ।',
+            'image'      => 'assets/images/pen-knife/pen-knife-main.jpg',
+            'category'   => '',
+            'menu_order' => 10,
+            'meta'       => [
+                '_bgs_discount_text'  => '43% OFF',
+                '_bgs_specs_heading'  => 'Tactical Pen-Knife',
+                '_bgs_gallery_images' => [
+                    'assets/images/pen-knife/pen-knife-main.jpg',
+                    'assets/images/pen-knife/pen-knife-slide-1.jpg',
+                    'assets/images/pen-knife/pen-knife-slide-2.jpg',
+                ],
+                '_bgs_specs_list'     => [
+                    '1. Stealth Self-Defense: সাধারণ কলমের মতো দেখতে হলেও ভেতরে ধারালো হিডেন ব্লেড থাকায় আত্মরক্ষায় দারুণ কার্যকরী।',
+                    '2. Smooth Writing Pen: প্রফেশনাল ব্যবহারের জন্য এটি দিয়ে রেগুলার কলমের মতো স্মুথভাবে লেখা যায়।',
+                    '3. Aircraft Grade Body: শক্ত মেটাল বডি হওয়ায় অত্যন্ত টেকসই এবং সহজে ভাঙবে না।',
+                    '4. Everyday Utility: পার্সেল খোলা, সুতা কাটিং বা যেকোনো ইমার্জেন্সি কাজে ব্লেডটি দ্রুত ব্যবহার করা যায়।',
+                    '5. Pocket & EDC Friendly: শার্টের পকেটে বা ব্যাগে সহজে বহনযোগ্য, যা সিকিউরিটির চোখে সাধারণ কলম মনে হবে।',
+                ],
+            ],
         ],
     ];
 
@@ -1013,6 +1228,7 @@ function bgs_auto_setup_store_data( $force = false ) {
                 $p = wc_get_product( $product_id );
                 if ( $p ) {
                     $p->set_name( $data['title'] );
+                    $p->set_short_description( $data['desc'] );
                     $p->set_regular_price( $data['reg_price'] );
                     $p->set_sale_price( $data['price'] );
                     $p->set_price( $data['price'] );
@@ -1029,14 +1245,22 @@ function bgs_auto_setup_store_data( $force = false ) {
                     update_post_meta( $product_id, $mk, $mv );
                 }
             }
-            // Attach image if missing
-            if ( ! has_post_thumbnail( $product_id ) && ! empty( $data['image'] ) ) {
+            // Assign category if specified
+            if ( ! empty( $data['category'] ) && taxonomy_exists( 'product_cat' ) ) {
+                if ( function_exists( 'bgs_ensure_situation_categories' ) ) {
+                    bgs_ensure_situation_categories();
+                }
+                wp_set_object_terms( $product_id, $data['category'], 'product_cat', false );
+            }
+            // Attach/update product featured image
+            if ( ( $force || ! has_post_thumbnail( $product_id ) ) && ! empty( $data['image'] ) ) {
                 bgs_attach_theme_image_to_product( $product_id, $data['image'], $data['title'] );
             }
+            wc_delete_product_transients( $product_id );
         }
     }
 
-        // Remove/Trash Shock Gun products (Item 17)
+    // Remove/Trash Shock Gun products (Item 17)
     global $wpdb;
     $stun_ids = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_name IN ('stun-gun', 'shut-gun', 'bodyguard-tactical-stun-gun', '928-type-stun-gun') OR post_title LIKE '%Stun Gun%' OR post_title LIKE '%Shock Gun%'");
     if (!empty($stun_ids)) {
@@ -1045,18 +1269,18 @@ function bgs_auto_setup_store_data( $force = false ) {
         }
     }
 
-    update_option( 'bgs_store_data_v1_seeded', 'yes' );
+    update_option( 'bgs_store_data_v10_seeded', 'yes' );
 }
 
 // Automatically seed store upon theme activation
 add_action( 'after_switch_theme', function() {
-    bgs_auto_setup_store_data( false );
+    bgs_auto_setup_store_data( true );
 } );
 
 // Check and seed on admin_init if not yet seeded, and handle manual sync button
 add_action( 'admin_init', function() {
-    if ( get_option( 'bgs_store_data_v1_seeded' ) !== 'yes' ) {
-        bgs_auto_setup_store_data( false );
+    if ( get_option( 'bgs_store_data_v10_seeded' ) !== 'yes' ) {
+        bgs_auto_setup_store_data( true );
     }
 
     // Manual sync action triggered by admin
@@ -1075,7 +1299,7 @@ add_action( 'admin_notices', function() {
 
     if ( isset( $_GET['bgs_synced'] ) ) {
         echo '<div class="notice notice-success is-dismissible" style="border-left:4px solid #10b981;padding:12px 16px;margin:15px 0;">';
-        echo '<p style="font-weight:700;font-size:15px;color:#10b981;margin:0 0 4px;">✅ Bodyguard Shop: ৫টি প্রোডাক্ট ও সমস্ত সেটিংস সফলভাবে আপডেট ও সিঙ্ক হয়েছে!</p>';
+        echo '<p style="font-weight:700;font-size:15px;color:#10b981;margin:0 0 4px;">✅ Bodyguard Shop: ১০টি প্রোডাক্ট, ছবি, ক্যাটাগরি ও সমস্ত সেটিংস সফলভাবে আপডেট ও সিঙ্ক হয়েছে!</p>';
         echo '<p style="margin:0;color:#333;">লাইভ সাইটে নতুন ডিজাইন দেখতে ব্রাউজারে <strong>Ctrl + F5</strong> চাপুন এবং কোনো ক্যাশ প্লাগইন (যেমন LiteSpeed Cache) থাকলে <strong>"Purge All"</strong> করুন।</p>';
         echo '</div>';
         return;
@@ -1085,7 +1309,7 @@ add_action( 'admin_notices', function() {
     echo '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">';
     echo '<div>';
     echo '<strong style="color:#C9A96E;font-size:16px;display:block;margin-bottom:3px;">🛡️ Bodyguard Shop Theme</strong>';
-    echo '<span style="font-size:13.5px;color:#d1d1db;">লাইভ সাইটে সব প্রোডাক্ট (Cut Proof, Combo, Pepper Spray, Baseball Bat, Stun Gun) তৈরি বা সেটিংস রিলোড করতে:</span>';
+    echo '<span style="font-size:13.5px;color:#d1d1db;">লাইভ সাইটে সব ১০টি প্রোডাক্ট (Cut-Proof Vest, Pepper Spray, BodyGard Combo, Torch Light, Panic Alarm, Multifunctional Tool, Glass Breaker, Wire Saw, Baseball Bat, Pen Knife) এক ক্লিকে আপলোড/আপডেট করতে:</span>';
     echo '</div>';
     echo '<a href="' . esc_url( $sync_url ) . '" class="button button-primary" style="background:#C9A96E;border-color:#b89352;color:#000000;font-weight:800;padding:6px 20px;font-size:14px;border-radius:24px;text-decoration:none;box-shadow:0 4px 12px rgba(201,169,110,0.4);">⚡ এক ক্লিকে প্রোডাক্ট ও সেটিংস সিঙ্ক করুন (Sync Store)</a>';
     echo '</div>';
@@ -1164,9 +1388,9 @@ function bgs_ensure_situation_categories() {
         }
     }
 
-    // One-time cleanup of any previously auto-assigned situation categories on seeded products
+    // One-time cleanup of any previously auto-assigned situation categories on unconfigured seeded products
     if ( get_option( 'bgs_cleaned_auto_cats_v1' ) !== 'yes' ) {
-        $seeded_slugs = [ 'pepper-spray', 'baseball-bat', 'bodygard-combo', 'cut-proof-t-shirt' ];
+        $seeded_slugs = [ 'baseball-bat' ];
         foreach ( $seeded_slugs as $s_slug ) {
             $p_post = get_page_by_path( $s_slug, OBJECT, 'product' );
             if ( $p_post ) {
@@ -1175,5 +1399,38 @@ function bgs_ensure_situation_categories() {
         }
         update_option( 'bgs_cleaned_auto_cats_v1', 'yes' );
     }
+
+    // Ensure all 4 situation categories have the exact assigned products
+    if ( get_option( 'bgs_situation_cats_v7' ) !== 'yes' ) {
+        $cat_map = [
+            'cut-proof-t-shirt' => [ 'personal-protection', 'emergency-preparedness' ],
+            'pepper-spray'      => [ 'personal-protection', 'travel-safety', 'emergency-preparedness' ],
+            'bodygard-combo'    => [ 'personal-protection', 'travel-safety', 'emergency-preparedness' ],
+            'torch-light'       => [ 'home-security' ],
+            'panic-alarm-130db' => [ 'home-security' ],
+            'baseball-bat'      => [ 'home-security', 'emergency-preparedness' ],
+        ];
+        foreach ( $cat_map as $p_slug => $p_cats ) {
+            $p_post = get_page_by_path( $p_slug, OBJECT, 'product' );
+            if ( $p_post ) {
+                wp_set_object_terms( $p_post->ID, $p_cats, 'product_cat', false );
+            }
+        }
+        update_option( 'bgs_situation_cats_v7', 'yes' );
+    }
 }
 add_action( 'init', 'bgs_ensure_situation_categories', 20 );
+
+
+/**
+ * Output Website Favicon / Site Icon across Frontend, WP Admin & Login
+ */
+function bgs_output_custom_favicon() {
+    $uri = get_template_directory_uri() . '/assets/images/icon';
+    echo '<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url( $uri . '/favicon-32.png' ) . '">' . "\n";
+    echo '<link rel="icon" type="image/png" sizes="64x64" href="' . esc_url( $uri . '/favicon-64.png' ) . '">' . "\n";
+    echo '<link rel="icon" type="image/png" sizes="192x192" href="' . esc_url( $uri . '/site-icon-192.png' ) . '">' . "\n";
+    echo '<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url( $uri . '/apple-touch-icon.png' ) . '">' . "\n";
+}
+add_action( 'admin_head', 'bgs_output_custom_favicon' );
+add_action( 'login_head', 'bgs_output_custom_favicon' );

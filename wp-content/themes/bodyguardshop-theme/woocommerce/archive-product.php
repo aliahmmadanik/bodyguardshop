@@ -54,7 +54,7 @@ get_header();
                 $price     = $product ? (float)$product->get_price() : 0;
                 $reg_price = $product && (float)$product->get_regular_price() > 0 ? (float)$product->get_regular_price() : $price;
                 $perm      = get_permalink($p_id);
-                $thumb_url = get_the_post_thumbnail_url($p_id, 'medium_large');
+                $thumb_url = function_exists('bgs_get_product_card_image_url') ? bgs_get_product_card_image_url($p_id, $slug) : get_the_post_thumbnail_url($p_id, 'medium_large');
 
                 // Bundled theme image fallbacks
                 if ( ! $thumb_url ) {
@@ -143,40 +143,40 @@ get_header();
         if ( $shown_count === 0 ) :
             $fallback_prods = [
                 [
-                    'title' => 'Bodyguard Cut Proof T-Shirt & Body Armor (লেভেল ১, ২, ৩)',
+                    'title' => 'Cut-Proof Vest',
                     'slug'  => 'cut-proof-t-shirt',
                     'price' => 8990,
-                    'reg'   => 12000,
+                    'reg'   => 14500,
                     'rating'=> '4.8',
                     'rev'   => '218',
                     'img'   => get_template_directory_uri() . '/assets/images/products/cut-proof-t-shirt.jpg',
                 ],
                 [
-                    'title' => 'Bodyguard Combo — ৭-ইন-১ সেলফ ডিফেন্স কিট',
-                    'slug'  => 'bodygard-combo',
-                    'price' => 1590,
-                    'reg'   => 2990,
-                    'rating'=> '4.9',
-                    'rev'   => '345',
-                    'img'   => get_template_directory_uri() . '/assets/images/products/bodygard-combo.jpg',
-                ],
-                [
-                    'title' => 'Bodyguard Self-Defense Pepper Spray',
+                    'title' => 'Pepper Spray',
                     'slug'  => 'pepper-spray',
                     'price' => 1190,
-                    'reg'   => 1590,
+                    'reg'   => 1630,
                     'rating'=> '5.0',
                     'rev'   => '412',
-                    'img'   => get_template_directory_uri() . '/assets/images/products/pepper-spray.png',
+                    'img'   => get_template_directory_uri() . '/assets/images/pepper-spray/pepper-spray-60ml.jpg',
                 ],
                 [
-                    'title' => 'Bodyguard Heavy-Duty Metal Baseball Bat (৩২ ইঞ্চি)',
+                    'title' => 'BodyGard Combo',
+                    'slug'  => 'bodygard-combo',
+                    'price' => 2990,
+                    'reg'   => 6953,
+                    'rating'=> '4.9',
+                    'rev'   => '345',
+                    'img'   => get_template_directory_uri() . '/assets/images/combo/bodyguard-combo-7in1-kit.jpg',
+                ],
+                [
+                    'title' => 'Baseball Bat',
                     'slug'  => 'baseball-bat',
-                    'price' => 1890,
-                    'reg'   => 2890,
+                    'price' => 1990,
+                    'reg'   => 3491,
                     'rating'=> '4.9',
                     'rev'   => '165',
-                    'img'   => get_template_directory_uri() . '/assets/images/products/baseball-bat.jpg',
+                    'img'   => get_template_directory_uri() . '/assets/images/baseball-bat/baseball-bat-main.jpg',
                 ],
             ];
             foreach ($fallback_prods as $fp) :
