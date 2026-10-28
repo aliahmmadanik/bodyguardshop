@@ -27,7 +27,7 @@ $bgs_standard_catalog = array(
         'sale_price'    => 490,
         'discount_text' => '57% OFF',
         'images'        => array(
-            $theme_uri . '/assets/images/torch-light/torch-light-main.jpg',
+            $theme_uri . '/assets/images/torch-light/torch-light-main.jpg?v=hd2',
             $theme_uri . '/assets/images/torch-light/torch-light-slide-1.jpg',
             $theme_uri . '/assets/images/torch-light/torch-light-slide-2.jpg',
             $theme_uri . '/assets/images/torch-light/torch-light-slide-3.jpg',
@@ -49,7 +49,7 @@ $bgs_standard_catalog = array(
         'sale_price'    => 890,
         'discount_text' => '37% OFF',
         'images'        => array(
-            $theme_uri . '/assets/images/panic-alarm/panic-alarm-main.jpg',
+            $theme_uri . '/assets/images/panic-alarm/panic-alarm-main.jpg?v=hd2',
             $theme_uri . '/assets/images/panic-alarm/panic-alarm-slide-1.jpg',
             $theme_uri . '/assets/images/panic-alarm/panic-alarm-slide-2.jpg',
             $theme_uri . '/assets/images/panic-alarm/panic-alarm-slide-3.jpg',

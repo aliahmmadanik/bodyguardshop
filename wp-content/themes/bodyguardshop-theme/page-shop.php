@@ -54,7 +54,7 @@ get_header();
                 $price     = $product ? (float)$product->get_price() : 0;
                 $reg_price = $product && (float)$product->get_regular_price() > 0 ? (float)$product->get_regular_price() : $price;
                 $perm      = get_permalink($p_id);
-                $thumb_url = get_the_post_thumbnail_url($p_id, 'medium_large');
+                $thumb_url = function_exists('bgs_get_product_card_image_url') ? bgs_get_product_card_image_url($p_id, $slug) : get_the_post_thumbnail_url($p_id, 'medium_large');
 
                 // Bundled theme image fallbacks
                 if ( ! $thumb_url ) {
@@ -113,13 +113,13 @@ get_header();
 
               <div class="bgs-shop-card-rating">
                 <span class="stars">★★★★★</span>
-                <span class="rating-txt"><strong><?php echo esc_html($rating_val); ?></strong> (<?php echo esc_html($reviews_ct); ?>+ রিভিউ)</span>
+                <span class="rating-txt"><strong><?php echo esc_html($rating_val); ?></strong> (<?php echo esc_html($reviews_ct); ?>টি রিভিউ)</span>
               </div>
 
               <div class="bgs-shop-card-price">
-                <span class="cur-price">৳<?php echo number_format($price, 0); ?></span>
+                <del class="cur-price">৳<?php echo number_format($reg_price, 0); ?></del>
                 <?php if ($save > 0) : ?>
-                  <del class="old-price">৳<?php echo number_format($reg_price, 0); ?></del>
+                  <span class="old-price">৳<?php echo number_format($price, 0); ?></span>
                 <?php endif; ?>
               </div>
 
@@ -198,12 +198,12 @@ get_header();
 
               <div class="bgs-shop-card-rating">
                 <span class="stars">★★★★★</span>
-                <span class="rating-txt"><strong><?php echo esc_html($fp['rating']); ?></strong> (<?php echo esc_html($fp['rev']); ?>+ রিভিউ)</span>
+                <span class="rating-txt"><strong><?php echo esc_html($fp['rating']); ?></strong> (<?php echo esc_html($fp['rev']); ?>টি রিভিউ)</span>
               </div>
 
               <div class="bgs-shop-card-price">
-                <span class="cur-price">৳<?php echo number_format($fp['price'], 0); ?></span>
-                <del class="old-price">৳<?php echo number_format($fp['reg'], 0); ?></del>
+                <del class="cur-price">৳<?php echo number_format($fp['reg'], 0); ?></del>
+                <span class="old-price">৳<?php echo number_format($fp['price'], 0); ?></span>
               </div>
 
               <div class="bgs-shop-delivery-tag">
@@ -398,11 +398,14 @@ get_header();
   font-size: 1.55rem;
   font-weight: 800;
   color: #C9A96E;
+  text-decoration: line-through;
 }
 
 .bgs-shop-card-price .old-price {
   font-size: 1rem;
-  color: #6B7280;
+  font-weight: 700;
+  color: #E5E7EB;
+  text-decoration: none !important;
 }
 
 .bgs-shop-delivery-tag {

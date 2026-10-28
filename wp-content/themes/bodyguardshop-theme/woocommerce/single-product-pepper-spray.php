@@ -13,9 +13,9 @@ $product = wc_get_product( $pid );
 $product_title = $product ? $product->get_name() : 'Pepper Spray';
 $ps_base_uri   = get_template_directory_uri() . '/assets/images/pepper-spray/';
 
-$img_20ml      = $ps_base_uri . 'pepper-spray-20ml.jpg';
-$img_60ml      = $ps_base_uri . 'pepper-spray-60ml.jpg';
-$img_110ml     = $ps_base_uri . 'pepper-spray-110ml.jpg';
+$img_20ml      = $ps_base_uri . 'pepper-spray-20ml.jpg?v=hd2';
+$img_60ml      = $ps_base_uri . 'pepper-spray-60ml.jpg?v=hd2';
+$img_110ml     = $ps_base_uri . 'pepper-spray-110ml.jpg?v=hd2';
 
 $thumb_url     = get_the_post_thumbnail_url( $pid, 'large' );
 if ( ! $thumb_url ) {
@@ -114,36 +114,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
           </div>
         </div>
 
-        <!-- Protection Capacities -->
-        <h3 class="bgs-ps-box-title" style="margin-top:20px;margin-bottom:12px;color:#C9A96E;">আপনার প্রয়োজনীয় সাইজ বেছে নিন:</h3>
-        <ul class="bgs-ps-icon-list">
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">
-              <strong>Pepper spray 20ml</strong> (পকেট সাইজ) — <del style="color:#888;">৳1,630</del> <span class="bgs-ps-inline-off">27% OFF</span> | <strong>৳ 1,190</strong>
-            </span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">
-              <strong>Pepper Spray 60 ml</strong> (ফ্যামিলি সাইজ) — <del style="color:#888;">৳2,614</del> <span class="bgs-ps-inline-off">43% OFF</span> | <strong>৳1,490</strong>
-            </span>
-          </li>
-          <li class="bgs-ps-icon-item">
-            <span class="bgs-ps-icon-check">
-              <svg viewBox="0 0 512 512" fill="currentColor"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
-            </span>
-            <span class="bgs-ps-item-text">
-              <strong>Pepper Spray 110 ml</strong> (জাম্বো সাইজ) — <del style="color:#888;">৳4,628</del> <span class="bgs-ps-inline-off">57% OFF</span> | <strong>৳1,990</strong>
-            </span>
-          </li>
-        </ul>
-
-        <div class="bgs-ps-cta-wrap" style="margin-top:16px;">
+        <div class="bgs-ps-cta-wrap" style="margin-top:18px;">
           <a href="#order" class="bgs-ps-btn-cta">অর্ডার করতে নিচের ফর্মটি পূরণ করুন &darr;</a>
         </div>
       </div>
@@ -151,220 +122,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
 
 
     <!-- ==========================================================================
-         4. EXPRESS CHECKOUT BOX (ITEM 21: DIRECTLY AFTER PRODUCT)
-         ========================================================================== -->
-    <section class="bgs-ps-section bgs-ps-order-sec" id="order">
-      <h2 class="bgs-ps-heading" style="color:#C9A96E;">অর্ডার করতে নিচের ফর্মটি পূরণ করুন</h2>
-
-      <div class="bgs-ps-checkout-card">
-        <form id="bgs-ps-checkout-form" class="bgs-ps-form" novalidate>
-          <input type="hidden" name="action" value="bgs_process_direct_order">
-          <input type="hidden" name="product_id" value="<?php echo esc_attr( $pid ); ?>">
-          <input type="hidden" id="bgs-selected-package" name="selected_level" value="Pepper spray 20ml">
-          <input type="hidden" id="bgs-level-price" name="level_price" value="1190">
-          <input type="hidden" name="delivery_zone" value="free">
-
-          <!-- Selected Product Live Preview Card -->
-          <div class="bgs-ps-form-summary-card">
-            <div class="bgs-ps-fsc-thumb">
-              <img src="<?php echo esc_url( $img_20ml ); ?>" alt="Pepper Spray" id="bgs-form-prod-thumb">
-            </div>
-            <div class="bgs-ps-fsc-info">
-              <span class="bgs-ps-fsc-badge" id="bgs-fsc-badge">🔥 27% OFF</span>
-              <h4 class="bgs-ps-fsc-title" id="bgs-fsc-title">Pepper spray 20ml</h4>
-              <div class="bgs-ps-fsc-price-row">
-                <span class="bgs-ps-fsc-sale">৳ <span id="bgs-fsc-price">1,190</span></span>
-                <span class="bgs-ps-fsc-reg">৳ <span id="bgs-fsc-reg">1,630</span></span>
-                <span class="bgs-ps-fsc-save">সাশ্রয় ৳ <span id="bgs-fsc-save">440</span></span>
-              </div>
-              <p class="bgs-ps-fsc-desc">🛡️ শক্তিশালী দূরপাল্লার স্প্রে • ১২ ফুট দূর থেকেই আক্রমণকারী নিস্তেজ</p>
-            </div>
-          </div>
-
-          <!-- 1. Customer Billing Details -->
-          <div class="bgs-ps-group">
-            <label for="bgs_name" class="bgs-ps-label">আপনার নাম লিখুন <span class="bgs-ps-req">*</span></label>
-            <input type="text" id="bgs_name" name="billing_first_name" class="bgs-ps-input" placeholder="আপনার পুরো নাম লিখুন" required>
-          </div>
-
-          <div class="bgs-ps-group">
-            <label for="bgs_phone" class="bgs-ps-label">আপনার মোবাইল নাম্বার লিখুন <span class="bgs-ps-req">*</span></label>
-            <input type="tel" id="bgs_phone" name="billing_phone" class="bgs-ps-input" placeholder="১১ ডিজিটের মোবাইল নম্বর দিন (যেমন: 017xxxxxxxx)" pattern="[0-9]{11}" required>
-          </div>
-
-          <div class="bgs-ps-group">
-            <label for="bgs_address" class="bgs-ps-label">আপনার সম্পূর্ণ ঠিকানা লিখুন <span class="bgs-ps-req">*</span></label>
-            <textarea id="bgs_address" name="billing_address_1" class="bgs-ps-textarea" rows="2" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা উল্লেখ করুন" required></textarea>
-          </div>
-
-          <!-- 2. Free Delivery Notification (Item 10) -->
-          <div class="bgs-ps-group bgs-ps-free-shipping-card">
-            <div class="bgs-ps-free-box">
-              <span class="bgs-ps-free-ic">🚚</span>
-              <div>
-                <strong>হোম ডেলিভারি সম্পূর্ণ ফ্রি!</strong>
-                <p>সারা বাংলাদেশে কোনো ডেলিভারি চার্জ প্রযোজ্য নয় (৳ ০)।</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Package Selection (20ml / 60ml / 110ml) -->
-          <div class="bgs-ps-packages-box">
-            <h4 class="bgs-ps-box-title">প্যাকেজ নির্বাচন করুন:</h4>
-
-            <!-- Package 1: 20ml -->
-            <label class="bgs-ps-product-row active"
-                   data-pkg="Pepper spray 20ml"
-                   data-price="1190"
-                   data-reg="1630"
-                   data-off="27% OFF"
-                   data-img="<?php echo esc_url( $img_20ml ); ?>">
-              <div class="bgs-ps-row-left">
-                <input type="radio" name="package_select" value="20ml" class="bgs-ps-radio" checked>
-                <img src="<?php echo esc_url( $img_20ml ); ?>" alt="20ml" class="bgs-ps-row-thumb">
-                <div class="bgs-ps-item-info">
-                  <span class="bgs-ps-item-title">Pepper spray 20ml</span>
-                  <span class="bgs-ps-item-sub">
-                    <del class="bgs-ps-row-old">৳1,630</del>
-                    <span class="bgs-ps-row-off">27% OFF</span>
-                  </span>
-                </div>
-              </div>
-              <div class="bgs-ps-row-right">
-                <div class="bgs-ps-qty-wrap">
-                  <button type="button" class="bgs-ps-qty-btn bgs-ps-minus" data-target="qty-20ml">−</button>
-                  <input type="number" id="qty-20ml" class="bgs-ps-qty-input" value="1" min="1" max="20" readonly>
-                  <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-20ml">+</button>
-                </div>
-                <div class="bgs-ps-price-cell">
-                  <span class="bgs-ps-currency">৳ </span><span class="bgs-ps-amount">1,190</span>
-                </div>
-              </div>
-            </label>
-
-            <!-- Package 2: 60ml -->
-            <label class="bgs-ps-product-row"
-                   data-pkg="Pepper Spray 60 ml"
-                   data-price="1490"
-                   data-reg="2614"
-                   data-off="43% OFF"
-                   data-img="<?php echo esc_url( $img_60ml ); ?>">
-              <div class="bgs-ps-row-left">
-                <input type="radio" name="package_select" value="60ml" class="bgs-ps-radio">
-                <img src="<?php echo esc_url( $img_60ml ); ?>" alt="60ml" class="bgs-ps-row-thumb">
-                <div class="bgs-ps-item-info">
-                  <span class="bgs-ps-item-title">Pepper Spray 60 ml</span>
-                  <span class="bgs-ps-item-sub">
-                    <del class="bgs-ps-row-old">৳2,614</del>
-                    <span class="bgs-ps-row-off">43% OFF</span>
-                  </span>
-                </div>
-              </div>
-              <div class="bgs-ps-row-right">
-                <div class="bgs-ps-qty-wrap">
-                  <button type="button" class="bgs-ps-qty-btn bgs-ps-minus" data-target="qty-60ml">−</button>
-                  <input type="number" id="qty-60ml" class="bgs-ps-qty-input" value="1" min="1" max="20" readonly>
-                  <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-60ml">+</button>
-                </div>
-                <div class="bgs-ps-price-cell">
-                  <span class="bgs-ps-currency">৳</span><span class="bgs-ps-amount">1,490</span>
-                </div>
-              </div>
-            </label>
-
-            <!-- Package 3: 110ml -->
-            <label class="bgs-ps-product-row"
-                   data-pkg="Pepper Spray 110 ml"
-                   data-price="1990"
-                   data-reg="4628"
-                   data-off="57% OFF"
-                   data-img="<?php echo esc_url( $img_110ml ); ?>">
-              <div class="bgs-ps-row-left">
-                <input type="radio" name="package_select" value="110ml" class="bgs-ps-radio">
-                <img src="<?php echo esc_url( $img_110ml ); ?>" alt="110ml" class="bgs-ps-row-thumb">
-                <div class="bgs-ps-item-info">
-                  <span class="bgs-ps-item-title">Pepper Spray 110 ml</span>
-                  <span class="bgs-ps-item-sub">
-                    <del class="bgs-ps-row-old">৳4,628</del>
-                    <span class="bgs-ps-row-off">57% OFF</span>
-                  </span>
-                </div>
-              </div>
-              <div class="bgs-ps-row-right">
-                <div class="bgs-ps-qty-wrap">
-                  <button type="button" class="bgs-ps-qty-btn bgs-ps-minus" data-target="qty-110ml">−</button>
-                  <input type="number" id="qty-110ml" class="bgs-ps-qty-input" value="1" min="1" max="20" readonly>
-                  <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-110ml">+</button>
-                </div>
-                <div class="bgs-ps-price-cell">
-                  <span class="bgs-ps-currency">৳</span><span class="bgs-ps-amount">1,990</span>
-                </div>
-              </div>
-            </label>
-          </div>
-
-          <!-- 4. Your Order Summary Table -->
-          <div class="bgs-ps-order-table-card">
-            <h4 class="bgs-ps-box-title">Your order</h4>
-            <table class="bgs-ps-table">
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th class="bgs-ps-text-right">Subtotal</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span id="bgs-summary-prod-name">Pepper spray 20ml</span> 
-                    <strong>× <span id="bgs-summary-qty">1</span></strong>
-                  </td>
-                  <td class="bgs-ps-text-right">
-                    <span id="bgs-summary-subtotal">1,190</span> ৳
-                  </td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>Subtotal</th>
-                  <td class="bgs-ps-text-right"><span id="bgs-summary-subtotal-foot">1,190</span> ৳</td>
-                </tr>
-                <tr>
-                  <th>Shipment</th>
-                  <td class="bgs-ps-text-right"><span class="bgs-ps-free-tag">ডেলিভারি চার্জ ফ্রি (৳ ০)</span></td>
-                </tr>
-                <tr class="bgs-ps-total-row">
-                  <th>Total</th>
-                  <td class="bgs-ps-text-right">
-                    <strong><span id="bgs-summary-total">1,190</span> ৳</strong>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-
-          <!-- 5. Payment Method & Place Order -->
-          <div class="bgs-ps-payment-box">
-            <div class="bgs-ps-payment-method">
-              <input type="radio" id="cod" name="payment_method" value="cod" checked>
-              <label for="cod">Cash on delivery (ক্যাশ অন ডেলিভারি)</label>
-            </div>
-            <p class="bgs-ps-payment-hint">পণ্য হাতে পেয়ে ডেলিভারিম্যানের কাছে মূল্য পরিশোধ করুন।</p>
-
-            <button type="submit" id="bgs-place-order-btn" class="bgs-ps-submit-btn">
-              <span class="bgs-ps-btn-label">Place Order &nbsp;&nbsp;<span id="bgs-btn-price-display">1,190</span> ৳</span>
-              <span class="bgs-ps-btn-loader" style="display:none;">অর্ডার প্রসেস হচ্ছে...</span>
-            </button>
-
-            <div id="bgs-order-feedback" class="bgs-ps-feedback" style="display:none;"></div>
-          </div>
-        </form>
-      </div>
-    </section>
-
-
-    <!-- ==========================================================================
-         5. HOW IT SAVES YOU ("এটি কীভাবে আপনাকে বাঁচাবে?")
+         4. HOW IT SAVES YOU ("এটি কীভাবে আপনাকে বাঁচাবে?")
          ========================================================================== -->
     <section class="bgs-ps-section">
       <h2 class="bgs-ps-heading">এটি কীভাবে আপনাকে বাঁচাবে?</h2>
@@ -413,7 +171,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
 
 
     <!-- ==========================================================================
-         6. THREAT CONSEQUENCE VIDEO
+         5. THREAT CONSEQUENCE VIDEO
          ========================================================================== -->
     <section class="bgs-ps-section">
       <h2 class="bgs-ps-heading">বডিগার্ড স্প্রে আপনার সাথে না থাকলে কী হতে পারে?</h2>
@@ -432,7 +190,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
 
 
     <!-- ==========================================================================
-         7. CUSTOMER REVIEWS (3 VIDEOS)
+         6. CUSTOMER REVIEWS (3 VIDEOS)
          ========================================================================== -->
     <section class="bgs-ps-section">
       <h2 class="bgs-ps-heading">কাস্টমার রিভিউ (Customer Reviews)</h2>
@@ -478,7 +236,7 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
 
 
     <!-- ==========================================================================
-         8. QUICK CONTACT BUTTONS
+         7. QUICK CONTACT BUTTONS
          ========================================================================== -->
     <section class="bgs-ps-section bgs-ps-contact-sec">
       <div class="bgs-ps-contact-grid">
@@ -490,6 +248,227 @@ $shop_whatsapp = get_option( 'bgs_whatsapp', '8801409710012' );
           <span class="bgs-ps-btn-icon">💬</span>
           <span>Whatsapp মেসেজ করুন</span>
         </a>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         8. ML / PACKAGE SELECTION + ORDER NOW FORM AT THE VERY BOTTOM
+         ========================================================================== -->
+    <section class="bgs-ps-section bgs-ps-order-sec" id="order">
+
+      <!-- 8A. ML Selection Box (Directly Above the Order Now Form) -->
+      <div class="bgs-ps-capacity-card" style="margin-bottom: 24px;">
+        <h3 class="bgs-ps-box-title" style="margin-top:0;margin-bottom:14px;color:#C9A96E;text-align:center;font-size:22px;">
+          আপনার প্রয়োজনীয় সাইজ (কত ML নিবেন) নির্বাচন করুন:
+        </h3>
+
+        <div class="bgs-ps-packages-box" style="margin-bottom:0;">
+
+          <!-- Package 1: 20ml -->
+          <label class="bgs-ps-product-row active"
+                 data-pkg="Pepper spray 20ml"
+                 data-price="1190"
+                 data-reg="1630"
+                 data-off="27% OFF"
+                 data-img="<?php echo esc_url( $img_20ml ); ?>">
+            <div class="bgs-ps-row-left">
+              <input type="radio" name="package_select" value="20ml" class="bgs-ps-radio" checked>
+              <img src="<?php echo esc_url( $img_20ml ); ?>" alt="20ml" class="bgs-ps-row-thumb">
+              <div class="bgs-ps-item-info">
+                <span class="bgs-ps-item-title">Pepper spray 20ml <small style="color:#b3b3b3;font-weight:500;">(পকেট সাইজ)</small></span>
+                <span class="bgs-ps-item-sub">
+                  <del class="bgs-ps-row-old">৳1,630</del>
+                  <span class="bgs-ps-row-off">27% OFF</span>
+                </span>
+              </div>
+            </div>
+            <div class="bgs-ps-row-right">
+              <div class="bgs-ps-qty-wrap">
+                <button type="button" class="bgs-ps-qty-btn bgs-ps-minus" data-target="qty-20ml">−</button>
+                <input type="number" id="qty-20ml" class="bgs-ps-qty-input" value="1" min="1" max="20" readonly>
+                <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-20ml">+</button>
+              </div>
+              <div class="bgs-ps-price-cell">
+                <span class="bgs-ps-currency">৳ </span><span class="bgs-ps-amount">1,190</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- Package 2: 60ml -->
+          <label class="bgs-ps-product-row"
+                 data-pkg="Pepper Spray 60 ml"
+                 data-price="1490"
+                 data-reg="2614"
+                 data-off="43% OFF"
+                 data-img="<?php echo esc_url( $img_60ml ); ?>">
+            <div class="bgs-ps-row-left">
+              <input type="radio" name="package_select" value="60ml" class="bgs-ps-radio">
+              <img src="<?php echo esc_url( $img_60ml ); ?>" alt="60ml" class="bgs-ps-row-thumb">
+              <div class="bgs-ps-item-info">
+                <span class="bgs-ps-item-title">Pepper Spray 60 ml <small style="color:#b3b3b3;font-weight:500;">(ফ্যামিলি সাইজ)</small></span>
+                <span class="bgs-ps-item-sub">
+                  <del class="bgs-ps-row-old">৳2,614</del>
+                  <span class="bgs-ps-row-off">43% OFF</span>
+                </span>
+              </div>
+            </div>
+            <div class="bgs-ps-row-right">
+              <div class="bgs-ps-qty-wrap">
+                <button type="button" class="bgs-ps-qty-btn bgs-ps-minus" data-target="qty-60ml">−</button>
+                <input type="number" id="qty-60ml" class="bgs-ps-qty-input" value="1" min="1" max="20" readonly>
+                <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-60ml">+</button>
+              </div>
+              <div class="bgs-ps-price-cell">
+                <span class="bgs-ps-currency">৳ </span><span class="bgs-ps-amount">1,490</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- Package 3: 110ml -->
+          <label class="bgs-ps-product-row"
+                 data-pkg="Pepper Spray 110 ml"
+                 data-price="1990"
+                 data-reg="4628"
+                 data-off="57% OFF"
+                 data-img="<?php echo esc_url( $img_110ml ); ?>">
+            <div class="bgs-ps-row-left">
+              <input type="radio" name="package_select" value="110ml" class="bgs-ps-radio">
+              <img src="<?php echo esc_url( $img_110ml ); ?>" alt="110ml" class="bgs-ps-row-thumb">
+              <div class="bgs-ps-item-info">
+                <span class="bgs-ps-item-title">Pepper Spray 110 ml <small style="color:#b3b3b3;font-weight:500;">(জাম্বো সাইজ)</small></span>
+                <span class="bgs-ps-item-sub">
+                  <del class="bgs-ps-row-old">৳4,628</del>
+                  <span class="bgs-ps-row-off">57% OFF</span>
+                </span>
+              </div>
+            </div>
+            <div class="bgs-ps-row-right">
+              <div class="bgs-ps-qty-wrap">
+                <button type="button" class="bgs-ps-qty-btn bgs-ps-minus" data-target="qty-110ml">−</button>
+                <input type="number" id="qty-110ml" class="bgs-ps-qty-input" value="1" min="1" max="20" readonly>
+                <button type="button" class="bgs-ps-qty-btn bgs-ps-plus" data-target="qty-110ml">+</button>
+              </div>
+              <div class="bgs-ps-price-cell">
+                <span class="bgs-ps-currency">৳ </span><span class="bgs-ps-amount">1,990</span>
+              </div>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- 8B. Order Now Checkout Form (At the Very Bottom) -->
+      <h2 class="bgs-ps-heading" style="color:#C9A96E;">অর্ডার করতে নিচের ফর্মটি পূরণ করুন</h2>
+
+      <div class="bgs-ps-checkout-card">
+        <form id="bgs-ps-checkout-form" class="bgs-ps-form" novalidate>
+          <input type="hidden" name="action" value="bgs_process_direct_order">
+          <input type="hidden" name="product_id" value="<?php echo esc_attr( $pid ); ?>">
+          <input type="hidden" id="bgs-selected-package" name="selected_level" value="Pepper spray 20ml">
+          <input type="hidden" id="bgs-level-price" name="level_price" value="1190">
+          <input type="hidden" name="delivery_zone" value="free">
+
+          <!-- Selected Product Live Preview Card -->
+          <div class="bgs-ps-form-summary-card">
+            <div class="bgs-ps-fsc-thumb">
+              <img src="<?php echo esc_url( $img_20ml ); ?>" alt="Pepper Spray" id="bgs-form-prod-thumb">
+            </div>
+            <div class="bgs-ps-fsc-info">
+              <span class="bgs-ps-fsc-badge" id="bgs-fsc-badge">🔥 27% OFF</span>
+              <h4 class="bgs-ps-fsc-title" id="bgs-fsc-title">Pepper spray 20ml</h4>
+              <div class="bgs-ps-fsc-price-row">
+                <span class="bgs-ps-fsc-sale">৳ <span id="bgs-fsc-price">1,190</span></span>
+                <span class="bgs-ps-fsc-reg">৳ <span id="bgs-fsc-reg">1,630</span></span>
+                <span class="bgs-ps-fsc-save">সাশ্রয় ৳ <span id="bgs-fsc-save">440</span></span>
+              </div>
+              <p class="bgs-ps-fsc-desc">🛡️ শক্তিশালী দূরপাল্লার স্প্রে • ১২ ফুট দূর থেকেই আক্রমণকারী নিস্তেজ</p>
+            </div>
+          </div>
+
+          <!-- 1. Customer Billing Details -->
+          <div class="bgs-ps-group">
+            <label for="bgs_name" class="bgs-ps-label">আপনার নাম লিখুন <span class="bgs-ps-req">*</span></label>
+            <input type="text" id="bgs_name" name="billing_first_name" class="bgs-ps-input" placeholder="আপনার পুরো নাম লিখুন" required>
+          </div>
+
+          <div class="bgs-ps-group">
+            <label for="bgs_phone" class="bgs-ps-label">আপনার মোবাইল নাম্বার লিখুন <span class="bgs-ps-req">*</span></label>
+            <input type="tel" id="bgs_phone" name="billing_phone" class="bgs-ps-input" placeholder="১১ ডিজিটের মোবাইল নম্বর দিন (যেমন: 017xxxxxxxx)" pattern="[0-9]{11}" required>
+          </div>
+
+          <div class="bgs-ps-group">
+            <label for="bgs_address" class="bgs-ps-label">আপনার সম্পূর্ণ ঠিকানা লিখুন <span class="bgs-ps-req">*</span></label>
+            <textarea id="bgs_address" name="billing_address_1" class="bgs-ps-input bgs-ps-textarea" rows="3" placeholder="বাসা নম্বর, রোড নম্বর, এলাকা, থানা ও জেলা উল্লেখ করুন" required></textarea>
+          </div>
+
+          <!-- 2. Free Delivery Notification -->
+          <div class="bgs-ps-group bgs-ps-free-shipping-card">
+            <div class="bgs-ps-free-box">
+              <span class="bgs-ps-free-ic">🚚</span>
+              <div>
+                <strong>হোম ডেলিভারি সম্পূর্ণ ফ্রি!</strong>
+                <p>সারা বাংলাদেশে কোনো ডেলিভারি চার্জ প্রযোজ্য নয় (৳ ০)।</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Your Order Summary Table -->
+          <div class="bgs-ps-order-table-card">
+            <h4 class="bgs-ps-box-title">Your order</h4>
+            <table class="bgs-ps-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th class="bgs-ps-text-right">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span id="bgs-summary-prod-name">Pepper spray 20ml</span> 
+                    <strong>× <span id="bgs-summary-qty">1</span></strong>
+                  </td>
+                  <td class="bgs-ps-text-right">
+                    <span id="bgs-summary-subtotal">1,190</span> ৳
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Subtotal</th>
+                  <td class="bgs-ps-text-right"><span id="bgs-summary-subtotal-foot">1,190</span> ৳</td>
+                </tr>
+                <tr>
+                  <th>Shipment</th>
+                  <td class="bgs-ps-text-right"><span class="bgs-ps-free-tag">ডেলিভারি চার্জ ফ্রি (৳ ০)</span></td>
+                </tr>
+                <tr class="bgs-ps-total-row">
+                  <th>Total</th>
+                  <td class="bgs-ps-text-right">
+                    <strong><span id="bgs-summary-total">1,190</span> ৳</strong>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- 4. Payment Method & Place Order -->
+          <div class="bgs-ps-payment-box">
+            <div class="bgs-ps-payment-method">
+              <input type="radio" id="cod" name="payment_method" value="cod" checked>
+              <label for="cod">Cash on delivery (ক্যাশ অন ডেলিভারি)</label>
+            </div>
+            <p class="bgs-ps-payment-hint">পণ্য হাতে পেয়ে ডেলিভারিম্যানের কাছে মূল্য পরিশোধ করুন।</p>
+
+            <button type="submit" id="bgs-place-order-btn" class="bgs-ps-submit-btn">
+              <span class="bgs-ps-btn-label">Place Order &nbsp;&nbsp;<span id="bgs-btn-price-display">1,190</span> ৳</span>
+              <span class="bgs-ps-btn-loader" style="display:none;">অর্ডার প্রসেস হচ্ছে...</span>
+            </button>
+
+            <div id="bgs-order-feedback" class="bgs-ps-feedback" style="display:none;"></div>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -872,24 +851,28 @@ body {
 .bgs-ps-req {
   color: #ff4444;
 }
-.bgs-ps-input {
-  width: 100%;
-  box-sizing: border-box;
-  background: #000000;
-  border: 1px solid #333333;
-  color: #ffffff;
-  padding: 13px 15px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: inherit;
-  outline: none;
+.bgs-ps-input,
+.bgs-ps-textarea {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: #000000 !important;
+  border: 1px solid #333333 !important;
+  color: #ffffff !important;
+  padding: 13px 15px !important;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+  font-family: inherit !important;
+  outline: none !important;
   transition: border-color 0.2s ease;
 }
-.bgs-ps-input:focus {
-  border-color: var(--ps-primary);
-  box-shadow: 0 0 0 2px rgba(241, 99, 52, 0.25);
+.bgs-ps-input:focus,
+.bgs-ps-textarea:focus {
+  border-color: var(--ps-primary) !important;
+  box-shadow: 0 0 0 2px rgba(241, 99, 52, 0.25) !important;
 }
 .bgs-ps-textarea {
+  min-height: 92px;
+  line-height: 1.5;
   resize: vertical;
 }
 

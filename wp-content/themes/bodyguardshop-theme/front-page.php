@@ -236,7 +236,7 @@ $shop_url = esc_url( home_url('/shop/') );
 
             <h3 class="bgs-cat-block-title"><?php echo esc_html( $cat_item['name'] ); ?></h3>
 
-            <p class="bgs-cat-block-sub"><?php echo esc_html( $cat_item['subtitle'] ); ?></p>
+            
 
           </div>
 
@@ -290,9 +290,9 @@ $shop_url = esc_url( home_url('/shop/') );
 
 
 
-                $rating_val = '4.9';
-
-                $reviews_ct = '184';
+                $r_info     = function_exists( 'bgs_get_product_rating_info' ) ? bgs_get_product_rating_info( $pid, $slug ) : [ 'rating' => '4.9', 'count' => '214' ];
+                $rating_val = $r_info['rating'];
+                $reviews_ct = $r_info['count'];
 
             ?>
 
@@ -336,7 +336,7 @@ $shop_url = esc_url( home_url('/shop/') );
 
                     <span class="stars">★★★★★</span>
 
-                    <span class="rating-text"><strong><?php echo esc_html( $rating_val ); ?></strong> (<?php echo esc_html( $reviews_ct ); ?>+ রিভিউ)</span>
+                    <span class="rating-text"><strong><?php echo esc_html( $rating_val ); ?></strong> (<?php echo esc_html( $reviews_ct ); ?>টি রিভিউ)</span>
 
                   </div>
 
@@ -344,11 +344,11 @@ $shop_url = esc_url( home_url('/shop/') );
 
                   <div class="bgs-card-price-box">
 
-                    <span class="bgs-cur-price">৳<?php echo number_format( $price, 0 ); ?></span>
+                    <del class="bgs-cur-price">৳<?php echo number_format( $reg_price, 0 ); ?></del>
 
                     <?php if ( $save > 0 ) : ?>
 
-                      <del class="bgs-old-price">৳<?php echo number_format( $reg_price, 0 ); ?></del>
+                      <span class="bgs-old-price">৳<?php echo number_format( $price, 0 ); ?></span>
 
                     <?php endif; ?>
 
@@ -424,7 +424,8 @@ $shop_url = esc_url( home_url('/shop/') );
 
     <div class="bgs-section-header bgs-best-header">
 
-      <h2 class="bgs-section-title bgs-best-main-title">সবচেয়ে বেশি পছন্দ করা ও ব্যবহৃত safety products</h2>
+      <span class="bgs-best-kicker">🔥 MOST POPULAR &amp; TRUSTED</span>
+      <h2 class="bgs-section-title bgs-best-main-title">সবচেয়ে বেশি পছন্দ করা ও ব্যবহৃত <span class="bgs-best-accent">Safety Products</span></h2>
 
       <div class="bgs-gold-divider"></div>
 
@@ -572,7 +573,7 @@ $shop_url = esc_url( home_url('/shop/') );
 
               <span class="stars">★★★★★</span>
 
-              <span class="rating-text"><strong><?php echo esc_html( $item['rating'] ); ?></strong> (<?php echo esc_html( $item['rev'] ); ?>+ রিভিউ)</span>
+              <span class="rating-text"><strong><?php echo esc_html( $item['rating'] ); ?></strong> (<?php echo esc_html( $item['rev'] ); ?>টি রিভিউ)</span>
 
             </div>
 
@@ -580,11 +581,11 @@ $shop_url = esc_url( home_url('/shop/') );
 
             <div class="bgs-card-price-box">
 
-              <span class="bgs-cur-price">৳<?php echo number_format( $price, 0 ); ?></span>
+              <del class="bgs-cur-price">৳<?php echo number_format( $reg_price, 0 ); ?></del>
 
               <?php if ( $save > 0 ) : ?>
 
-                <del class="bgs-old-price">৳<?php echo number_format( $reg_price, 0 ); ?></del>
+                <span class="bgs-old-price">৳<?php echo number_format( $price, 0 ); ?></span>
 
               <?php endif; ?>
 
@@ -788,6 +789,27 @@ $shop_url = esc_url( home_url('/shop/') );
           </iframe>
         </div>
       </div>
+
+      <!-- 3rd Review -->
+      <div class="bgs-reel-card">
+        <div class="bgs-reel-frame">
+          <iframe 
+            src="https://www.youtube.com/embed/Id4CSc8QS1Y?rel=0&amp;modestbranding=1&amp;playsinline=1" 
+            title="Customer Review 3 — Bodyguard Shop" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="<?php echo esc_url( home_url( '/reviews/' ) ); ?>" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(201, 169, 110, 0.12); border: 1.5px solid #C9A96E; color: #E5C384; font-weight: 700; font-size: 0.95rem; padding: 11px 26px; border-radius: 50px; text-decoration: none; transition: all 0.25s ease;">
+        <span>সবগুলো কাস্টমার রিভিউ দেখুন (View All Reviews)</span>
+        <span>&rarr;</span>
+      </a>
     </div>
 
   </div>
@@ -1516,8 +1538,29 @@ h2.bgs-best-main-title {
 
   padding: 0 !important;
 
-  font-size: clamp(10.5px, 2.65vw, 1.85rem) !important;
-
+  font-size: clamp(13.5px, 3.75vw, 2.15rem) !important;
+  letter-spacing: -0.2px !important;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+.bgs-best-kicker {
+  display: inline-block;
+  padding: 5px 16px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: rgba(201, 169, 110, 0.12);
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  color: #E5C384;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.bgs-best-accent {
+  background: linear-gradient(135deg, #FFE29F 0%, #E5C384 50%, #C9A96E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
 }
 
 .bgs-two-products-grid {
@@ -1746,13 +1789,19 @@ h2.bgs-best-main-title {
 
   color: var(--bgs-gold);
 
+  text-decoration: line-through;
+
 }
 
 .bgs-old-price {
 
-  color: #777;
+  color: #E5E7EB;
 
   font-size: 1.05rem;
+
+  font-weight: 700;
+
+  text-decoration: none !important;
 
 }
 
@@ -2046,9 +2095,9 @@ h3.bgs-why-title {
 .bgs-two-reels-grid,
 .bgs-reels-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 28px !important;
-  max-width: 680px !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  max-width: 1020px !important;
   margin: 0 auto !important;
 }
 .bgs-reel-card {
@@ -2197,33 +2246,33 @@ h3.bgs-why-title {
     max-width: 100% !important;
   }
   .bgs-hero-headings-wrap {
-    margin-bottom: 20px !important;
-    padding: 0 !important;
+    margin-bottom: 22px !important;
+    padding: 0 4px !important;
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden !important;
   }
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: clamp(11px, 3.4vw, 16px) !important;
-    margin-bottom: 6px !important;
+    font-size: clamp(16.5px, 4.4vw, 22px) !important;
+    margin-bottom: 8px !important;
     white-space: nowrap !important;
     line-height: 1.25 !important;
     letter-spacing: -0.2px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: clamp(8.8px, 2.7vw, 12px) !important;
-    margin-bottom: 8px !important;
+    font-size: clamp(11.8px, 3.1vw, 15px) !important;
+    margin-bottom: 10px !important;
     white-space: nowrap !important;
     line-height: 1.3 !important;
-    letter-spacing: -0.25px !important;
+    letter-spacing: -0.2px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: clamp(10.5px, 3.2vw, 15px) !important;
-    margin-bottom: 20px !important;
+    font-size: clamp(15.2px, 4.0vw, 20px) !important;
+    margin-bottom: 22px !important;
     white-space: nowrap !important;
     color: #FF2424 !important;
     line-height: 1.3 !important;
@@ -2300,7 +2349,7 @@ h3.bgs-why-title {
 
   h2.bgs-best-main-title {
 
-    font-size: clamp(9.2px, 2.75vw, 13.5px) !important;
+    font-size: clamp(13.4px, 3.78vw, 17.5px) !important;
 
     white-space: nowrap !important;
 
@@ -2424,30 +2473,31 @@ h3.bgs-why-title {
   }
   .bgs-hero-headings-wrap {
     overflow: hidden !important;
-    padding: 0 !important;
+    padding: 0 4px !important;
+    margin-bottom: 18px !important;
   }
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: clamp(11px, 3.3vw, 14.5px) !important;
+    font-size: clamp(15.5px, 4.5vw, 19.5px) !important;
     white-space: nowrap !important;
-    margin-bottom: 5px !important;
-    letter-spacing: -0.25px !important;
+    margin-bottom: 7px !important;
+    letter-spacing: -0.2px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: clamp(8.8px, 2.65vw, 11px) !important;
+    font-size: clamp(11px, 3.15vw, 13.8px) !important;
     white-space: nowrap !important;
-    margin-bottom: 7px !important;
-    letter-spacing: -0.25px !important;
+    margin-bottom: 9px !important;
+    letter-spacing: -0.2px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: clamp(10.5px, 3.15vw, 13.5px) !important;
+    font-size: clamp(14.5px, 4.2vw, 18px) !important;
     white-space: nowrap !important;
     color: #FF2424 !important;
     margin-bottom: 18px !important;
-    letter-spacing: -0.25px !important;
+    letter-spacing: -0.2px !important;
   }
   .bgs-sit-main-title,
   h2.bgs-sit-main-title {
@@ -2482,64 +2532,64 @@ h3.bgs-why-title {
 @media (max-width: 390px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 11.5px !important;
-    letter-spacing: -0.25px !important;
+    font-size: 16.5px !important;
+    letter-spacing: -0.2px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: 9.6px !important;
-    letter-spacing: -0.25px !important;
+    font-size: 11.8px !important;
+    letter-spacing: -0.2px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 11px !important;
-    letter-spacing: -0.25px !important;
+    font-size: 15.5px !important;
+    letter-spacing: -0.2px !important;
   }
 }
 
 @media (max-width: 375px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 11.8px !important;
-    letter-spacing: -0.25px !important;
+    font-size: 15.8px !important;
+    letter-spacing: -0.22px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: 9.4px !important;
-    letter-spacing: -0.25px !important;
+    font-size: 11.4px !important;
+    letter-spacing: -0.22px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 11.2px !important;
-    letter-spacing: -0.25px !important;
+    font-size: 14.8px !important;
+    letter-spacing: -0.22px !important;
   }
   .bgs-best-main-title,
   h2.bgs-best-main-title {
-    font-size: 10px !important;
-    letter-spacing: -0.3px !important;
+    font-size: 14.0px !important;
+    letter-spacing: -0.25px !important;
   }
 }
 
 @media (max-width: 360px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 11.2px !important;
-    letter-spacing: -0.3px !important;
+    font-size: 15.0px !important;
+    letter-spacing: -0.25px !important;
     white-space: nowrap !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: 9px !important;
-    letter-spacing: -0.3px !important;
+    font-size: 10.8px !important;
+    letter-spacing: -0.25px !important;
     white-space: nowrap !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 10.6px !important;
-    letter-spacing: -0.3px !important;
+    font-size: 14.0px !important;
+    letter-spacing: -0.25px !important;
     white-space: nowrap !important;
   }
   .bgs-sit-main-title,
@@ -2557,24 +2607,58 @@ h3.bgs-why-title {
 @media (max-width: 330px) {
   .bgs-headline-h1,
   h1.bgs-headline-h1 {
-    font-size: 10px !important;
+    font-size: 13.5px !important;
+    letter-spacing: -0.3px !important;
   }
   .bgs-headline-h2,
   h2.bgs-headline-h2 {
-    font-size: 8.2px !important;
+    font-size: 9.8px !important;
+    letter-spacing: -0.3px !important;
   }
   .bgs-headline-h3,
   h3.bgs-headline-h3,
   .bgs-headline-red {
-    font-size: 9.6px !important;
-    letter-spacing: -0.35px !important;
+    font-size: 12.5px !important;
+    letter-spacing: -0.3px !important;
   }
   .bgs-best-main-title,
   h2.bgs-best-main-title {
-    font-size: 8.8px !important;
+    font-size: 12.2px !important;
+    letter-spacing: -0.3px !important;
   }
 }
 
+@media (max-width: 480px) {
+  .bgs-bestsellers-section {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+  .bgs-bestsellers-section > .container {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+  .bgs-best-kicker {
+    font-size: 10px !important;
+    padding: 4px 12px !important;
+    margin-bottom: 7px !important;
+  }
+}
+@media (max-width: 390px) {
+  .bgs-best-main-title,
+  h2.bgs-best-main-title {
+    font-size: 14.6px !important;
+    letter-spacing: -0.22px !important;
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 360px) {
+  .bgs-best-main-title,
+  h2.bgs-best-main-title {
+    font-size: 13.4px !important;
+    letter-spacing: -0.25px !important;
+    white-space: nowrap !important;
+  }
+}
 </style>
 
 

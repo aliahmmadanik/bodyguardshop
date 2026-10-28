@@ -108,6 +108,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
               <li><a href="<?php echo esc_url( $shop_url ); ?>">Shop</a></li>
 
+              <li><a href="<?php echo esc_url( home_url('/reviews/') ); ?>">Customer Reviews</a></li>
+
               <li><a href="<?php echo esc_url( $cart_url ); ?>">Cart</a></li>
 
               <li><a href="<?php echo esc_url( $checkout_url ); ?>">Checkout</a></li>
@@ -154,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
               <strong>Email:</strong><br>
 
-              <a href="mailto:support@bodyguardshop.com">support@bodyguardshop.com</a>
+              <a href="mailto:contact@bodyguardshop.com">contact@bodyguardshop.com</a>
 
             </div>
 

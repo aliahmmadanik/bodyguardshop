@@ -669,7 +669,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <ul class="wd-nav-main">
             <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
             <li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>">Shop</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/#reviews' ) ); ?>">Review</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/reviews/' ) ); ?>">Review</a></li>
             <li><a href="<?php echo esc_url( function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/') ); ?>">Cart</a></li>
             <li><a href="<?php echo esc_url( home_url( '/track-order/' ) ); ?>">Track Order</a></li>
             <li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>">Order</a></li>
@@ -746,7 +746,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
       <li>
 
-        <a href="<?php echo esc_url( home_url('/#reviews') ); ?>">
+        <a href="<?php echo esc_url( home_url('/reviews/') ); ?>">
 
           <span class="bgs-link-title">Review</span>
 

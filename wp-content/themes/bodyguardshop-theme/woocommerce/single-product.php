@@ -353,6 +353,16 @@ $video_embed_url = 'https://www.youtube.com/embed/tswsvWbGuHY?rel=0&modestbrandi
               <input type="hidden" id="bgs-selected-level-input" name="selected_level" value="<?php echo esc_attr( $lvl1_name ); ?>">
               <input type="hidden" id="bgs-level-price-input" name="level_price" value="<?php echo esc_attr( $lvl1_price ); ?>">
 
+              <!-- Quantity Selector (At the Top of the Form) -->
+              <div class="bgs-input-group">
+                <label>পরিমাণ (Quantity)</label>
+                <div class="bgs-qty-controller">
+                  <button type="button" class="bgs-qty-btn" id="bgs-qty-minus">−</button>
+                  <input type="number" id="bgs-order-qty" name="qty" value="1" min="1" max="20" readonly>
+                  <button type="button" class="bgs-qty-btn" id="bgs-qty-plus">+</button>
+                </div>
+              </div>
+
               <!-- Customer Name -->
               <div class="bgs-input-group">
                 <label for="bgs_customer_name">আপনার নাম <span class="bgs-req">*</span></label>
@@ -410,16 +420,6 @@ $video_embed_url = 'https://www.youtube.com/embed/tswsvWbGuHY?rel=0&modestbrandi
                     <span class="bgs-zone-title">🚚 ফ্রি হোম ডেলিভারি (সারা বাংলাদেশ)</span>
                     <span class="bgs-zone-cost" style="color: #22C55E; font-weight: 800;">৳ ০ (ফ্রি)</span>
                   </label>
-                </div>
-              </div>
-
-              <!-- Quantity Selector -->
-              <div class="bgs-input-group">
-                <label>পরিমাণ (Quantity)</label>
-                <div class="bgs-qty-controller">
-                  <button type="button" class="bgs-qty-btn" id="bgs-qty-minus">−</button>
-                  <input type="number" id="bgs-order-qty" name="qty" value="1" min="1" max="20" readonly>
-                  <button type="button" class="bgs-qty-btn" id="bgs-qty-plus">+</button>
                 </div>
               </div>
 
